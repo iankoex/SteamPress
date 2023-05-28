@@ -1,26 +1,25 @@
 import Vapor
-import SteampressFluentPostgres
-import Fluent
+import SteamPress
 
 /// Register your application's routes here.
-public func routes(_ router: Router) throws {
+public func routes(_ app: Application) throws {
+
+//    let authSessions = router.grouped(BlogAuthSessionsMiddleware())
     
-    let authSessions = router.grouped(BlogAuthSessionsMiddleware())
-    
-    authSessions.get { req -> Future<View> in
-        return BlogPost.query(on: req).filter(\.published == true).sort(\.created, .descending).range(0..<3).all().flatMap { posts in
-            let pageInformation = try req.getPageInformation()
-            let postsWithShortSnippets = posts.map { $0.toPostWithShortSnippet() }
-            let context = HomepageContext(posts: postsWithShortSnippets, pageInformation: pageInformation)
-            return try req.view().render("index", context)
-        }
-    }
-    
-    authSessions.get("about") { req -> Future<View> in
-        let pageInformation = try req.getPageInformation()
-        let context = AboutPageContext(pageInformation: pageInformation)
-        return try req.view().render("about", context)
-    }
+//    authSessions.get { req -> Future<View> in
+//        return BlogPost.query(on: req).filter(\.published == true).sort(\.created, .descending).range(0..<3).all().flatMap { posts in
+//            let pageInformation = try req.getPageInformation()
+//            let postsWithShortSnippets = posts.map { $0.toPostWithShortSnippet() }
+//            let context = HomepageContext(posts: postsWithShortSnippets, pageInformation: pageInformation)
+//            return try req.view().render("index", context)
+//        }
+//    }
+//
+//    authSessions.get("about") { req -> Future<View> in
+//        let pageInformation = try req.getPageInformation()
+//        let context = AboutPageContext(pageInformation: pageInformation)
+//        return try req.view().render("about", context)
+//    }
 }
 
 struct HomepageContext: Encodable {
@@ -41,13 +40,13 @@ struct PageInformation: Encodable {
     let webpageURL: String
 }
 
-extension Request {
-    func getPageInformation() throws -> PageInformation {
-        let disqusName = Environment.get("BLOG_DISQUS_NAME")
-        let siteTwitterHandle = Environment.get("BLOG_SITE_TWITTER_HANDLE")
-        let googleAnalyticsIdentifier = Environment.get("BLOG_GOOGLE_ANALYTICS_IDENTIFIER")
-        let loggedInUser = try self.authenticated(BlogUser.self)
-        let webpageURL = self.http.url.absoluteString
-        return PageInformation(loggedInUser: loggedInUser, twitterHandler: siteTwitterHandle, googleAnalytics: googleAnalyticsIdentifier, disqusName: disqusName, webpageURL: webpageURL)
-    }
-}
+//extension Request {
+//    func getPageInformation() throws -> PageInformation {
+//        let disqusName = Environment.get("BLOG_DISQUS_NAME")
+//        let siteTwitterHandle = Environment.get("BLOG_SITE_TWITTER_HANDLE")
+//        let googleAnalyticsIdentifier = Environment.get("BLOG_GOOGLE_ANALYTICS_IDENTIFIER")
+//        let loggedInUser = try self.authenticated(BlogUser.self)
+//        let webpageURL = self.http.url.absoluteString
+//        return PageInformation(loggedInUser: loggedInUser, twitterHandler: siteTwitterHandle, googleAnalytics: googleAnalyticsIdentifier, disqusName: disqusName, webpageURL: webpageURL)
+//    }
+//}
