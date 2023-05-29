@@ -12,19 +12,20 @@
 
         <h2 class="mb-3 text-center">Blog Login</h2>
 
-        #if(errors) {
-        #for(error in errors) {
+        #if(errors):
+        #for(error in errors):
         <div class="alert alert-danger" role="alert">
             <strong>Error: </strong>#(error)
         </div>
-        }
-        }
+        #endfor
+        #endif
+        
 
-        #if(loginWarning) {
+        #if(loginWarning):
         <div class="alert alert-warning" role="alert">
             <strong>Warning: </strong>You must be logged in to view this page
         </div>
-        }
+        #endif
 
         <form action="/blog/admin/login/" method="post" id="login-form" class="form-signin">
             <div class="form-group" id="login-username-group">

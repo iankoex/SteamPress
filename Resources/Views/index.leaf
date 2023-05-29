@@ -37,8 +37,8 @@
             <div class="col-md-6 mb-3 index-column">
                 <h2><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Latest Blog Posts</h2>
 
-                #if(count(posts) > 0) {
-                    #for(post in posts) {
+                #if(count(posts) > 0):
+                    #for(post in posts):
                     <div class="card mb-3">
                         <div class="card-body post-contents">
                             <a href="/blog/posts/#(post.slugUrl)/" class="index-post-link"><h3 class="card-title">#(post.title)</h3></a>
@@ -46,10 +46,10 @@
                             <a href="/blog/posts/#(post.slugUrl)/" class="card-link">Read More</a>
                         </div>
                     </div>
-                    }
-                } else {
+                    #endfor
+                #else
                     <div class="text-center h5 mt-4 mb-4">There haven't been any posts yet!</div>
-                }
+                #endif
 
                 <div class="d-flex justify-content-center mb-3">
                     <a href="/blog/" class="btn btn-primary">View the Blog</a>

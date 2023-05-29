@@ -18,7 +18,7 @@
 
         #if(editing) {
         <h1>Edit Your Blog Post</h1>
-        } else {
+        } else { 
         <h1>Create A Blog Post</h1>
         }
 

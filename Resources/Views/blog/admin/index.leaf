@@ -12,13 +12,13 @@
 
         <h1 class="text-center">Blog Admin</h1>
 
-        #if(errors) {
+        #if(errors):
             #for(error in errors) {
                 <div class="alert alert-danger mt-3" role="alert">
                     <strong>Warning: </strong>#(error)
                 </div>
             }
-        }
+        #endif
         <p>Welcome to the Blog Admin page</p>
 
         <div id="blog-admin-posts">

@@ -1,4 +1,6 @@
-#set("head") {
+<!DOCTYPE html>
+<html>
+<head>
     <title>Blog | SteamPress</title>
 
     <!-- Syntax Highlighting -->
@@ -18,12 +20,12 @@
     <meta name="twitter:image:alt" content="SteamPress - The open source blogging engine for Vapor">
     <meta property="og:site_name" content="SteamPress">
 
-    #if(pageInformation.siteTwitterHandle) {
+    #if(pageInformation.siteTwitterHandle):
     <meta name="twitter:site" content="@#(pageInformation.siteTwitterHandle)">
-    }
-}
+    #endif
+</head>
 
-#set("body") {
+<body>
 
 <div class="container mt-4 mb-4">
 
@@ -32,7 +34,7 @@
     <div class="row">
 
         <div class="col-md-10">
-            #embed("blog/postsView")
+            <!-- #embed("blog/postsView") -->
         </div>
 
         <div class="col-md-2 blog-sidebar">
@@ -40,9 +42,9 @@
                 <div class="tags-module">
                     <h3><i class="fa fa-tags" aria-hidden="true"></i> Tags</h3>
                     <ul class="list-unstyled">
-                        #for(tag in tags) {
+                        #for(tag in tags):
                         <li><a href="/blog/tags/#(tag.urlEncodedName)/">#(tag.name)</a></li>
-                        }
+                        #endFor
                     </ul>
                     <a href="/blog/tags/">All Tags</a>
                 </div>
@@ -51,9 +53,9 @@
                 <div class="authors-module">
                     <h3><i class="fa fa-pencil" aria-hidden="true"></i> Authors</h3>
                     <ul class="list-unstyled">
-                        #for(author in authors) {
+                        #for(author in authors):
                         <li><a href="/blog/authors/#(author.username)/">#(author.name)</a></li>
-                        }
+                        #endFor
                     </ul>
                     <a href="/blog/authors/">All Authors</a>
                 </div>
@@ -72,19 +74,20 @@
     </div>
 
 </div>
-}
+</body>
 
-#set("scripts") {
     <script src="/static/js/prismHighlighting.js"></script>
     <script src="/static/js/loadTweets.js"></script>
     <script id="twitter-wjs" type="text/javascript" async defer src="https://platform.twitter.com/widgets.js"></script>
-    #if(pageInformation.disqusName) {
+    #if(pageInformation.disqusName):
         <script id="dsq-count-scr" src="https://#(pageInformation.disqusName).disqus.com/count.js" async></script>
-    }
-    #if(pageInformation.googleAnalyticsIdentifier) {
+    #endif
+    #if(pageInformation.googleAnalyticsIdentifier):
         <div id="google-analytics-data" data-identifier="#(pageInformation.googleAnalyticsIdentifier)"></div>
         <script src="/static/js/analytics.js"></script>
-    }
-}
+    #endif
 
-#embed("base")
+
+<!-- #embed("base") -->
+
+</html>
