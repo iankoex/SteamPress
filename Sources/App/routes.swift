@@ -33,7 +33,7 @@ struct AboutPageContext: Encodable {
 }
 
 struct PageInformation: Encodable {
-    let loggedInUser: BlogUser?
+    let loggedInUser: BlogUser.Public?
     let twitterHandler: String?
     let googleAnalytics: String?
     let disqusName: String?

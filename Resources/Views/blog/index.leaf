@@ -1,44 +1,82 @@
-<!DOCTYPE html>
-<html>
+#extend("blog/base"):
+#export("head"):
 
-<head>
-    <title>Blog | SteamPress</title>
+<title>Blog | SteamPress</title>
+<!-- Syntax Highlighting -->
+<!-- <link rel="stylesheet" href="/static/css/prismHighlighting.css"> -->
+<link rel="stylesheet" href="/static/css/all.css">
 
-    <!-- Syntax Highlighting -->
-    <!-- <link rel="stylesheet" href="/static/css/prismHighlighting.css"> -->
-    <link rel="stylesheet" href="/static/css/all.css">
+<meta name="description"
+    content="The SteamPress Blog. SteamPress is an Open Source Blogging Engine and Platform written in Swift powered by Vapor.">
+<meta property="og:title" content="The SteamPress Blog">
+<meta property="og:type" content="website">
+<meta property="og:url" content="#(uri)">
+<meta property="og:description"
+    content="The SteamPress Blog. SteamPress is an Open Source Blogging Engine and Platform written in Swift powered by Vapor.">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://www.steampress.io/static/images/steampress-og-image_1.jpg">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1257">
+<meta name="twitter:image:alt" content="SteamPress - The open source blogging engine for Vapor">
+<meta property="og:site_name" content="SteamPress">
 
-    <meta name="description"
-        content="The SteamPress Blog. SteamPress is an Open Source Blogging Engine and Platform written in Swift powered by Vapor.">
-    <meta property="og:title" content="The SteamPress Blog">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="#(uri)">
-    <meta property="og:description"
-        content="The SteamPress Blog. SteamPress is an Open Source Blogging Engine and Platform written in Swift powered by Vapor.">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:image" content="https://www.steampress.io/static/images/steampress-og-image_1.jpg">
-    <meta property="og:image:width" content="2400">
-    <meta property="og:image:height" content="1257">
-    <meta name="twitter:image:alt" content="SteamPress - The open source blogging engine for Vapor">
-    <meta property="og:site_name" content="SteamPress">
+#if(pageInformation.siteTwitterHandle):
+<meta name="twitter:site" content="@#(pageInformation.siteTwitterHandle)">
+#endif
+#endexport
+<!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
 
-    #if(pageInformation.siteTwitterHandle):
-    <meta name="twitter:site" content="@#(pageInformation.siteTwitterHandle)">
-    #endif
-</head>
+#export("body"):
+<div class="sp-outer sp-inner">
+    <div class="post-feed">
+        #for(post in posts):
 
-<body id="body">
-    <div class="sp-site">
+        <a class="post-link" href="/posts/#(post.slugUrl)/">
 
-        #extend("blog/partials/indexHeader")
+            <img class="post-image" src="/static/images/steampress-logo_1.png" alt="#(post.title)" loading="lazy">
 
-        #import("body")
 
-        #extend("blog/partials/indexFooter")
+            <div class="post-wrapper">
+                <header class="post-header">
+                    #for(tag in tags):
+                    <span class="post-tag">#(tag.name)</span>
+                    #endfor
+                    <h2 class="post-title">
+                        #(post.title)
+                    </h2>
+                    <span> </span>
+                </header>
 
+                <div class="post-excerpt">
+                    #(post.longSnippet)
+                </div>
+            </div>
+
+            <footer class="post-footer">
+                <span class="post-more">Read More</span>
+
+                <div class="post-author">
+                    <span class="post-author-link">
+                        <img class="post-author-image" src="/static/images/favicon.ico" alt="#(post.author)"
+                            loading="lazy">
+                    </span>
+                </div>
+            </footer>
+        </a>
+
+        #endfor
     </div>
+</div>
 
-    #extend("blog/partials/indexScripts")
-</body>
 
-</html>
+#endexport
+<!-- ---------------------------------------------------------endexport body----------------------------------------------------------------- -->
+
+#export("scripts"):
+
+
+
+#endexport
+<!-- ---------------------------------------------------------endexport scripts----------------------------------------------------------------- -->
+#endextend
+<!-- #dumpContext -->
