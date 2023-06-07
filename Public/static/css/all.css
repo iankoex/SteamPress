@@ -26,9 +26,7 @@
     }
 }
 
-*,
-:after,
-:before {
+* {
     box-sizing: border-box;
 }
 
@@ -103,8 +101,8 @@ textarea {
 }
 
 .sp-outer {
-    padding-left: var(--gap);
-    padding-right: var(--gap);
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .sp-inner {
@@ -113,18 +111,104 @@ textarea {
 }
 
 .sp-head {
-    display: flex;
-    align-items: center;
+    height: 50px;
+    width: 100%;
+    background-color: #454545;
+    position: relative;
 }
 
-.sp-head-logo {
+.sp-head .sp-head-brand {
+    display: inline-block;
     font-size: 2.4rem;
     font-weight: 700;
+    color: #fff;
+    text-decoration: none;
     letter-spacing: -.02em;
-    position: relative;
     white-space: nowrap;
 }
 
-.sp-head-logo img {
-    max-height: 70px;
+.sp-head .sp-head-brand img {
+    width: 50px;
+    height: 50px;
+}
+
+.sp-head .sp-head-btn {
+    display: none;
+}
+
+.sp-head .sp-head-links {
+    display: inline;
+    float: right;
+    font-size: 18px;
+}
+
+.sp-head .sp-head-links a {
+    display: inline-block;
+    padding: 13px 10px 13px 10px;
+    text-decoration: none;
+    color: #efefef;
+}
+
+.sp-head .sp-head-links a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.sp-head #sp-head-check {
+    display: none;
+}
+
+@media (max-width:600px) {
+    .sp-head .sp-head-btn {
+        display: inline-block;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+    }
+
+    .sp-head .sp-head-btn label {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        padding: 13px;
+    }
+
+    .sp-head .sp-head-btn label:hover,
+    .sp-head #sp-head-check:checked~.sp-head-btn label {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .sp-head .sp-head-btn label span {
+        display: block;
+        width: 25px;
+        height: 10px;
+        border-top: 2px solid #eee;
+    }
+
+    .sp-head .sp-head-links {
+        position: absolute;
+        display: block;
+        width: 100%;
+        background-color: #333;
+        height: 0px;
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 50px;
+        left: 0px;
+    }
+
+    .sp-head .sp-head-links a {
+        display: block;
+        width: 100%;
+    }
+
+    .sp-head #sp-head-check:not(:checked)~.sp-head-links {
+        height: 0px;
+        visibility: hidden;
+    }
+
+    .sp-head #sp-head-check:checked~.sp-head-links {
+        height: calc(100vh - 50px);
+        overflow-y: auto;
+        visibility: visible;
+    }
 }
