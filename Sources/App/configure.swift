@@ -12,20 +12,29 @@ import FluentPostgresDriver
 import Vapor
 import SteamPress
 import Leaf
+import LeafMarkdown
 
 // configures your application
 public func configure(_ app: Application) throws {
     
     app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
     app.middleware.use(app.sessions.middleware)
-//    app.sessions.use(.fluent)
-    app.passwords.use(.bcrypt)
+    
     app.views.use(.leaf)
+    app.leaf.tags["markdown"] = Markdown()
+    app.logger.logLevel = .debug
     
     if app.environment == .development {
-        if let databaseURL = Environment.get("DATABASE_URL_DEV"), let postgresConfig = PostgresConfiguration(url: databaseURL) {
-            app.databases.use(.postgres(configuration: postgresConfig), as: .psql)
-        }
+//        if let databaseURL = Environment.get("DATABASE_URL_DEV"), let postgresConfig = PostgresConfiguration(url: databaseURL) {
+//            app.databases.use(.postgres(configuration: postgresConfig), as: .psql)
+//        }
+        app.databases.use(.postgres(
+            hostname: Environment.get("DATABASE_HOST") ?? "localhost",
+            port: 5432,
+            username: Environment.get("DATABASE_USERNAME") ?? "vapor_username",
+            password: Environment.get("DATABASE_PASSWORD") ?? "vapor_password",
+            database: Environment.get("DATABASE_NAME") ?? "vapor_database"
+        ), as: .psql)
     } else if app.environment == .production {
         if let databaseURL = Environment.get("DATABASE_URL"), let postgresConfig = PostgresConfiguration(url: databaseURL) {
             app.databases.use(.postgres(configuration: postgresConfig), as: .psql)
@@ -38,9 +47,9 @@ public func configure(_ app: Application) throws {
         copyright: "Released under the MIT licence",
         imageURL: "https://user-images.githubusercontent.com/9938337/29742058-ed41dcc0-8a6f-11e7-9cfc-680501cdfb97.png"
     )
-    let steamPressConfig = SteamPressConfiguration(feedInformation: feedInfo, postsPerPage: 4, enableAuthorPages: false, enableTagPages: false)
-    let steamPressLifeCycle = SteamPressRoutesLifecycleHandler(configuration: steamPressConfig)
-    app.lifecycle.use(steamPressLifeCycle)
+    let steamPressConfig = SteamPressConfiguration(feedInformation: feedInfo, postsPerPage: 4, enableAuthorPages: true, enableTagPages: true)
+    let steamPressLifecycle = SteamPressLifecycleHandler(configuration: steamPressConfig)
+    app.lifecycle.use(steamPressLifecycle)
     
     // register routes
     try routes(app)

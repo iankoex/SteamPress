@@ -1,12 +1,16 @@
-#set("head") {
+#extend("blog/base"):
+#export("head"):
+
 <title>Posts Tagged With #(tag.name) | Blog | SteamPress</title>
 
-<meta name="description" content="All of the SteamPress Blog Posts tagged with #(tag.name). These are the blog posts written under the tags and topics of #(tag.name)">
+<meta name="description"
+    content="All of the SteamPress Blog Posts tagged with #(tag.name). These are the blog posts written under the tags and topics of #(tag.name)">
 
 <meta property="og:title" content="Posts Tagged With #(tag.name)">
 <meta property="og:type" content="website">
 <meta property="og:url" content="#(uri)">
-<meta property="og:description" content="All of the SteamPress Blog Posts tagged with #(tag.name). These are the blog posts written under the tags and topics of #(tag.name)">
+<meta property="og:description"
+    content="All of the SteamPress Blog Posts tagged with #(tag.name). These are the blog posts written under the tags and topics of #(tag.name)">
 <meta property="og:site_name" content="SteamPress">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:image" content="https://www.steampress.io/static/images/steampress-og-image_1.jpg">
@@ -14,38 +18,45 @@
 <meta property="og:image:height" content="1257">
 <meta name="twitter:image:alt" content="SteamPress - The open source blogging engine for Vapor">
 
-#if(pageInformation.siteTwitterHandle) {
+#if(pageInformation.siteTwitterHandle):
 <meta name="twitter:site" content="@#(pageInformation.siteTwitterHandle)">
-}
+#endif
 
 <!-- Syntax Highlighting -->
 <link rel="stylesheet" href="/static/css/prismHighlighting.css">
-}
 
-#set("scripts") {
-    <script src="/static/js/prismHighlighting.js"></script>
-    #if(pageInformation.disqusName) {
-        <script id="dsq-count-scr" src="https://#(pageInformation.disqusName).disqus.com/count.js" async></script>
-    }
-    #if(pageInformation.googleAnalyticsIdentifier) {
-        <div id="google-analytics-data" data-identifier="#(pageInformation.googleAnalyticsIdentifier)"></div>
-        <script src="/static/js/analytics.js"></script>
-    }
-}
+#endexport
+<!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
 
-#set("body") {
+#export("body"):
 
 <div class="container mt-3">
 
-    <h1 class="text-center d-flex align-items-center justify-content-center">Posts Tagged With <span id="tag-title-badge" class="badge badge-secondary">#(tag.name)</span></h1>
-    <h2 class="h5 text-center"><small class="text-muted">#if(postCount == 1) {#(postCount) post} else {#(postCount) posts}</small></h2>
+    <h1 class="text-center d-flex align-items-center justify-content-center">Posts Tagged With <span
+            id="tag-title-badge" class="badge badge-secondary">#(tag.name)</span></h1>
+    <h2 class="h5 text-center"><small class="text-muted">#if(postCount == 1):#(postCount) post#else:#(postCount)
+            posts#endif</small></h2>
 
     <div id="tag-posts" class="mt-3">
-        #embed("blog/postsView")
+        #extend("blog/partials/postsView")
     </div>
 
 </div>
 
-}
+#endexport
+<!-- ---------------------------------------------------------endexport body----------------------------------------------------------------- -->
 
-#embed("base")
+#export("scripts"):
+
+<script src="/static/js/prismHighlighting.js"></script>
+#if(pageInformation.disqusName):
+<script id="dsq-count-scr" src="https://#(pageInformation.disqusName).disqus.com/count.js" async></script>
+#endif
+#if(pageInformation.googleAnalyticsIdentifier):
+<div id="google-analytics-data" data-identifier="#(pageInformation.googleAnalyticsIdentifier)"></div>
+<script src="/static/js/analytics.js"></script>
+#endif
+
+#endexport
+<!-- ---------------------------------------------------------endexport scripts----------------------------------------------------------------- -->
+#endextend

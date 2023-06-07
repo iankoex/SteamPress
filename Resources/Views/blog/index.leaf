@@ -6,7 +6,7 @@
 
     <!-- Syntax Highlighting -->
     <!-- <link rel="stylesheet" href="/static/css/prismHighlighting.css"> -->
-    <link rel="stylesheet" href="/static/css/screen.css">
+    <link rel="stylesheet" href="/static/css/all.css">
 
     <meta name="description"
         content="The SteamPress Blog. SteamPress is an Open Source Blogging Engine and Platform written in Swift powered by Vapor.">
@@ -29,16 +29,16 @@
 
 <body>
     <div class="sp-site">
-        <header>
-            #extend("blog/partials/indexHeader")
-        </header>
 
+        #extend("blog/partials/indexHeader")
 
-        <header>
-            #extend("blog/partials/indexFooter")
-        </header>
+        #import("body")
+
+        #extend("blog/partials/indexFooter")
 
     </div>
+
+    #extend("blog/partials/indexScripts")
 </body>
 
 </html>

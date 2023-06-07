@@ -1,13 +1,13 @@
-#set("head") {
-<title>Login | Blog Admin | SteamPress</title>
-}
+<!DOCTYPE html>
+<html>
 
-#set("scripts") {
-    <script src="/static/js/admin/login.js"></script>
-}
+<head>
+    <title>Login | Blog Admin | SteamPress</title>
+    <link rel="stylesheet" href="/static/css/all.css">
+    <link rel="stylesheet" href="/static/css/admin.css">
+</head>
 
-#set("body") {
-
+<body>
     <div class="container mt-4">
 
         <h2 class="mb-3 text-center">Blog Login</h2>
@@ -27,7 +27,7 @@
         </div>
         #endif
 
-        <form action="/blog/admin/login/" method="post" id="login-form" class="form-signin">
+        <form action="/admin/login/" method="post" id="login-form" class="form-signin">
             <div class="form-group" id="login-username-group">
                 <label for="username" class="sr-only">Username</label>
                 <input type="text" class="form-control #if(usernameError) {is-invalid}" id="username" name="username" placeholder="Username" value="#(username)" autofocus required>
@@ -44,6 +44,10 @@
         </form>
 
     </div>
-}
 
-#embed("base")
+    <script src="/static/js/admin/login.js"></script>
+</body>
+
+</html>
+
+<!-- #embed("base") -->

@@ -1,23 +1,23 @@
-#set("head") {
+<!DOCTYPE html>
+<html>
+
+<head>
     <title>Admin | Blog Admin | SteamPress</title>
-}
+    <link rel="stylesheet" href="/static/css/all.css">
+    <link rel="stylesheet" href="/static/css/admin.css">
+</head>
 
-#set("scripts") {
-  <script src="/static/js/admin/admin.js"></script>
-}
-
-#set("body") {
-
+<body>
     <div class="container mt-3">
 
         <h1 class="text-center">Blog Admin</h1>
 
         #if(errors):
-            #for(error in errors) {
+            #for(error in errors):
                 <div class="alert alert-danger mt-3" role="alert">
                     <strong>Warning: </strong>#(error)
                 </div>
-            }
+            #endfor
         #endif
         <p>Welcome to the Blog Admin page</p>
 
@@ -36,27 +36,27 @@
                 </thead>
                 <tbody>
 
-                    #if(count(publishedPosts) > 0) {
-                        #for(post in publishedPosts) {
+                    #if(count(publishedPosts) > 0):
+                        #for(post in publishedPosts):
                         <tr>
                             <td>#(post.createdDateNumeric)</td>
-                            <td><a href="/blog/posts/#(post.slugUrl)/">#(post.title)</a></td>
+                            <td><a href="/posts/#(post.slugUrl)/">#(post.title)</a></td>
                             <td>#(post.authorName)</td>
-                            <td>#if(post.lastEdited) {#(post.lastEditedDateNumeric)} else { N/A }</td>
-                            <td><a class="btn btn-info" href="/blog/admin/posts/#(post.blogID)/edit/">Edit</a></td>
-                            <td><form method="post" action="/blog/admin/posts/#(post.blogID)/delete/"><input type="submit" class="btn btn-danger delete-post-button" value="Delete"></form></td>
+                            <td>#if(post.lastEdited):#(post.lastEditedDateNumeric)#else:N/A#endif</td>
+                            <td><a class="btn btn-info" href="/admin/posts/#(post.id)/edit/">Edit</a></td>
+                            <td><form method="post" action="/admin/posts/#(post.id)/delete/"><input type="submit" class="btn btn-danger delete-post-button" value="Delete"></form></td>
                         </tr>
-                        }
-                    } else {
+                        #endfor
+                    #else:
                         <tr>
                             <td colspan="6">There haven't been any posts published yet!</td>
                         </tr>
-                    }
+                    #endif
 
                 </tbody>
             </table>
 
-            #if(count(draftPosts) > 0) {
+            #if(count(draftPosts) > 0):
             <h2>Drafts</h2>
             <table class="table table-striped table-hover table-bordered table-responsive d-block">
                 <thead>
@@ -69,21 +69,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    #for(post in draftPosts) {
+                    #for(post in draftPosts):
                     <tr>
                         <td>#(post.createdDateNumeric)</td>
-                        <td><a href="/blog/posts/#(post.slugUrl)/">#(post.title)</a></td>
+                        <td><a href="/posts/#(post.slugUrl)/">#(post.title)</a></td>
                         <td>#(post.authorName)</td>
-                        <td><a class="btn btn-info" href="/blog/admin/posts/#(post.blogID)/edit/">Edit</a></td>
-                        <td><form method="post" action="/blog/admin/posts/#(post.blogID)/delete/"><input type="submit" class="btn btn-danger delete-post-button" value="Delete"></form></td>
+                        <td><a class="btn btn-info" href="/admin/posts/#(post.id)/edit/">Edit</a></td>
+                        <td><form method="post" action="/admin/posts/#(post.id)/delete/"><input type="submit" class="btn btn-danger delete-post-button" value="Delete"></form></td>
                     </tr>
-                    }
+                    #endfor
 
                 </tbody>
             </table>
-            }
+            #endif
 
-            <a class="btn btn-primary" href="/blog/admin/createPost/">Create New Post</a>
+            <a class="btn btn-primary" href="/admin/createPost/">Create New Post</a>
         </div>
 
         <div id="blog-admin-users" class="mt-4">
@@ -92,7 +92,6 @@
             <table class="table table-striped table-hover table-bordered table-responsive d-block">
                 <thead>
                     <tr>
-                        <th>#</th>
                         <th>Name</th>
                         <th>Username</th>
                         <th>Edit</th>
@@ -101,24 +100,28 @@
                 </thead>
                 <tbody>
 
-                    #for(user in users) {
+                    #for(user in users):
                     <tr>
-                        <td><a href="/blog/authors/#(user.username)/">#(user.userID)</a></td>
-                        <td>#(user.name)</td>
+                        <td><a href="/authors/#(user.username)/">#(user.name)</a></td>
                         <td>#(user.username)</td>
-                        <td><a class="btn btn-info" href="/blog/admin/users/#(user.userID)/edit/">Edit</a></td>
-                        <td><form method="post" action="/blog/admin/users/#(user.userID)/delete/"><input type="submit" class="btn btn-danger delete-user-button" value="Delete"></form></td>
+                        <td><a class="btn btn-info" href="/admin/users/#(user.id)/edit/">Edit</a></td>
+                        <td><form method="post" action="/admin/users/#(user.id)/delete/"><input type="submit" class="btn btn-danger delete-user-button" value="Delete"></form></td>
                     </tr>
-                    }
+                    #endfor
 
                 </tbody>
             </table>
 
-            <a class="btn btn-primary" href="/blog/admin/createUser/">Create New User</a>
+            <a class="btn btn-primary" href="/admin/createUser/">Create New User</a>
 
         </div>
 
     </div>
-}
 
-#embed("base")
+    <script src="/static/js/admin/admin.js"></script>
+</body>
+
+</html>
+
+
+<!-- #embed("base") -->
