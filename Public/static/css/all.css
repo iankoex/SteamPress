@@ -209,12 +209,14 @@ textarea {
     .sp-head #sp-head-check:not(:checked)~.sp-head-links {
         height: 0px;
         visibility: hidden;
+        z-index: 100;
     }
 
     .sp-head #sp-head-check:checked~.sp-head-links {
         height: calc(100vh - 50px);
         overflow-y: auto;
         visibility: visible;
+        z-index: 100;
     }
 }
 
