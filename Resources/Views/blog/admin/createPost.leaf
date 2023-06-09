@@ -12,29 +12,32 @@
 
 <div class="container mt-3">
 
-    #if(editing):
-    <h1>Edit Your Blog Post</h1>
-    #else:
-    <h1>Create A Blog Post</h1>
-    #endif
-
-    #if(errors):
-    #for(error in errors):
-    <div class="alert alert-danger" role="alert">
-        <strong>Warning: </strong>#(error)
-    </div>
-    #endfor
-    #endif
-
-    #if(editing):
-    <div id="edit-post-data" data-editing-page="true" data-published-post="#(post.published)"
-        data-original-slug-url="#(slugURLSupplied)" data-original-title="#(titleSupplied)"></div>
-    #endif
-
-    <form action="/admin/#if(editing):posts/#(post.id)/edit/ #else:createPost/ #endif" id="create-post-form"
-        method="post" class="mt-3" novalidate>
+    <div class="sp-outer sp-inner">
         #if(editing):
-        <div class="alert alert-warning alert-dismissible fade show" role="alert" id="blog-post-edit-title-warning">
+        <h1>Edit Your Blog Post</h1>
+        #else:
+        <h1>Create A Blog Post</h1>
+        #endif
+
+        #if(errors):
+        #for(error in errors):
+        <div class="" role="alert">
+            <strong>Warning: </strong>#(error)
+        </div>
+        #endfor
+        #endif
+
+        #if(editing):
+        <div id="edit-post-data" data-editing-page="true" data-published-post="#(post.published)"
+            data-original-slug-url="#(slugURLSupplied)" data-original-title="#(titleSupplied)"></div>
+        #endif
+    </div>
+
+    <form class="sp-outer" action="/admin/#if(editing):posts/#(post.id)/edit/ #else:createPost/ #endif"
+        id="create-post-form" method="post" novalidate>
+
+        #if(editing):
+        <div class="" role="alert" id="blog-post-edit-title-warning">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -43,80 +46,74 @@
             <a href="#" class="alert-link" id="keep-original-slug-url-link">Keep original link?</a>
         </div>
         #endif
-        #if(editing):
-        <div class="form group" id="create-post-status-group">
-            <label class="form-control-label">Status</label>
-            <div class="h4">
-                #if(post.published):
-                <span class="badge badge-success">Published</span>
-                #else:
-                <span class="badge badge-info">Draft</span>
-                #endif
-            </div>
-        </div>
-        #endif
-        <div class="form-group" id="create-post-title-group">
-            <label class="form-control-label" for="title">Title</label>
-            <input type="text" class="form-control #if(titleError) { is-invalid }" id="title" name="title"
-                placeholder="Blog Post Title" value="#(titleSupplied)" autofocus required>
-        </div>
 
-        <div class="form-group" id="create-post-slugurl-group">
-            <label class="form-control-label" for="slugUrl">Path</label>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="slug-url-path">#(postPathPrefix)</span>
+        <div class="sp-inner controls">
+            <div class="" id="create-post-title-group">
+                <label class="" for="title">Title</label>
+                <input type="text" class=" #if(titleError) { is-invalid }" id="title" name="title"
+                    placeholder="Blog Post Title" value="#(titleSupplied)" autofocus required>
+            </div>
+
+            #if(editing):
+            <div class="" id="create-post-status-group">
+                <label class="">Status</label>
+                <div class="h4">
+                    #if(post.published):
+                    <span class="badge badge-success">Published</span>
+                    #else:
+                    <span class="badge badge-info">Draft</span>
+                    #endif
                 </div>
-                <input type="text" class="form-control" id="slugUrl" name="slugUrl" aria-describedby="slug-url-path"
-                    value="#(slugURLSupplied)" readonly tabindex="-1">
             </div>
-        </div>
+            #endif
 
-        <div class="form-group" id="create-post-contents-group">
-            <label class="form-control-label" for="contents">Blog Post</label>
-            <textarea class="form-control #if(contentsError): is-invalid #endif" id="contents" name="contents" rows="10"
-                required>#(contentsSupplied)</textarea>
-        </div>
-
-        <div class="form-group" id="create-post-tags-group">
-            <label class="form-control-label" for="tags">Tags</label>
-            <select class="form-control" id="tags" name="tags[]" placeholder="Tags" multiple="multiple">
-                #for(tag in tagsSupplied):
-                <option value="#(tag)" selected="selected">#(tag)</option>
-                #endfor
-            </select>
-            <small id="tagHelpBlock" class="form-text text-muted">
-                Tags can be added to your posts as comma-separated entries.
-            </small>
-        </div>
-
-        <div class="form-group">
             #if(draft):
             <button type="Submit" class="btn btn-info" name="save-draft" value="true">Save Draft</button>
             #endif
-            <button type="Submit" class="btn btn-primary" name="publish" value="true">#if(editing): #if(draft):
-                Publish #else: Update #endif #else: Publish #endif</button>
+            <button type="Submit" class="btn btn-primary" name="publish"
+                value="true">#if(editing):#if(draft):Publish#else:Update#endif#else:Publish#endif</button>
             #if(editing):
             <a href="/admin/" class="btn btn-secondary" id="cancel-edit-button">Cancel</a>
             #endif
+        </div>
 
-            <small id="mardownHelper" class="text-muted ml-4">
-                You can style your blog posts with <a href="http://commonmark.org/help/" target="_blank">Markdown</a>
-            </small>
+
+        <div class="form-container">
+            <div class="editor-area" id="layout">
+                <div id="sp-editormd">
+                    <textarea id="contents" name="contents">#(contentsSupplied)</textarea>
+                </div>
+            </div>
+
+            <div>
+                <div class="" id="create-post-slugurl-group">
+                    <label class="" for="slugUrl">Path</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="slug-url-path">#(postPathPrefix)</span>
+                        </div>
+                        <input type="text" class="" id="slugUrl" name="slugUrl" aria-describedby="slug-url-path"
+                            value="#(slugURLSupplied)" readonly tabindex="-1">
+                    </div>
+                </div>
+
+                <div class="" id="create-post-tags-group">
+                    <label class="" for="tags">Tags</label>
+                    <select class="" id="tags" name="tags[]" placeholder="Tags" multiple="multiple">
+                        #for(tag in tagsSupplied):
+                        <option value="#(tag)" selected="selected">#(tag)</option>
+                        #endfor
+                    </select>
+                    <small id="tagHelpBlock" class="form-text text-muted">
+                        Tags can be added to your posts as comma-separated entries.
+                    </small>
+                </div>
+            </div>
         </div>
 
     </form>
 
-    <div id="layout">
-        <form method="post" action="http://editormd.ipandao.com/php/post.php">
-            <div id="sp-editormd">
-                <textarea></textarea>
-            </div>
-            <div>
-                <input type="submit" name="submit" value="提交表单 Submit" />
-            </div>
-        </form>
-    </div>
+
 
 </div>
 

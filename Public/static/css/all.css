@@ -220,6 +220,10 @@ textarea {
     }
 }
 
+.sp-content {
+    min-height: calc(100vh - 200px);;
+}
+
 .sp-shadow {
     border-radius: 8px;
     box-shadow: var(--shadow-base);

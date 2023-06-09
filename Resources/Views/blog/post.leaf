@@ -1,7 +1,7 @@
 #extend("blog/base"):
 #export("head"):
 
-<title>#(post.title) | Blog | SteamPress</title>
+<title>#(post.title) |1 #(pageInformation.websiteName)</title>
 
 <!-- Syntax Highlighting -->
 <link rel="stylesheet" href="/static/css/prismHighlighting.css">
@@ -46,7 +46,7 @@
 
 #export("body"):
 
-<div class="container mt-4">
+<div class="sp-outer sp-inner sp-content">
 
     #if(!post.published):
     <div class="h3 text-center"><span class="badge badge-info">DRAFT POST</span></div>

@@ -27,7 +27,7 @@
 <!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
 
 #export("body"):
-<div class="sp-outer sp-inner">
+<div class="sp-outer sp-inner sp-content">
     <div class="post-feed">
         #for(post in posts):
 

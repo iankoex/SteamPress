@@ -42,7 +42,7 @@ $(function () {
     dialogMaskBgColor: "#000",
     imageUpload: true,
     imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-    imageUploadURL: "./php/upload.php",
+    imageUploadURL: "../../uploadImages",
     fontSize: "15px",
     onload: function () {
       // this.fullscreen();

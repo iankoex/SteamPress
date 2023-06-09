@@ -1,3 +1,19 @@
+
+
+.controls {
+    display: flex;
+}
+
+.form-container {
+    width: 100%;
+    display: flex;
+    background-color: red;
+}
+
+.editor-area {
+    width: 80%
+}
+
 #layout {
     text-align: left;
 }
