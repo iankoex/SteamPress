@@ -106,6 +106,7 @@
                     </select>
                     <small id="tagHelpBlock" class="form-text text-muted">
                         Tags can be added to your posts as comma-separated entries.
+                        The first Image is the posts image
                     </small>
                 </div>
             </div>

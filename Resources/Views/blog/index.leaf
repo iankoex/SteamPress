@@ -33,36 +33,42 @@
 
         <a class="sp-shadow post-link post-home" href="/posts/#(post.slugUrl)/">
 
-            <img class="post-image " src="/static/images/postFeatureImage.jpeg" alt="#(post.title)" loading="lazy">
-
-            <div class="post-wrapper">
-                <header>
-                    <span class="post-tag">tagname</span>
-                    <!-- #for(tag in tags): -->
-                    
-                    <!-- <span class="post-tag">#(tag.name)</span> -->
-                    <!-- #endfor -->
-                    <h2 class="post-title">
-                        #(post.title)
-                    </h2>
-                    <span> </span>
-                </header>
-
-                <div class="post-excerpt">
-                    #(post.description)
+            #if(post.postImage):
+            <img class="post-image" src="#(post.postImage)" alt="#(post.postImageAlt)" loading="lazy">
+            #else:
+            <img class="post-image" src="/static/images/steampress_1.png" alt="#(post.postImageAlt)" loading="lazy">
+            #endif
+            
+            <div class="post-container">
+                <div class="post-wrapper">
+                    <header>
+                        <span class="post-tag">tagname</span>
+                        <!-- #for(tag in tags): -->
+                        
+                        <!-- <span class="post-tag">#(tag.name)</span> -->
+                        <!-- #endfor -->
+                        <h2 class="post-title">
+                            #(post.title)
+                        </h2>
+                        <span> </span>
+                    </header>
+    
+                    <div class="post-excerpt">
+                        #(post.description)
+                    </div>
                 </div>
+    
+                <footer class="post-footer">
+                    <span class="post-more">Read More</span>
+    
+                    <div class="post-author">
+                        <span class="post-author-link">
+                            <img class="post-author-image" src="/static/images/favicon.ico" alt="#(post.author)"
+                                loading="lazy">
+                        </span>
+                    </div>
+                </footer>
             </div>
-
-            <footer class="post-footer">
-                <span class="post-more">Read More</span>
-
-                <div class="post-author">
-                    <span class="post-author-link">
-                        <img class="post-author-image" src="/static/images/favicon.ico" alt="#(post.author)"
-                            loading="lazy">
-                    </span>
-                </div>
-            </footer>
         </a>
 
         #endfor
