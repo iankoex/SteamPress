@@ -12,7 +12,6 @@ import FluentPostgresDriver
 import Vapor
 import SteamPress
 import Leaf
-import LeafMarkdown
 
 // configures your application
 public func configure(_ app: Application) throws {
@@ -21,7 +20,6 @@ public func configure(_ app: Application) throws {
     app.middleware.use(app.sessions.middleware)
     
     app.views.use(.leaf)
-    app.leaf.tags["markdown"] = Markdown()
     app.logger.logLevel = .debug
     
     if app.environment == .development {

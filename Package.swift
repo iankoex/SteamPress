@@ -15,8 +15,7 @@ let package = Package(
         .package(path: "../SteamPress"),
         .package(url: "https://github.com/vapor/leaf.git", from: "4.0.0"),
         .package(url: "https://github.com/brokenhandsio/leaf-error-middleware.git", from: "4.1.1"),
-        .package(url: "https://github.com/brokenhandsio/VaporSecurityHeaders.git", from: "4.1.0"),
-        .package(url: "https://github.com/vapor-community/leaf-markdown.git", from: "3.0.1")
+        .package(url: "https://github.com/brokenhandsio/VaporSecurityHeaders.git", from: "4.1.0")
     ],
     targets: [
         .target(name: "App",
@@ -27,8 +26,7 @@ let package = Package(
                 .product(name: "SteamPress", package: "SteamPress"),
                 .product(name: "Leaf", package: "leaf"),
                 .product(name: "LeafErrorMiddleware", package: "leaf-error-middleware"),
-                .product(name: "VaporSecurityHeaders", package: "VaporSecurityHeaders"),
-                .product(name: "LeafMarkdown", package: "leaf-markdown")
+                .product(name: "VaporSecurityHeaders", package: "VaporSecurityHeaders")
             ]),
         .executableTarget(name: "Run", dependencies: [.target(name: "App")]),
         .testTarget(name: "AppTests", dependencies: ["App"])

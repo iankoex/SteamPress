@@ -20,3 +20,7 @@
 #endexport
 <!-- ---------------------------------------------------------endexport scripts----------------------------------------------------------------- -->
 #endextend
+
+<!-- <div class="post-contents mt-3">
+        #markdown(post.contents)
+    </div> -->

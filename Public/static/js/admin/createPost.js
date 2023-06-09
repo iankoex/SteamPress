@@ -49,6 +49,16 @@ $(function () {
       this.unwatch();
       $("#contents").removeAttr("required");
     },
+    toolbarIcons: function () {
+      return [
+          "undo", "redo", "|",
+          "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
+          "h1", "h2", "h3", "h4", "h5", "h6", "|",
+          "list-ul", "list-ol", "hr", "|",
+          "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "html-entities", "pagebreak", "||",
+          "goto-line", "watch", "preview", "fullscreen", "clear", "search",
+      ]
+  },
     lang: {
       name: "en",
       description: "Open source online Markdown editor.",

@@ -91,15 +91,6 @@
       }
     },
     {
-      "identity" : "leaf-markdown",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/vapor-community/leaf-markdown.git",
-      "state" : {
-        "revision" : "ecec9a93102139609aa5a84c51990fc305fbc1d6",
-        "version" : "3.0.1"
-      }
-    },
-    {
       "identity" : "markdown",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor-community/markdown.git",
