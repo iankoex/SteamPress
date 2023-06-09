@@ -1,53 +1,61 @@
-<!DOCTYPE html>
-<html>
+#extend("blog/base"):
+#export("head"):
 
-<head>
-    <title>Login | Blog Admin | SteamPress</title>
-    <link rel="stylesheet" href="/static/css/all.css">
-    <link rel="stylesheet" href="/static/css/admin.css">
-</head>
+<title>Login | Blog Admin | SteamPress</title>
+<link rel="stylesheet" href="/static/css/admin.css">
 
-<body>
-    <div class="container mt-4">
+#endexport
+<!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
 
-        <h2 class="mb-3 text-center">Blog Login</h2>
+#export("body"):
 
-        #if(errors):
-        #for(error in errors):
-        <div class="alert alert-danger" role="alert">
-            <strong>Error: </strong>#(error)
-        </div>
-        #endfor
-        #endif
-        
+<div class="sp-outer sp-inner sp-content">
 
-        #if(loginWarning):
-        <div class="alert alert-warning" role="alert">
-            <strong>Warning: </strong>You must be logged in to view this page
-        </div>
-        #endif
+    <h2 class="mb-3 text-center">Blog Login</h2>
 
-        <form action="/admin/login/" method="post" id="login-form" class="form-signin">
-            <div class="form-group" id="login-username-group">
-                <label for="username" class="sr-only">Username</label>
-                <input type="text" class="form-control #if(usernameError) {is-invalid}" id="username" name="username" placeholder="Username" value="#(username)" autofocus required>
-            </div>
-            <div class="form-group" id="login-password-group">
-                <label for="password" class="sr-only">Password</label>
-                <input type="password" class="form-control #if(passwordError) {is-invalid}" id="password" name="password" placeholder="Password" required>
-            </div>
-            <div class="form-group checkbox text-center">
-                <label><input type="checkbox" value="true" name="rememberMe" #if(rememberMe){checked}> Remember Me</label>
-            </div>
-
-            <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
-        </form>
-
+    #if(errors):
+    #for(error in errors):
+    <div class="alert alert-danger" role="alert">
+        <strong>Error: </strong>#(error)
     </div>
+    #endfor
+    #endif
 
-    <script src="/static/js/admin/login.js"></script>
-</body>
 
-</html>
+    #if(loginWarning):
+    <div class="alert alert-warning" role="alert">
+        <strong>Warning: </strong>You must be logged in to view this page
+    </div>
+    #endif
 
-<!-- #embed("base") -->
+    <form action="/admin/login/" method="post" id="login-form" class="form-signin">
+        <div class="form-group" id="login-username-group">
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" class="form-control #if(usernameError) {is-invalid}" id="username" name="username"
+                placeholder="Username" value="#(username)" autofocus required>
+        </div>
+        <div class="form-group" id="login-password-group">
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" class="form-control #if(passwordError) {is-invalid}" id="password" name="password"
+                placeholder="Password" required>
+        </div>
+        <div class="form-group checkbox text-center">
+            <label><input type="checkbox" value="true" name="rememberMe" #if(rememberMe){checked}> Remember Me</label>
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
+    </form>
+
+</div>
+
+
+#endexport
+<!-- ---------------------------------------------------------endexport body----------------------------------------------------------------- -->
+
+#export("scripts"):
+
+<script src="/static/js/admin/login.js"></script>
+
+#endexport
+<!-- ---------------------------------------------------------endexport scripts----------------------------------------------------------------- -->
+#endextend
