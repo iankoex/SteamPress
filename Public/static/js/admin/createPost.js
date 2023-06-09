@@ -1,5 +1,5 @@
 $(function () {
-  var testEditor = editormd("sp-editormd", {
+  var spEditor = editormd("sp-editormd", {
     width: "100%",
     height: "90%",
     path: "https://cdn.jsdelivr.net/npm/editor.md@1.5.0/lib/",
