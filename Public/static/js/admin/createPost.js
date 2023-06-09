@@ -1,7 +1,7 @@
 $(function () {
   var testEditor = editormd("sp-editormd", {
-    width: "90%",
-    height: 740,
+    width: "100%",
+    height: "90%",
     path: "https://cdn.jsdelivr.net/npm/editor.md@1.5.0/lib/",
     pluginPath: "https://cdn.jsdelivr.net/npm/editor.md@1.5.0/plugins/",
     placeholder: "Your text here....",
@@ -29,11 +29,6 @@ $(function () {
     htmlDecode: "style,script,iframe|on*",
     toolbar: true,
     previewCodeHighlight: true,
-    emoji: true,
-    taskList: true,
-    tocm: true,
-    tex: true,
-    flowChart: true,
     sequenceDiagram: true,
     dialogLockScreen: true,
     dialogShowMask: false,
@@ -43,11 +38,9 @@ $(function () {
     imageUpload: true,
     imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
     imageUploadURL: "../../uploadImages",
-    fontSize: "15px",
+    fontSize: "12px",
     onload: function () {
       // this.fullscreen();
-      this.unwatch();
-      $("#contents").removeAttr("required");
     },
     toolbarIcons: function () {
       return [
@@ -181,23 +174,23 @@ var allowEditingOfSlugUrl = true;
 var originalSlugUrl = "";
 var originalTitle = "";
 
-$(function () {
-  var simplemde = new SimpleMDE({
-    element: $("#contents")[0],
-    spellChecker: false,
-    forceSync: true,
-    placeholder: "Write your blog post here",
-    autosave: {
-      enabled: true,
-      uniqueId: "SteamPress-Create-Post",
-      delay: 1000,
-    },
-    promptURLs: true,
-  });
-  // SimpleMDE has been initialised so we need to turn off validation for the
-  // underlying text area
-  $("#contents").removeAttr("required");
-});
+// $(function () {
+//   var simplemde = new SimpleMDE({
+//     element: $("#contents")[0],
+//     spellChecker: false,
+//     forceSync: true,
+//     placeholder: "Write your blog post here",
+//     autosave: {
+//       enabled: true,
+//       uniqueId: "SteamPress-Create-Post",
+//       delay: 1000,
+//     },
+//     promptURLs: true,
+//   });
+//   // SimpleMDE has been initialised so we need to turn off validation for the
+//   // underlying text area
+//   $("#contents").removeAttr("required");
+// });
 
 $("#title").on("input", function (e) {
   if (allowEditingOfSlugUrl) {
@@ -225,7 +218,7 @@ $.ajax({
     var newTag = { id: tagToTransform["name"], text: tagToTransform["name"] };
     dataToReturn.push(newTag);
   }
-  $("#tags").select2({
+  $("#tags").select({
     placeholder: "Select Tags for the Blog Post",
     tags: true,
     tokenSeparators: [","],

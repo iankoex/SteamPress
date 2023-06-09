@@ -2,7 +2,7 @@
 #export("head"):
 
 <title>#if(editing): Edit #else: Create #endif Blog Post | Blog Admin | SteamPress</title>
-<link rel="stylesheet" href="/static/css/editormdStyle.css">
+<link rel="stylesheet" href="/static/css/admin.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/css/editormd.min.css">
 
 #endexport
@@ -10,7 +10,7 @@
 
 #export("body"):
 
-<div class="container mt-3">
+<div class="sp-content">
 
     <div class="sp-outer sp-inner">
         #if(editing):
@@ -21,7 +21,7 @@
 
         #if(errors):
         #for(error in errors):
-        <div class="" role="alert">
+        <div role="alert">
             <strong>Warning: </strong>#(error)
         </div>
         #endfor
@@ -33,84 +33,68 @@
         #endif
     </div>
 
-    <form class="sp-outer" action="/admin/#if(editing):posts/#(post.id)/edit/#else:createPost/#endif"
-        id="create-post-form" method="post" novalidate>
+    <form class="" action="/admin/#if(editing):posts/#(post.id)/edit/#else:createPost/#endif" method="post" novalidate>
+        <div class="sp-outer sp-inner">
+            #if(editing):
+            <div role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Warning</strong> - editing the title will change the URL of the post - this can cause issues
+                with comment engines and SEO and may break links to your site.
+                <a href="#" class="alert-link" id="keep-original-slug-url-link">Keep original link?</a>
+            </div>
+            #endif
 
-        #if(editing):
-        <div class="" role="alert" id="blog-post-edit-title-warning">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>Warning</strong> - editing the title will change the URL of the post - this can cause issues
-            with comment engines and SEO and may break links to your site.
-            <a href="#" class="alert-link" id="keep-original-slug-url-link">Keep original link?</a>
-        </div>
-        #endif
-
-        <div class="sp-inner controls">
-            <div class="" id="create-post-title-group">
-                <label class="" for="title">Title</label>
-                <input type="text" class=" #if(titleError) { is-invalid }" id="title" name="title"
-                    placeholder="Blog Post Title" value="#(titleSupplied)" autofocus required>
+            <div>
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" placeholder="Blog Post Title" value="#(titleSupplied)"
+                    autofocus required>
             </div>
 
             #if(editing):
-            <div class="" id="create-post-status-group">
-                <label class="">Status</label>
-                <div class="h4">
+            <div>
+                <label class="">Status
                     #if(post.published):
-                    <span class="badge badge-success">Published</span>
+                    <span>Published</span>
                     #else:
-                    <span class="badge badge-info">Draft</span>
+                    <span>Draft</span>
                     #endif
-                </div>
+                </label>
             </div>
             #endif
 
-            #if(draft):
-            <button type="Submit" class="btn btn-info" name="save-draft" value="true">Save Draft</button>
-            #endif
-            <button type="Submit" class="btn btn-primary" name="publish"
-                value="true">#if(editing):#if(draft):Publish#else:Update#endif#else:Publish#endif</button>
-            #if(editing):
-            <a href="/admin/" class="btn btn-secondary" id="cancel-edit-button">Cancel</a>
-            #endif
-        </div>
-
-
-        <div class="form-container">
-            <div class="editor-area" id="md-layout">
-                <div id="sp-editormd">
-                    <textarea id="contents" name="contents">#(contentsSupplied)</textarea>
-                </div>
+            <div class="controls">
+                <button type="Submit" class="primary-btn" name="publish"
+                    value="true">#if(editing):#if(draft):Publish#else:Update#endif#else:Publish#endif</button>
+                #if(editing):
+                <a href="/admin/" class="secondary-btn">Cancel</a>
+                #endif
             </div>
 
             <div>
-                <div class="" id="create-post-slugurl-group">
-                    <label class="" for="slugUrl">Path</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="slug-url-path">#(postPathPrefix)</span>
-                        </div>
-                        <input type="text" class="" id="slugUrl" name="slugUrl" aria-describedby="slug-url-path"
-                            value="#(slugURLSupplied)" readonly tabindex="-1">
-                    </div>
-                </div>
+                <label for="tags">Tags</label>
+                <select id="tags" name="tags[]" placeholder="Tags" multiple="multiple">
+                    #for(tag in tagsSupplied):
+                    <option value="#(tag)" selected="selected">#(tag)</option>
+                    #endfor
+                </select>
 
-                <div class="" id="create-post-tags-group">
-                    <label class="" for="tags">Tags</label>
-                    <select class="" id="tags" name="tags[]" placeholder="Tags" multiple="multiple">
-                        #for(tag in tagsSupplied):
-                        <option value="#(tag)" selected="selected">#(tag)</option>
-                        #endfor
-                    </select>
-                    <small id="tagHelpBlock" class="form-text text-muted">
-                        Tags can be added to your posts as comma-separated entries.
-                        The first Image is the posts image
-                    </small>
-                </div>
+            </div>
+            <small>
+                Tags can be added to your posts as comma-separated entries.
+                The first Image in the markdown is the post's image
+            </small>
+        </div>
+
+
+        <div class="editor-area">
+            <div id="sp-editormd" class="sp-editormd">
+                <textarea id="contents" name="contents">#(contentsSupplied)</textarea>
             </div>
         </div>
+
+
 
     </form>
 
