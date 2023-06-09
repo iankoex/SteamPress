@@ -8,31 +8,31 @@ public func routes(_ app: Application) throws {
     
 //    authSessions.get { req -> Future<View> in
 //        return BlogPost.query(on: req).filter(\.published == true).sort(\.created, .descending).range(0..<3).all().flatMap { posts in
-//            let pageInformation = try req.getPageInformation()
+//            let website = try req.getwebsite()
 //            let postsWithShortSnippets = posts.map { $0.toPostWithShortSnippet() }
-//            let context = HomepageContext(posts: postsWithShortSnippets, pageInformation: pageInformation)
+//            let context = HomepageContext(posts: postsWithShortSnippets, website: website)
 //            return try req.view().render("index", context)
 //        }
 //    }
 //
 //    authSessions.get("about") { req -> Future<View> in
-//        let pageInformation = try req.getPageInformation()
-//        let context = AboutPageContext(pageInformation: pageInformation)
+//        let website = try req.getwebsite()
+//        let context = AboutPageContext(website: website)
 //        return try req.view().render("about", context)
 //    }
 }
 
 struct HomepageContext: Encodable {
     let posts: [PostWithShortSnippet]
-    let pageInformation: PageInformation
+    let website: website
 }
 
 struct AboutPageContext: Encodable {
     let aboutPage = true
-    let pageInformation: PageInformation
+    let website: website
 }
 
-struct PageInformation: Encodable {
+struct website: Encodable {
     let loggedInUser: BlogUser.Public?
     let twitterHandler: String?
     let googleAnalytics: String?
@@ -41,12 +41,12 @@ struct PageInformation: Encodable {
 }
 
 //extension Request {
-//    func getPageInformation() throws -> PageInformation {
+//    func getwebsite() throws -> website {
 //        let disqusName = Environment.get("BLOG_DISQUS_NAME")
-//        let siteTwitterHandle = Environment.get("BLOG_SITE_TWITTER_HANDLE")
+//        let twitterHandle = Environment.get("BLOG_SITE_TWITTER_HANDLE")
 //        let googleAnalyticsIdentifier = Environment.get("BLOG_GOOGLE_ANALYTICS_IDENTIFIER")
 //        let loggedInUser = try self.authenticated(BlogUser.self)
 //        let webpageURL = self.http.url.absoluteString
-//        return PageInformation(loggedInUser: loggedInUser, twitterHandler: siteTwitterHandle, googleAnalytics: googleAnalyticsIdentifier, disqusName: disqusName, webpageURL: webpageURL)
+//        return website(loggedInUser: loggedInUser, twitterHandler: twitterHandle, googleAnalytics: googleAnalyticsIdentifier, disqusName: disqusName, webpageURL: webpageURL)
 //    }
 //}

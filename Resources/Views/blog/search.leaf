@@ -7,7 +7,7 @@
 
 <meta property="og:title" content="SteamPress Blog Search">
 <meta property="og:type" content="website">
-<meta property="og:url" content="#(pageInformation.currentPageURL)">
+<meta property="og:url" content="#(website.currentPageURL)">
 <meta property="og:description" content="earch the SteamPress Blog">
 <meta property="og:site_name" content="SteamPress">
 <meta name="twitter:card" content="summary_large_image">
@@ -16,8 +16,8 @@
 <meta property="og:image:height" content="1257">
 <meta name="twitter:image:alt" content="SteamPress - The open source blogging engine for Vapor">
 
-#if(pageInformation.siteTwitterHandle):
-<meta name="twitter:site" content="@#(pageInformation.siteTwitterHandle)">
+#if(website.twitterHandle):
+<meta name="twitter:site" content="@#(website.twitterHandle)">
 #endif
 
 <!-- Syntax Highlighting -->
@@ -66,7 +66,7 @@
                             #endfor
                         </h5>
                     </div>
-                    #if(pageInformation.disqusName):
+                    #if(website.disqusName):
                     <a href="/blog/posts/#(post.slugUrl)#disqus_thread" data-disqus-identifier="#(post.id)">0
                         Comments</a>
                     #endif
@@ -90,11 +90,11 @@
 #export("scripts"):
 
 <script src="/static/js/prismHighlighting.js"></script>
-#if(pageInformation.disqusName):
-<script id="dsq-count-scr" src="https://#(pageInformation.disqusName).disqus.com/count.js" async></script>
+#if(website.disqusName):
+<script id="dsq-count-scr" src="https://#(website.disqusName).disqus.com/count.js" async></script>
 #endif
-#if(pageInformation.googleAnalyticsIdentifier):
-<div id="google-analytics-data" data-identifier="#(pageInformation.googleAnalyticsIdentifier)"></div>
+#if(website.googleAnalyticsIdentifier):
+<div id="google-analytics-data" data-identifier="#(website.googleAnalyticsIdentifier)"></div>
 <script src="/static/js/analytics.js"></script>
 #endif
 <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.0/dist/jquery.mark.es6.min.js"

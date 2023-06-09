@@ -8,7 +8,7 @@
 
 <meta property="og:title" content="#(author.name)'s Profile">
 <meta property="og:type" content="website">
-<meta property="og:url" content="#(pageInformation.currentPageURL)">
+<meta property="og:url" content="#(website.currentPageURL)">
 <meta property="og:description"
     content="#(author.name)'s Author Page on the Steam Press Blog. All of the posts by #(author.name)">
 <meta property="og:site_name" content="SteamPress">
@@ -24,8 +24,8 @@
 <meta name="twitter:image:alt" content="SteamPress - The open source blogging engine for Vapor">
 #endif
 
-#if(pageInformation.siteTwitterHandle):
-<meta name="twitter:site" content="@#(pageInformation.siteTwitterHandle)">
+#if(website.twitterHandle):
+<meta name="twitter:site" content="@#(website.twitterHandle)">
 #endif
 
 #if(author.twitterHandle):
@@ -69,7 +69,7 @@
                     class="text-muted">Biography</span><br>#(author.biography)</div>
             #endif
 
-            #if(pageInformation.loggedInUser):
+            #if(website.loggedInUser):
             <a class="btn btn-primary mt-3" href="/blog/admin/users/#(author.id)/edit/">Edit Profile</a>
             #endif
 
@@ -98,11 +98,11 @@
 #export("scripts"):
 
 <script src="/static/js/prismHighlighting.js"></script>
-#if(pageInformation.disqusName):
-<script id="dsq-count-scr" src="https://#(pageInformation.disqusName).disqus.com/count.js" async></script>
+#if(website.disqusName):
+<script id="dsq-count-scr" src="https://#(website.disqusName).disqus.com/count.js" async></script>
 #endif
-#if(pageInformation.googleAnalyticsIdentifier):
-<div id="google-analytics-data" data-identifier="#(pageInformation.googleAnalyticsIdentifier)"></div>
+#if(website.googleAnalyticsIdentifier):
+<div id="google-analytics-data" data-identifier="#(website.googleAnalyticsIdentifier)"></div>
 <script src="/static/js/analytics.js"></script>
 #endif
 

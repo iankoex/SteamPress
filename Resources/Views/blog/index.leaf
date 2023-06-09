@@ -20,8 +20,8 @@
 <meta name="twitter:image:alt" content="SteamPress - The open source blogging engine for Vapor">
 <meta property="og:site_name" content="SteamPress">
 
-#if(pageInformation.siteTwitterHandle):
-<meta name="twitter:site" content="@#(pageInformation.siteTwitterHandle)">
+#if(website.twitterHandle):
+<meta name="twitter:site" content="@#(website.twitterHandle)">
 #endif
 #endexport
 <!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->

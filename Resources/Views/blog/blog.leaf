@@ -23,8 +23,8 @@
     <meta name="twitter:image:alt" content="SteamPress - The open source blogging engine for Vapor">
     <meta property="og:site_name" content="SteamPress">
 
-    #if(pageInformation.siteTwitterHandle):
-    <meta name="twitter:site" content="@#(pageInformation.siteTwitterHandle)">
+    #if(website.twitterHandle):
+    <meta name="twitter:site" content="@#(website.twitterHandle)">
     #endif
 </head>
 
@@ -82,11 +82,11 @@
 <script src="/static/js/prismHighlighting.js"></script>
 <script src="/static/js/loadTweets.js"></script>
 <script id="twitter-wjs" type="text/javascript" async defer src="https://platform.twitter.com/widgets.js"></script>
-#if(pageInformation.disqusName):
-<script id="dsq-count-scr" src="https://#(pageInformation.disqusName).disqus.com/count.js" async></script>
+#if(website.disqusName):
+<script id="dsq-count-scr" src="https://#(website.disqusName).disqus.com/count.js" async></script>
 #endif
-#if(pageInformation.googleAnalyticsIdentifier):
-<div id="google-analytics-data" data-identifier="#(pageInformation.googleAnalyticsIdentifier)"></div>
+#if(website.googleAnalyticsIdentifier):
+<div id="google-analytics-data" data-identifier="#(website.googleAnalyticsIdentifier)"></div>
 <script src="/static/js/analytics.js"></script>
 #endif
 

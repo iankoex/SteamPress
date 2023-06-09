@@ -6,7 +6,7 @@
     content="All of the Authors from the SteamPress Blog. These are the authors that have written posts for the blog.">
 <meta property="og:title" content="SteamPress Blog Authors">
 <meta property="og:type" content="website">
-<meta property="og:url" content="#(pageInformation.currentPageURL)">
+<meta property="og:url" content="#(website.currentPageURL)">
 <meta property="og:description"
     content="All of the Authors from the SteamPress Blog. These are the authors that have written posts for the blog.">
 <meta name="twitter:card" content="summary_large_image">
@@ -15,8 +15,8 @@
 <meta property="og:image:height" content="1257">
 <meta name="twitter:image:alt" content="SteamPress - The open source blogging engine for Vapor">
 <meta property="og:site_name" content="SteamPress">
-#if(pageInformation.siteTwitterHandle):
-<meta name="twitter:site" content="@#(pageInformation.siteTwitterHandle)">
+#if(website.twitterHandle):
+<meta name="twitter:site" content="@#(website.twitterHandle)">
 #endif
 
 #endexport
@@ -70,8 +70,8 @@
 
 #export("scripts"):
 
-#if(pageInformation.googleAnalyticsIdentifier):
-<div id="google-analytics-data" data-identifier="#(pageInformation.googleAnalyticsIdentifier)"></div>
+#if(website.googleAnalyticsIdentifier):
+<div id="google-analytics-data" data-identifier="#(website.googleAnalyticsIdentifier)"></div>
 <script src="/static/js/analytics.js"></script>
 #endif
 
