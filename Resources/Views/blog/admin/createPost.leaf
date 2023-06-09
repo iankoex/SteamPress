@@ -33,7 +33,7 @@
         #endif
     </div>
 
-    <form class="sp-outer" action="/admin/#if(editing):posts/#(post.id)/edit/ #else:createPost/ #endif"
+    <form class="sp-outer" action="/admin/#if(editing):posts/#(post.id)/edit/#else:createPost/#endif"
         id="create-post-form" method="post" novalidate>
 
         #if(editing):

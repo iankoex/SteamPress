@@ -47,7 +47,7 @@ public func configure(_ app: Application) throws {
         copyright: "Released under the MIT licence",
         imageURL: "https://user-images.githubusercontent.com/9938337/29742058-ed41dcc0-8a6f-11e7-9cfc-680501cdfb97.png"
     )
-    let steamPressConfig = SteamPressConfiguration(feedInformation: feedInfo, postsPerPage: 4, enableAuthorPages: true, enableTagPages: true)
+    let steamPressConfig = SteamPressConfiguration(blogPath: "", feedInformation: feedInfo, postsPerPage: 4, enableAuthorPages: true, enableTagPages: true)
     let steamPressLifecycle = SteamPressLifecycleHandler(configuration: steamPressConfig)
     app.lifecycle.use(steamPressLifecycle)
     
