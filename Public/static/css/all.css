@@ -221,7 +221,7 @@ textarea {
 }
 
 .sp-content {
-    min-height: calc(100vh - 200px);;
+    min-height: calc(100vh - 100px);;
 }
 
 .sp-shadow {
@@ -366,6 +366,24 @@ textarea {
     width: 100%;
 }
 
-.sp-footer {
+.sp-foot {
     background-color: #FFE6C7;
+    height: 50px;
+}
+
+.sp-foot-inner {
+    display: flex;
+    justify-content: space-around;
+}
+
+@media (max-width: 767px) {
+    .sp-foot {
+        background-color: #FFE6C7;
+        height: auto;
+    }
+
+    .sp-foot-inner{
+        flex-direction: column;
+        align-items: center;
+    }
 }
