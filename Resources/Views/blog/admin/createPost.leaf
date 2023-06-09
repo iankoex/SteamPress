@@ -79,7 +79,7 @@
 
 
         <div class="form-container">
-            <div class="editor-area" id="layout">
+            <div class="editor-area" id="md-layout">
                 <div id="sp-editormd">
                     <textarea id="contents" name="contents">#(contentsSupplied)</textarea>
                 </div>

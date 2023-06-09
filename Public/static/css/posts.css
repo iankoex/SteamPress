@@ -1,0 +1,11 @@
+.sp-article-meta {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-top: 6px;
+}
+
+.sp-article-meta a {
+    color: var(--sp-accent-color);
+}

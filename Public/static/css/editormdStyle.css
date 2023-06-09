@@ -14,11 +14,11 @@
     width: 80%
 }
 
-#layout {
+#md-layout {
     text-align: left;
 }
 
-#layout>header,
+#md-layout>header,
 .btns {
     padding: 15px 0;
     width: 90%;
@@ -33,7 +33,7 @@
     padding: 2px 8px;
 }
 
-#layout>header>h1 {
+#md-layout>header>h1 {
     font-size: 20px;
     margin-bottom: 10px;
 }
