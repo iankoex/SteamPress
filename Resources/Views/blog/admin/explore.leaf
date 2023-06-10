@@ -1,0 +1,54 @@
+#extend("blog/admin/base"):
+#export("head"):
+
+
+
+#endexport
+<!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
+
+#export("body"):
+
+<main class="gh-main gh-main-wide">
+    <section class="gh-canvas">
+        <div class="gh-dashboard">
+
+            <div class="gh-canvas-header sticky">
+                <header class="gh-canvas-header-content">
+                    <h2 class="gh-canvas-title" data-test-screen-title="">
+                        Explore
+                    </h2>
+                </header>
+            </div>
+
+            <section class="gh-dashboard-layout">
+
+                <section class="gh-dashboard-resource gh-dashboard-whats-new">
+
+                    <article class="gh-dashboard-resource-box">
+                        <div class="gh-dashboard-resource-title">
+                            <h4> A Collection of sites using SteamPress </h4>
+                        </div>
+
+                        <div class="gh-dashboard-resource-footer">
+                            <a href="#/whatsnew/" id="ember178" class="ember-view green">View all sites →</a>
+                        </div>
+                    </article>
+
+                </section>
+
+            </section>
+
+        </div>
+    </section>
+</main>
+
+#endexport
+<!-- ---------------------------------------------------------endexport body----------------------------------------------------------------- -->
+
+#export("scripts"):
+
+
+
+#endexport
+<!-- ---------------------------------------------------------endexport scripts----------------------------------------------------------------- -->
+#endextend

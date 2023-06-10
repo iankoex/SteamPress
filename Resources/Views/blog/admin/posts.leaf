@@ -1,0 +1,130 @@
+#extend("blog/admin/base"):
+#export("head"):
+
+
+
+#endexport
+<!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
+
+#export("body"):
+
+<main class="gh-main ">
+    <section class="gh-canvas gh-canvas-sticky">
+        <div class="gh-canvas-header sticky break tablet post-header">
+            <header class="gh-canvas-header-content">
+
+                <div class="flex flex-column">
+                    <h2 class="gh-canvas-title" data-test-screen-title="">
+                        <a href="/admin/posts/" id="ember235" class="active ember-view">Posts</a>
+                    </h2>
+                </div>
+
+                <section class="view-actions">
+                    <div class="view-actions-top-row">
+                        <a href="/admin/createPost/" id="ember246" class="ember-view gh-btn gh-btn-primary"
+                            data-test-new-post-button=""><span>New post</span></a>
+                    </div>
+                </section>
+
+            </header>
+        </div>
+
+        <section class="view-container content-list">
+            <div class="posts-list gh-list  feature-memberAttribution">
+
+                #if(count(posts) == 0):
+                <section class="gh-dashboard-resource gh-dashboard-whats-new">
+
+                    <article class="gh-dashboard-resource-box">
+                        <div class="gh-dashboard-resource-title">
+                            <h4>There are no posts matching the creteria</h4>
+                        </div>
+
+                        <div class="gh-dashboard-resource-footer">
+                            <a href="/admin/createPost/" id="ember178" class="ember-view green">Create a Post →</a>
+                        </div>
+                    </article>
+
+                </section>
+                #endif
+
+                #for(post in posts):
+                <div role="menuitem" class="gh-posts-list-item-group">
+                    <li class="gh-list-row gh-posts-list-item gh-post-list-plain-status">
+                        <a href="/admin/posts/#(post.id)/edit/" id="ember247"
+                            class="ember-view permalink gh-list-data gh-post-list-title">
+                            <h3 class="gh-content-entry-title">#(post.title)</h3>
+                            <p class="gh-content-entry-meta">
+                                <span class="gh-content-entry-author">
+                                    By #(post.authorName)
+                                    <span class="midgrey-l2 fw5">
+                                        #if(post.tags):
+                                        in
+                                        #for(tag in post.tags):
+                                        #(tag.name)
+                                        #endfor
+                                        #endif
+                                    </span> -
+                                </span>
+                                <span class="gh-content-entry-date">
+                                    #date(post.createdDate, "yyyy-MM-dd")
+                                </span>
+                            </p>
+                            #if(!post.published):
+                            <p class="gh-content-entry-status">
+                                <span class="draft">
+                                    Draft
+                                </span>
+                            </p>
+                            #endif
+                        </a>
+
+                        <a href="/admin/posts/#(post.id)/edit/" id="ember248" class="ember-view permalink gh-list-data">
+                        </a>
+
+                        <a href="#/editor/post/6471fd8fba9e5e0211efd519/" id="ember249"
+                            class="ember-view permalink gh-list-data">
+                        </a>
+
+                        <a title="" href="/admin/posts/#(post.id)/edit/" id="ember250"
+                            class="ember-view permalink gh-list-data gh-post-list-button">
+                            <span class="gh-post-list-cta edit " title="Go to Editor" data-ignore-select="">
+                                <svg viewBox="0 0 24 24" fill="none" aria-labelledby="ember251">
+                                    <title id="ember251">Go to Editor</title>
+                                    <defs>
+                                        <style>
+                                            .pen_svg__a {
+                                                fill: none;
+                                                stroke: currentColor;
+                                                stroke-linecap: round;
+                                                stroke-linejoin: round;
+                                                stroke-width: 1.5px
+                                            }
+                                        </style>
+                                    </defs>
+                                    <path class="pen_svg__a"
+                                        d="M21.982 2.018a3.565 3.565 0 00-5.064.034L2.713 16.256.98 23.02l6.764-1.734L21.948 7.08a3.562 3.562 0 00.034-5.063zM16.512 2.459l5.03 5.029">
+                                    </path>
+                                </svg>
+                            </span>
+                        </a>
+                    </li>
+                </div>
+                #endfor
+
+            </div>
+
+        </section>
+    </section>
+</main>
+
+#endexport
+<!-- ---------------------------------------------------------endexport body----------------------------------------------------------------- -->
+
+#export("scripts"):
+
+
+
+#endexport
+<!-- ---------------------------------------------------------endexport scripts----------------------------------------------------------------- -->
+#endextend

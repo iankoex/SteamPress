@@ -1,0 +1,40 @@
+<nav id="ember33" class="gh-mobile-nav-bar ember-view"><a href="#/dashboard/" id="ember34" class="ember-view"
+        data-test-mobile-nav="dashboard">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M22.272 23.247a.981.981 0 00.978-.978V9.747a1.181 1.181 0 00-.377-.8L12 .747l-10.873 8.2a1.181 1.181 0 00-.377.8v12.522a.981.981 0 00.978.978z"
+                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+            </path>
+        </svg>
+        Dashboard
+    </a>
+    <a href="#/posts/" id="ember35" class="ember-view"><svg viewBox="0 0 24 24" data-test-mobile-nav="posts">
+            <path
+                d="M11.246 24a.743.743 0 01-.53-.22.745.745 0 01-.205-.677l.75-3.75a.748.748 0 01.205-.384l7.631-7.63a2.844 2.844 0 012.026-.839 2.873 2.873 0 012.03 4.899l-7.627 7.629a.74.74 0 01-.384.205l-3.749.75a.615.615 0 01-.147.017zm.956-1.706l2.424-.485 7.467-7.469a1.368 1.368 0 00.003-1.932l-.03-.03a1.33 1.33 0 00-.941-.379c-.366 0-.71.142-.968.401l-7.471 7.47-.484 2.424zM2.242 21a2.252 2.252 0 01-2.25-2.25V2.25A2.252 2.252 0 012.242 0h15a2.252 2.252 0 012.25 2.25V9a.75.75 0 01-1.5 0V2.25a.75.75 0 00-.75-.75h-15a.75.75 0 00-.75.75v16.5c0 .414.336.75.75.75h6a.75.75 0 010 1.5h-6z">
+            </path>
+            <path
+                d="M8.242 6a.75.75 0 010-1.5h6a.75.75 0 010 1.5h-6zm-3 4.5a.75.75 0 010-1.5h9a.75.75 0 010 1.5h-9zm0 4.5a.75.75 0 010-1.5h7.5a.75.75 0 010 1.5h-7.5z">
+            </path>
+        </svg>
+        Posts
+    </a>
+    <a href="#/members/" id="ember36" class="ember-view gh-nav-main-users" data-test-mobile-nav="members">
+        <svg id="members_svg__Regular" viewBox="0 0 24 24">
+            <circle class="members_svg__cls-1" cx="7.5" cy="7.875" r="4.125"></circle>
+            <path class="members_svg__cls-1" d="M.75 20.25a6.75 6.75 0 0113.5 0"></path>
+            <circle class="members_svg__cls-1" cx="17.727" cy="10.125" r="3.375"></circle>
+            <path class="members_svg__cls-1" d="M15.813 15.068a5.526 5.526 0 017.437 5.182"></path>
+        </svg>
+        Members
+    </a>
+    <div role="button" class="gh-mobile-nav-bar-more" data-ember-action="" data-ember-action-37="37"><svg
+            viewBox="0 0 160 160" fill="none" class="icon-gh">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M80 160c44.183 0 80-35.817 80-80S124.183 0 80 0 0 35.817 0 80s35.817 80 80 80zM78.437 15.592C42.072 19.679 25.947 34.72 22.295 64.98c-.415 3.441-1.232 6.89-2.045 10.322-1.145 4.831-2.282 9.63-2.282 14.336 0 30.285 25.49 54.068 55.774 54.068 11.784 0 22.1-4.944 31.648-10.053 21.187-11.335 41.049-25.255 41.049-50.046 0-17.507-12.852-33.145-23.779-46.443a1336.4 1336.4 0 01-1.636-1.992c-5.56-6.79-25.248-21.53-42.587-19.58z"
+                fill="#15171A">
+            </path>
+        </svg>
+        More
+    </div>
+
+</nav>

@@ -1,139 +1,107 @@
-#extend("blog/base"):
+#extend("blog/admin/base"):
 #export("head"):
 
-<title>Admin | Blog Admin | SteamPress</title>
-<link rel="stylesheet" href="/static/css/admin.css">
+
 
 #endexport
 <!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
 
 #export("body"):
 
-<div class="sp-outer sp-inner sp-content">
+<main class="gh-main gh-main-wide">
+    <section class="gh-canvas">
+        <div class="gh-dashboard">
 
-    <h1 class="text-center">Blog Admin</h1>
+            <div class="gh-canvas-header sticky">
+                <header class="gh-canvas-header-content">
+                    <h2 class="gh-canvas-title" data-test-screen-title="">
+                        Dashboard
+                    </h2>
+                </header>
+            </div>
 
-    #if(errors):
-    #for(error in errors):
-    <div class="alert alert-danger mt-3" role="alert">
-        <strong>Warning: </strong>#(error)
-    </div>
-    #endfor
-    #endif
-    <p>Welcome to the Blog Admin page</p>
+            <section class="gh-dashboard-layout">
 
-    <div id="blog-admin-posts">
-        <h2>Published Posts</h2>
-        <table class="table table-striped table-hover table-bordered table-responsive d-block">
-            <thead>
-                <tr>
-                    <th>Date Published</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Last Edited</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
+                <section class="gh-dashboard-resource gh-dashboard-whats-new">
 
-                #if(count(publishedPosts) > 0):
-                #for(post in publishedPosts):
-                <tr>
-                    <td>#(post.createdDateNumeric)</td>
-                    <td><a href="/posts/#(post.slugUrl)/">#(post.title)</a></td>
-                    <td>#(post.authorName)</td>
-                    <td>#if(post.lastEdited):#(post.lastEditedDateNumeric)#else:N/A#endif</td>
-                    <td><a class="btn btn-info" href="/admin/posts/#(post.id)/edit/">Edit</a></td>
-                    <td>
-                        <form method="post" action="/admin/posts/#(post.id)/delete/"><input type="submit"
-                                class="btn btn-danger delete-post-button" value="Delete"></form>
-                    </td>
-                </tr>
-                #endfor
-                #else:
-                <tr>
-                    <td colspan="6">There haven't been any posts published yet!</td>
-                </tr>
-                #endif
+                    <article class="gh-dashboard-resource-box">
+                        <div class="gh-dashboard-resource-title">
+                            <h4>
+                                <svg viewBox="0 0 24 24" alt="Gift" class="v-mid">
+                                    <path
+                                        d="M12 21.488H4v-10.75a.75.75 0 00-1.5 0v10.75c0 .914.586 1.5 1.5 1.5h8a.75.75 0 000-1.5z">
+                                    </path>
+                                    <path
+                                        d="M12.25 21.488h8v-10.75a.75.75 0 011.5 0v10.75c0 .914-.586 1.5-1.5 1.5h-8a.75.75 0 010-1.5z">
+                                    </path>
+                                    <path
+                                        d="M2.682 6.238h18.636c1.004 0 1.682.546 1.682 1.5v2.25c0 .954-.678 1.5-1.682 1.5H2.682c-1.004 0-1.682-.546-1.682-1.5v-2.25c0-.954.678-1.5 1.682-1.5zm0 1.5c-.239 0-.182-.046-.182 0v2.25c0 .046-.057 0 .182 0h18.636c.239 0 .182.046.182 0v-2.25c0-.046.057 0-.182 0H2.682z">
+                                    </path>
+                                    <path d="M12.75 22.238V6.988a.75.75 0 00-1.5 0v15.25a.75.75 0 001.5 0z"></path>
+                                    <path
+                                        d="M3.5 17.25h17a.75.75 0 000-1.5h-17a.75.75 0 000 1.5zM7.271 5.457a12.506 12.506 0 004.51 2.255.75.75 0 00.92-.918 12.473 12.473 0 00-2.256-4.511C8.947.777 7.705.657 6.671 1.683c-1.033 1.027-.908 2.273.533 3.714l.067.06zm.458-2.709c.397-.395.702-.366 1.596.528.587.755 1.079 1.6 1.456 2.516a11.002 11.002 0 01-2.549-1.487c-.865-.872-.89-1.173-.503-1.557z">
+                                    </path>
+                                    <path
+                                        d="M16.796 5.397l-.067.06a12.5 12.5 0 01-4.512 2.255.75.75 0 01-.918-.918 12.502 12.502 0 012.315-4.579c1.44-1.438 2.681-1.558 3.715-.531 1.033 1.026.908 2.272-.533 3.713zm-.525-2.649c-.397-.395-.702-.366-1.537.46a11.024 11.024 0 00-1.515 2.584 11.038 11.038 0 002.549-1.487c.865-.872.89-1.173.503-1.557z">
+                                    </path>
+                                </svg>
+                                What's new
+                            </h4>
+                        </div>
 
-            </tbody>
-        </table>
+                        <div class="gh-dashboard-resource-body">
+                            <div class="gh-dashboard-list has-new">
+                                <div class="gh-dashboard-list-body">
+                                    <div class="gh-dashboard-list-item">
+                                        <a href="#/whatsnew/?entry=editor-beta" id="ember185"
+                                            class="ember-view gh-dashboard-list-post">
+                                            <span class="gh-dashboard-list-link">
+                                                <span>The new Markdown editor (beta)</span>
+                                            </span>
+                                            <div class="gh-dashboard-resource-secondary">6 Jun 2023</div>
+                                        </a>
+                                    </div>
+                                    <div class="gh-dashboard-list-item">
+                                        <a href="#/whatsnew/?entry=duplicating-posts" id="ember186"
+                                            class="ember-view gh-dashboard-list-post">
+                                            <span class="gh-dashboard-list-link">
+                                                <span>Duplicating posts</span>
+                                            </span>
+                                            <div class="gh-dashboard-resource-secondary">17 May 2023</div>
+                                        </a>
+                                    </div>
+                                    <div class="gh-dashboard-list-item">
+                                        <a href="#/whatsnew/?entry=bulk-actions" id="ember187"
+                                            class="ember-view gh-dashboard-list-post">
+                                            <span class="gh-dashboard-list-link">
+                                                <span>Bulk actions on posts</span>
+                                            </span>
+                                            <div class="gh-dashboard-resource-secondary">3 May 2023</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-        #if(count(draftPosts) > 0):
-        <h2>Drafts</h2>
-        <table class="table table-striped table-hover table-bordered table-responsive d-block">
-            <thead>
-                <tr>
-                    <th>Last Updated</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                #for(post in draftPosts):
-                <tr>
-                    <td>#(post.createdDateNumeric)</td>
-                    <td><a href="/posts/#(post.slugUrl)/">#(post.title)</a></td>
-                    <td>#(post.authorName)</td>
-                    <td><a class="btn btn-info" href="/admin/posts/#(post.id)/edit/">Edit</a></td>
-                    <td>
-                        <form method="post" action="/admin/posts/#(post.id)/delete/"><input type="submit"
-                                class="btn btn-danger delete-post-button" value="Delete"></form>
-                    </td>
-                </tr>
-                #endfor
+                        <div class="gh-dashboard-resource-footer">
+                            <a href="#/whatsnew/" id="ember178" class="ember-view green">View more features →</a>
+                        </div>
+                    </article>
 
-            </tbody>
-        </table>
-        #endif
+                </section>
 
-        <a class="btn btn-primary" href="/admin/createPost/">Create New Post</a>
-    </div>
-
-    <div id="blog-admin-users" class="mt-4">
-        <h2>Users</h2>
-
-        <table class="table table-striped table-hover table-bordered table-responsive d-block">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Username</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-
-                #for(user in users):
-                <tr>
-                    <td><a href="/authors/#(user.username)/">#(user.name)</a></td>
-                    <td>#(user.username)</td>
-                    <td><a class="btn btn-info" href="/admin/users/#(user.id)/edit/">Edit</a></td>
-                    <td>
-                        <form method="post" action="/admin/users/#(user.id)/delete/"><input type="submit"
-                                class="btn btn-danger delete-user-button" value="Delete"></form>
-                    </td>
-                </tr>
-                #endfor
-
-            </tbody>
-        </table>
-
-        <a class="btn btn-primary" href="/admin/createUser/">Create New User</a>
-
-    </div>
-
-</div>
+            </section>
+            
+        </div>
+    </section>
+</main>
 
 #endexport
 <!-- ---------------------------------------------------------endexport body----------------------------------------------------------------- -->
 
 #export("scripts"):
 
-<script src="/static/js/admin/admin.js"></script>
+
 
 #endexport
 <!-- ---------------------------------------------------------endexport scripts----------------------------------------------------------------- -->

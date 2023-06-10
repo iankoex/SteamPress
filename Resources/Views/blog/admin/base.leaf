@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    #extend("blog/partials/indexHeadContent")
+    #import("head")
+    <link rel="stylesheet" href="/static/css/custom.css">
+</head>
+
+<body class="ember-application">
+
+    <div class="gh-app">
+        <div class="gh-viewport">
+            #extend("blog/admin/adminNavSide")
+
+            #import("body")
+
+            #extend("blog/admin/adminNavBar")
+        </div>
+    </div>
+
+    #extend("blog/partials/indexScripts")
+    #import("scripts")
+
+</body>
+
+</html>
