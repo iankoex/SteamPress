@@ -1,6 +1,13 @@
 <!-- Required meta tags always come first -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="apple-mobile-web-app-title" content="#(site.title)">
+<meta name="application-name" content="#(site.title)">
+<meta name="msapplication-config" content="/static/images/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="HandheldFriendly" content="True">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="generator" content="#(site.generator)">
 
 <link rel="stylesheet" href="/static/css/all.css">
 
@@ -10,13 +17,8 @@
 <link rel="manifest" href="/static/images/manifest.json">
 <link rel="mask-icon" href="/static/images/safari-pinned-tab.svg" color="#346b8c">
 <link rel="shortcut icon" href="/static/images/favicon.ico">
-<meta name="apple-mobile-web-app-title" content="#(site.title)">
-<meta name="application-name" content="#(site.title)">
-<meta name="msapplication-config" content="/static/images/browserconfig.xml">
-<meta name="theme-color" content="#ffffff">
-<meta name="HandheldFriendly" content="True">
 <link rel="canonical" href="#(site.url)">
-<meta name="referrer" content="no-referrer-when-downgrade">
+<link rel="alternate" type="application/rss+xml" title="#(site.title)" href="#(site.url)rss.xml">
 
 <!-- <meta name="google-site-verification" content="xLwsT34cRV7GCtUd1-SjU3FXUVEPxwxFBztJ-CG1mLY"> -->
 <meta name="twitter:widgets:csp" content="on">

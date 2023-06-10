@@ -21,8 +21,7 @@
 #if(site.twitterHandle):
 <meta name="twitter:site" content="@#(site.twitterHandle)">
 #endif
-<meta name="generator" content="#(site.generator)">
-<link rel="alternate" type="application/rss+xml" title="#(site.title)" href="#(site.url)rss.xml">
+
 <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -58,10 +57,10 @@
 
         <a class="sp-shadow post-link post-home" href="/posts/#(post.slugUrl)/">
 
-            #if(post.postImage):
-            <img class="post-image" src="#(post.postImage)" alt="#(post.postImageAlt)" loading="lazy">
+            #if(post.image):
+            <img class="post-image" src="#(post.image)" alt="#(post.imageAlt)" loading="lazy">
             #else:
-            <img class="post-image" src="/static/images/steampress_1.png" alt="#(post.postImageAlt)" loading="lazy">
+            <img class="post-image" src="/static/images/steampress_1.png" alt="#(post.imageAlt)" loading="lazy">
             #endif
 
             <div class="post-container">
