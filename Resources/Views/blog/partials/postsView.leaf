@@ -20,7 +20,7 @@
                     #endfor
                     </h5>
                 </div>
-                #if(website.disqusName):
+                #if(site.disqusName):
                     <a href="/posts/#(post.slugUrl)#disqus_thread" data-disqus-identifier="#(post.id)">0 Comments</a>
                 #endif
             </div>

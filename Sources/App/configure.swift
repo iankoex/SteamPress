@@ -3,6 +3,7 @@ import FluentPostgresDriver
 import Vapor
 import SteamPress
 import Leaf
+import LeafErrorMiddleware
 
 // configures your application
 public func configure(_ app: Application) throws {
@@ -11,6 +12,11 @@ public func configure(_ app: Application) throws {
     app.middleware.use(app.sessions.middleware)
     
     app.views.use(.leaf)
+    let leafErrorMiddleware = LeafErrorMiddleware() { status, error, req async throws -> ErrorContext in
+        ErrorContext(status: status, error: error.localizedDescription)
+    }
+    app.middleware.use(leafErrorMiddleware)
+    
     app.logger.logLevel = .debug
     
     if app.environment == .development {

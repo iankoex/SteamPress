@@ -13,7 +13,7 @@ primary_region = "lhr"
   release_command = "migrate -y"
 
 [env]
-  WEBSITE_URL = "https://steampress.fly.dev"
+  site_URL = "https://steampress.fly.dev"
 
 [http_service]
   internal_port = 8080

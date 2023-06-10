@@ -1,13 +1,10 @@
 #set("head") {
     <title>Home | SteamPress</title>
 
-    <!-- Syntax Highlighting -->
-    <link rel="stylesheet" href="/static/css/prismHighlighting.css">
-
     <meta name="description" content="SteamPress is an open source blogging engine and platform written in Swift and powered by Vapor. It was created by Broken Hands.">
 
     <meta property="og:title" content="SteamPress">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="site">
     <meta property="og:url" content="#(uri)">
     <meta property="og:description" content="SteamPress is an open source blogging engine and platform written in Swift and powered by Vapor. It was created by Broken Hands.">
 
@@ -19,8 +16,8 @@
     <meta property="og:image:height" content="1257">
     <meta name="twitter:image:alt" content="SteamPress - The open source blogging engine for Vapor">
 
-    #if(website.twitterHandle) {
-    <meta name="twitter:site" content="@#(website.twitterHandle)">
+    #if(site.twitterHandle) {
+    <meta name="twitter:site" content="@#(site.twitterHandle)">
     }
 }
 
@@ -97,9 +94,8 @@
 }
 
 #set("scripts") {
-    <script src="/static/js/prismHighlighting.js"></script>
-    #if(website.googleAnalyticsIdentifier) {
-        <div id="google-analytics-data" data-identifier="#(website.googleAnalyticsIdentifier)"></div>
+    #if(site.googleAnalyticsIdentifier) {
+        <div id="google-analytics-data" data-identifier="#(site.googleAnalyticsIdentifier)"></div>
         <script src="/static/js/analytics.js"></script>
     }
 }

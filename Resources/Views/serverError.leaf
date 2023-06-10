@@ -1,24 +1,37 @@
-#set("head") {
-    <title>Error | SteamPress</title>
-}
+#extend("blog/base"):
+#export("head"):
 
-#set("body") {
-    <div class="container">
+<title>Error | SteamPress</title>
 
-        <h1 class="lead-title mt-3 text-center">#(statusMessage)</h1>
+#endexport
+<!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
 
-        <p>The server returned error code #(status) with the message #(statusMessage).</p>
+#export("body"):
 
-        <p>Please try again later or use the menu above to navigate or you may find some of the links below useful:</p>
+<div class="sp-outer sp-inner sp-content">
 
-        <ul>
-            <li><a href="/">Go home</a></li>
-            <li><a href="/blog/">The Blog</a></li>
-            <li><a href="/blog/authors/">The Blog Authors</a></li>
-            <li><a href="/blog/tags/">The Blog Tags</a></li>
-        </ul>
+    <h1 class="lead-title mt-3 text-center">#(statusMessage)</h1>
 
-    </div> <!-- container -->
-}
+    <p>The server returned error code #(status) with the message #(statusMessage).</p>
 
-#embed("base")
+    <p>Please try again later or use the menu above to navigate or you may find some of the links below useful:</p>
+
+    <ul>
+        <li><a href="/">Go home</a></li>
+        <li><a href="/blog/">The Blog</a></li>
+        <li><a href="/blog/authors/">The Blog Authors</a></li>
+        <li><a href="/blog/tags/">The Blog Tags</a></li>
+    </ul>
+
+</div>
+
+#endexport
+<!-- ---------------------------------------------------------endexport body----------------------------------------------------------------- -->
+
+#export("scripts"):
+
+
+
+#endexport
+<!-- ---------------------------------------------------------endexport scripts----------------------------------------------------------------- -->
+#endextend

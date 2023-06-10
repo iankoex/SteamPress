@@ -7,8 +7,8 @@
     content="All of the SteamPress Blog Tags. These are the tags that posts have been written under on the blog.">
 
 <meta property="og:title" content="SteamPress Blog Tags">
-<meta property="og:type" content="website">
-<meta property="og:url" content="#(website.currentPageURL)">
+<meta property="og:type" content="site">
+<meta property="og:url" content="#(site.currentPageURL)">
 <meta property="og:description"
     content="All of the SteamPress Blog Tags. These are the tags that posts have been written under on the blog.">
 <meta property="og:site_name" content="SteamPress">
@@ -18,8 +18,8 @@
 <meta property="og:image:height" content="1257">
 <meta name="twitter:image:alt" content="SteamPress - The open source blogging engine for Vapor">
 
-#if(website.twitterHandle):
-<meta name="twitter:site" content="@#(website.twitterHandle)">
+#if(site.twitterHandle):
+<meta name="twitter:site" content="@#(site.twitterHandle)">
 #endif
 
 #endexport
@@ -63,8 +63,8 @@
 
 #export("scripts"):
 
-#if(website.googleAnalyticsIdentifier):
-<div id="google-analytics-data" data-identifier="#(website.googleAnalyticsIdentifier)"></div>
+#if(site.googleAnalyticsIdentifier):
+<div id="google-analytics-data" data-identifier="#(site.googleAnalyticsIdentifier)"></div>
 <script src="/static/js/analytics.js"></script>
 #endif
 

@@ -18,12 +18,9 @@
 <meta property="og:image:height" content="1257">
 <meta name="twitter:image:alt" content="SteamPress - The open source blogging engine for Vapor">
 
-#if(website.twitterHandle):
-<meta name="twitter:site" content="@#(website.twitterHandle)">
+#if(site.twitterHandle):
+<meta name="twitter:site" content="@#(site.twitterHandle)">
 #endif
-
-<!-- Syntax Highlighting -->
-<link rel="stylesheet" href="/static/css/prismHighlighting.css">
 
 #endexport
 <!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
@@ -49,11 +46,11 @@
 #export("scripts"):
 
 <script src="/static/js/prismHighlighting.js"></script>
-#if(website.disqusName):
-<script id="dsq-count-scr" src="https://#(website.disqusName).disqus.com/count.js" async></script>
+#if(site.disqusName):
+<script id="dsq-count-scr" src="https://#(site.disqusName).disqus.com/count.js" async></script>
 #endif
-#if(website.googleAnalyticsIdentifier):
-<div id="google-analytics-data" data-identifier="#(website.googleAnalyticsIdentifier)"></div>
+#if(site.googleAnalyticsIdentifier):
+<div id="google-analytics-data" data-identifier="#(site.googleAnalyticsIdentifier)"></div>
 <script src="/static/js/analytics.js"></script>
 #endif
 

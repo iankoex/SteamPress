@@ -1,28 +1,53 @@
 #extend("blog/base"):
 #export("head"):
 
-<title>Blog | SteamPress</title>
-<!-- Syntax Highlighting -->
-<!-- <link rel="stylesheet" href="/static/css/prismHighlighting.css"> -->
-<link rel="stylesheet" href="/static/css/all.css">
+<title>#(site.title)</title>
 
-<meta name="description"
-    content="The SteamPress Blog. SteamPress is an Open Source Blogging Engine and Platform written in Swift powered by Vapor.">
-<meta property="og:title" content="The SteamPress Blog">
-<meta property="og:type" content="website">
-<meta property="og:url" content="#(uri)">
-<meta property="og:description"
-    content="The SteamPress Blog. SteamPress is an Open Source Blogging Engine and Platform written in Swift powered by Vapor.">
-<meta name="twitter:card" content="summary_large_image">
-<meta property="og:image" content="https://www.steampress.io/static/images/steampress-og-image_1.jpg">
+<meta name="description" content="#(site.description)">
+<meta property="og:title" content="#(site.title)">
+<meta property="og:site_name" content="#(site.title)">
+<meta property="og:type" content="site">
+<meta property="og:url" content="#(site.url)">
+<meta property="og:description" content="#(site.description)">
+<meta property="og:image" content="#(site.image)">
 <meta property="og:image:width" content="2400">
 <meta property="og:image:height" content="1257">
-<meta name="twitter:image:alt" content="SteamPress - The open source blogging engine for Vapor">
-<meta property="og:site_name" content="SteamPress">
-
-#if(website.twitterHandle):
-<meta name="twitter:site" content="@#(website.twitterHandle)">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="#(site.title)">
+<meta name="twitter:title" content="#(site.title)">
+<meta name="twitter:description" content="#(site.description)">
+<meta name="twitter:url" content="#(site.url)">
+<meta name="twitter:image" content="#(site.image)">
+#if(site.twitterHandle):
+<meta name="twitter:site" content="@#(site.twitterHandle)">
 #endif
+<meta name="generator" content="#(site.generator)">
+<link rel="alternate" type="application/rss+xml" title="#(site.title)" href="#(site.url)rss.xml">
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "publisher": {
+            "@type": "Organization",
+            "name": "#(site.title)",
+            "url": "#(site.url)",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "#(site.image)"
+            }
+        },
+        "url": "#(site.url)",
+        "image": {
+            "@type": "ImageObject",
+            "url": "#(site.image)",
+            "width": 1670,
+            "height": 1034
+        },
+        "mainEntityOfPage": "#(site.url)",
+        "description": "#(site.description)"
+    }
+</script>
+
 #endexport
 <!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
 
@@ -38,13 +63,13 @@
             #else:
             <img class="post-image" src="/static/images/steampress_1.png" alt="#(post.postImageAlt)" loading="lazy">
             #endif
-            
+
             <div class="post-container">
                 <div class="post-wrapper">
                     <header>
                         <span class="post-tag">tagname</span>
                         <!-- #for(tag in tags): -->
-                        
+
                         <!-- <span class="post-tag">#(tag.name)</span> -->
                         <!-- #endfor -->
                         <h2 class="post-title">
@@ -52,15 +77,15 @@
                         </h2>
                         <span> </span>
                     </header>
-    
+
                     <div class="post-excerpt">
                         #(post.description)
                     </div>
                 </div>
-    
+
                 <footer class="post-footer">
                     <span class="post-more">Read More</span>
-    
+
                     <div class="post-author">
                         <span class="post-author-link">
                             <img class="post-author-image" src="/static/images/favicon.ico" alt="#(post.author)"

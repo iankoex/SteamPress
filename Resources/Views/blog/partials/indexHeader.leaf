@@ -2,11 +2,11 @@
     <div class="sp-head">
         <div class="sp-outer sp-inner">
             <input type="checkbox" id="sp-head-check">
-            <a class="sp-head-brand" href="#(website.url)">
-                #if(website.logo):
-                <img class="sp-head-logo" src="#(website.logo)" alt="">
+            <a class="sp-head-brand" href="#(site.url)">
+                #if(site.logo):
+                <img class="sp-head-logo" src="#(site.logo)" alt="">
                 #else:
-                #(website.name)
+                #(site.title)
                 #endif
             </a>
 
@@ -21,14 +21,14 @@
             <div class="sp-head-links">
                 <a href="https://github.com/iankoex" target="_blank">Github</a>
                 <a href="/" class="nav-link">Blog</a>
-                #if(website.loggedInUser):
+                #if(site.loggedInUser):
                 <a href="/admin/" class="#if(blogAdminPage):active#endif">Admin</a>
                 <a class='#if(title=="Create Blog Post"):active#endif"' href="/admin/createPost/">New Post</a>
                 #if(blogPostPage):
                 <a href="/admin/posts/#(post.id)/edit/"> Edit Post</a>
                 #endif
                 #endif
-                #if(website.loggedInUser):
+                #if(site.loggedInUser):
                 <a href="/admin/logout/">Logout</a>
                 #endif
             </div>

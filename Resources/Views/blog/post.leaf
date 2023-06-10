@@ -1,7 +1,7 @@
 #extend("blog/base"):
 #export("head"):
 
-<title>#(post.title) |1 #(website.name)</title>
+<title>#(post.title) |1 #(site.title)</title>
 
 <!-- Syntax Highlighting -->
 <link rel="stylesheet" href="/static/css/prismHighlighting.css">
@@ -9,7 +9,7 @@
 <meta name="description" content="#(post.description)">
 
 <meta name="twitter:widgets:csp" content="on">
-<meta property="og:url" content="#(website.currentPageURL)">
+<meta property="og:url" content="#(site.currentPageURL)">
 <meta property="og:title" content="#(post.title)">
 <meta property="og:description" content="#(post.description)">
 <meta property="og:type" content="article">
@@ -18,7 +18,7 @@
 #if(post.lastEditedDateNumeric):
 <meta property="article:modified_time" content="#(post.lastEditedDateNumeric)">
 #endif
-<meta property="article:author" content="#(website.url)blog/authors/#(author.username)/">
+<meta property="article:author" content="#(site.url)blog/authors/#(author.username)/">
 #for(tag in post.tags):
 <meta property="article:tag" content="#(tag.urlEncodedName)">
 #endfor
@@ -34,8 +34,8 @@
 #if(post.postImageAlt):
 <meta name="twitter:image:alt" content="#(post.postImageAlt)">
 #endif
-#if(website.twitterHandle):
-<meta name="twitter:site" content="@#(website.twitterHandle)">
+#if(site.twitterHandle):
+<meta name="twitter:site" content="@#(site.twitterHandle)">
 #endif
 #if(author.twitterHandle):
 <meta name="twitter:creator" content="@#(author.twitterHandle)">
@@ -79,8 +79,8 @@
     </div>
 
     #if(post.published):
-    #if(website.disqusName):
-    <div id="blog-post-data" data-post-identifier="#(post.id)" data-disqus-name="#(website.disqusName)">
+    #if(site.disqusName):
+    <div id="blog-post-data" data-post-identifier="#(post.id)" data-disqus-name="#(site.disqusName)">
     </div>
     <div id="disqus_thread" class="text-center col-md-10 ml-auto mr-auto"></div>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
@@ -100,11 +100,11 @@
 
 <script src="/static/js/posts.js"></script>
 
-#if(website.disqusName):
+#if(site.disqusName):
 <script src="/static/js/disqus.js"></script>
 #endif
-#if(website.googleAnalyticsIdentifier):
-<div id="google-analytics-data" data-identifier="#(website.googleAnalyticsIdentifier)"></div>
+#if(site.googleAnalyticsIdentifier):
+<div id="google-analytics-data" data-identifier="#(site.googleAnalyticsIdentifier)"></div>
 <script src="/static/js/analytics.js"></script>
 #endif
 

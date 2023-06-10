@@ -7,8 +7,8 @@
     content="#(author.name)'s Author Page on the Steam Press Blog. All of the posts by #(author.name)">
 
 <meta property="og:title" content="#(author.name)'s Profile">
-<meta property="og:type" content="website">
-<meta property="og:url" content="#(website.currentPageURL)">
+<meta property="og:type" content="site">
+<meta property="og:url" content="#(site.currentPageURL)">
 <meta property="og:description"
     content="#(author.name)'s Author Page on the Steam Press Blog. All of the posts by #(author.name)">
 <meta property="og:site_name" content="SteamPress">
@@ -24,16 +24,13 @@
 <meta name="twitter:image:alt" content="SteamPress - The open source blogging engine for Vapor">
 #endif
 
-#if(website.twitterHandle):
-<meta name="twitter:site" content="@#(website.twitterHandle)">
+#if(site.twitterHandle):
+<meta name="twitter:site" content="@#(site.twitterHandle)">
 #endif
 
 #if(author.twitterHandle):
 <meta name="twitter:creator" content="@#(author.twitterHandle)">
 #endif
-
-<!-- Syntax Highlighting -->
-<link rel="stylesheet" href="/static/css/prismHighlighting.css">
 
 #endexport
 <!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
@@ -69,7 +66,7 @@
                     class="text-muted">Biography</span><br>#(author.biography)</div>
             #endif
 
-            #if(website.loggedInUser):
+            #if(site.loggedInUser):
             <a class="btn btn-primary mt-3" href="/blog/admin/users/#(author.id)/edit/">Edit Profile</a>
             #endif
 
@@ -98,11 +95,11 @@
 #export("scripts"):
 
 <script src="/static/js/prismHighlighting.js"></script>
-#if(website.disqusName):
-<script id="dsq-count-scr" src="https://#(website.disqusName).disqus.com/count.js" async></script>
+#if(site.disqusName):
+<script id="dsq-count-scr" src="https://#(site.disqusName).disqus.com/count.js" async></script>
 #endif
-#if(website.googleAnalyticsIdentifier):
-<div id="google-analytics-data" data-identifier="#(website.googleAnalyticsIdentifier)"></div>
+#if(site.googleAnalyticsIdentifier):
+<div id="google-analytics-data" data-identifier="#(site.googleAnalyticsIdentifier)"></div>
 <script src="/static/js/analytics.js"></script>
 #endif
 
