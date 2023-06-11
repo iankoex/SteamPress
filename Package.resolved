@@ -55,6 +55,15 @@
       }
     },
     {
+      "identity" : "fluent-mysql-driver",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vapor/fluent-mysql-driver.git",
+      "state" : {
+        "revision" : "829ae8fce0798d8edbed6167419db8774d9fcb8d",
+        "version" : "4.3.0"
+      }
+    },
+    {
       "identity" : "fluent-postgres-driver",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/fluent-postgres-driver.git",
@@ -106,6 +115,24 @@
       "state" : {
         "revision" : "1adfd69df2da08f7931d4281b257475e32c96734",
         "version" : "4.5.4"
+      }
+    },
+    {
+      "identity" : "mysql-kit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vapor/mysql-kit.git",
+      "state" : {
+        "revision" : "d944fb3289b8341ffbdf157c504db1f494e36ed0",
+        "version" : "4.7.0"
+      }
+    },
+    {
+      "identity" : "mysql-nio",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vapor/mysql-nio.git",
+      "state" : {
+        "revision" : "4d2aa3800ec47856a888bcb7a30034087e70b788",
+        "version" : "1.7.0"
       }
     },
     {

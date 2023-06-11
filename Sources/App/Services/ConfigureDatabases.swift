@@ -1,13 +1,25 @@
 import Vapor
 import Fluent
 import FluentPostgresDriver
+import FluentSQL
+import SteamPressCore
 
 extension Services {
     static func configureDatabases(_ app: Application) throws {
+        guard let dbClient = Environment.get("DATABASE_CLIENT") else {
+            throw SteamPressError(identifier: "SteamPressError", "DATABASE_CLIENT not set. Options: `psql`, `mysql`")
+        }
+        if dbClient == "psql" {
+            try configurePostgres(app)
+        } else if dbClient == "mysql" {
+            try configureMySQL(app)
+        } else {
+            throw SteamPressError(identifier: "SteamPressError", "DATABASE_CLIENT not set. Options: `psql`, `mysql`")
+        }
+    }
+    
+    fileprivate  static func configurePostgres(_ app: Application) throws {
         if app.environment == .development {
-            //        if let databaseURL = Environment.get("DATABASE_URL_DEV"), let postgresConfig = PostgresConfiguration(url: databaseURL) {
-            //            app.databases.use(.postgres(configuration: postgresConfig), as: .psql)
-            //        }
             app.databases.use(.postgres(
                 hostname: Environment.get("DATABASE_HOST") ?? "localhost",
                 port: 5432,
@@ -16,9 +28,17 @@ extension Services {
                 database: Environment.get("DATABASE_NAME") ?? "vapor_database"
             ), as: .psql)
         } else if app.environment == .production {
-            if let databaseURL = Environment.get("DATABASE_URL"), let postgresConfig = PostgresConfiguration(url: databaseURL) {
-                app.databases.use(.postgres(configuration: postgresConfig), as: .psql)
+            if let databaseURL = Environment.get("DATABASE_URL") {
+                try app.databases.use(.postgres(url: databaseURL), as: .psql)
             }
+        }
+    }
+    
+    fileprivate  static func configureMySQL(_ app: Application) throws {
+        if app.environment == .development {
+            
+        } else if app.environment == .production {
+           
         }
     }
 }
