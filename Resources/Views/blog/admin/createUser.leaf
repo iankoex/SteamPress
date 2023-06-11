@@ -24,7 +24,7 @@
     #endfor
     #endif
 
-    <form action="#if(editing):/blog/admin/users/#(id)/edit/#else:/blog/admin/createUser/#endif" id="create-user-form"
+    <form action="#if(editing):/blog/steampress/users/#(id)/edit/#else:/blog/steampress/createUser/#endif" id="create-user-form"
         method="post">
         <div class="form-group" id="create-user-name-group">
             <label class="form-control-label" for="name">Name *</label>
@@ -112,7 +112,7 @@
         <div class="form-group mt-3">
             <button type="Submit" class="btn btn-primary">#if(editing):Save#else:Create User#endif</button>
             #if(editing):
-            <a href="/admin/" class="btn btn-secondary" id="cancel-edit-button">Cancel</a>
+            <a href="/steampress/" class="btn btn-secondary" id="cancel-edit-button">Cancel</a>
             #endif
             <small class="text-muted ml-4">
                 * Required Field
@@ -146,7 +146,7 @@
 
 #export("scripts"):
 
-<script src="/static/js/admin/createUser.js"></script>
+<script src="/static/js/steampress/createUser.js"></script>
 
 #endexport
 <!-- ---------------------------------------------------------endexport scripts----------------------------------------------------------------- -->

@@ -44,9 +44,9 @@
                     <td><a href="/posts/#(post.slugUrl)/">#(post.title)</a></td>
                     <td>#(post.authorName)</td>
                     <td>#if(post.lastEdited):#date(post.lastEditedDate)#else:N/A#endif</td>
-                    <td><a class="btn btn-info" href="/admin/posts/#(post.id)/edit/">Edit</a></td>
+                    <td><a class="btn btn-info" href="/steampress/posts/#(post.id)/edit/">Edit</a></td>
                     <td>
-                        <form method="post" action="/admin/posts/#(post.id)/delete/"><input type="submit"
+                        <form method="post" action="/steampress/posts/#(post.id)/delete/"><input type="submit"
                                 class="btn btn-danger delete-post-button" value="Delete"></form>
                     </td>
                 </tr>
@@ -78,9 +78,9 @@
                     <td>#date(post.createdDate)</td>
                     <td><a href="/posts/#(post.slugUrl)/">#(post.title)</a></td>
                     <td>#(post.authorName)</td>
-                    <td><a class="btn btn-info" href="/admin/posts/#(post.id)/edit/">Edit</a></td>
+                    <td><a class="btn btn-info" href="/steampress/posts/#(post.id)/edit/">Edit</a></td>
                     <td>
-                        <form method="post" action="/admin/posts/#(post.id)/delete/"><input type="submit"
+                        <form method="post" action="/steampress/posts/#(post.id)/delete/"><input type="submit"
                                 class="btn btn-danger delete-post-button" value="Delete"></form>
                     </td>
                 </tr>
@@ -90,7 +90,7 @@
         </table>
         #endif
 
-        <a class="btn btn-primary" href="/admin/createPost/">Create New Post</a>
+        <a class="btn btn-primary" href="/steampress/createPost/">Create New Post</a>
     </div>
 
     <div id="blog-admin-users" class="mt-4">
@@ -111,9 +111,9 @@
                 <tr>
                     <td><a href="/authors/#(user.username)/">#(user.name)</a></td>
                     <td>#(user.username)</td>
-                    <td><a class="btn btn-info" href="/admin/users/#(user.id)/edit/">Edit</a></td>
+                    <td><a class="btn btn-info" href="/steampress/users/#(user.id)/edit/">Edit</a></td>
                     <td>
-                        <form method="post" action="/admin/users/#(user.id)/delete/"><input type="submit"
+                        <form method="post" action="/steampress/users/#(user.id)/delete/"><input type="submit"
                                 class="btn btn-danger delete-user-button" value="Delete"></form>
                     </td>
                 </tr>
@@ -122,7 +122,7 @@
             </tbody>
         </table>
 
-        <a class="btn btn-primary" href="/admin/createUser/">Create New User</a>
+        <a class="btn btn-primary" href="/steampress/createUser/">Create New User</a>
 
     </div>
 
@@ -133,7 +133,7 @@
 
 #export("scripts"):
 
-<script src="/static/js/admin/admin.js"></script>
+<script src="/static/js/steampress/admin.js"></script>
 
 #endexport
 <!-- ---------------------------------------------------------endexport scripts----------------------------------------------------------------- -->

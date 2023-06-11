@@ -33,7 +33,7 @@
         #endif
     </div>
 
-    <form class="" action="/admin/#if(editing):posts/#(post.id)/edit/#else:createPost/#endif" method="post" novalidate>
+    <form class="" action="/steampress/#if(editing):posts/#(post.id)/edit/#else:createPost/#endif" method="post" novalidate>
         <div class="sp-outer sp-inner">
             #if(editing):
             <div role="alert">
@@ -68,7 +68,7 @@
                 <button type="Submit" class="primary-btn" name="publish"
                     value="true">#if(editing):#if(draft):Publish#else:Update#endif#else:Publish#endif</button>
                 #if(editing):
-                <a href="/admin/" class="secondary-btn">Cancel</a>
+                <a href="/steampress/" class="secondary-btn">Cancel</a>
                 #endif
             </div>
 
@@ -106,7 +106,7 @@
 <!-- ---------------------------------------------------------endexport body----------------------------------------------------------------- -->
 
 #export("scripts"):
-<script src="/static/js/admin/punycode.js"></script>
+<script src="/static/js/steampress/punycode.js"></script>
 <script src="/static/js/admin/createPost.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/editormd.min.js"
     integrity="sha256-vRXAjvL0qQrgyb+3Bibhmqja5c76k4iiN27J/ztKU28=" crossorigin="anonymous"></script>

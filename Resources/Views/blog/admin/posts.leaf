@@ -15,13 +15,13 @@
 
                 <div class="flex flex-column">
                     <h2 class="gh-canvas-title" data-test-screen-title="">
-                        <a href="/admin/posts/" id="ember235" class="active ember-view">Posts</a>
+                        <a href="/steampress/posts/" id="ember235" class="active ember-view">Posts</a>
                     </h2>
                 </div>
 
                 <section class="view-actions">
                     <div class="view-actions-top-row">
-                        <a href="/admin/createPost/" id="ember246" class="ember-view gh-btn gh-btn-primary"
+                        <a href="/steampress/createPost/" id="ember246" class="ember-view gh-btn gh-btn-primary"
                             data-test-new-post-button=""><span>New post</span></a>
                     </div>
                 </section>
@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="gh-dashboard-resource-footer">
-                            <a href="/admin/createPost/" id="ember178" class="ember-view green">Create a Post →</a>
+                            <a href="/steampress/createPost/" id="ember178" class="ember-view green">Create a Post →</a>
                         </div>
                     </article>
 
@@ -51,7 +51,7 @@
                 #for(post in posts):
                 <div role="menuitem" class="gh-posts-list-item-group">
                     <li class="gh-list-row gh-posts-list-item gh-post-list-plain-status">
-                        <a href="/admin/posts/#(post.id)/edit/" id="ember247"
+                        <a href="/steampress/posts/#(post.id)/edit/" id="ember247"
                             class="ember-view permalink gh-list-data gh-post-list-title">
                             <h3 class="gh-content-entry-title">#(post.title)</h3>
                             <p class="gh-content-entry-meta">
@@ -79,14 +79,14 @@
                             #endif
                         </a>
 
-                        <a href="/admin/posts/#(post.id)/edit/" id="ember248" class="ember-view permalink gh-list-data">
+                        <a href="/steampress/posts/#(post.id)/edit/" id="ember248" class="ember-view permalink gh-list-data">
                         </a>
 
                         <a href="#/editor/post/6471fd8fba9e5e0211efd519/" id="ember249"
                             class="ember-view permalink gh-list-data">
                         </a>
 
-                        <a title="" href="/admin/posts/#(post.id)/edit/" id="ember250"
+                        <a title="" href="/steampress/posts/#(post.id)/edit/" id="ember250"
                             class="ember-view permalink gh-list-data gh-post-list-button">
                             <span class="gh-post-list-cta edit " title="Go to Editor" data-ignore-select="">
                                 <svg viewBox="0 0 24 24" fill="none" aria-labelledby="ember251">

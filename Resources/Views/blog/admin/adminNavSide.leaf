@@ -16,7 +16,7 @@
                 <ul class="gh-nav-list gh-nav-main">
 
                     <li class="relative">
-                        <a title="Dashboard" href="/admin/" id="ember6" class="ember-view" data-test-nav="dashboard">
+                        <a title="Dashboard" href="/steampress/" id="ember6" class="ember-view" data-test-nav="dashboard">
                             <svg viewBox="0 0 24 24">
                                 <path
                                     d="M22.272 23.247a.981.981 0 00.978-.978V9.747a1.181 1.181 0 00-.377-.8L12 .747l-10.873 8.2a1.181 1.181 0 00-.377.8v12.522a.981.981 0 00.978.978z"
@@ -29,7 +29,7 @@
                     </li>
 
                     <li class="relative">
-                        <a title="SteamPress Explore" href="/admin/explore/" id="ember9" class="ember-view"
+                        <a title="SteamPress Explore" href="/steampress/explore/" id="ember9" class="ember-view"
                             data-test-nav="explore"><svg viewBox="0.25 0.25 23.5 23.5">
                                 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                                     <circle cx="12" cy="12" r="11.25"></circle>
@@ -45,7 +45,7 @@
                 </ul>
                 <ul class="gh-nav-list gh-nav-manage">
                     <li class="gh-nav-list-new relative">
-                        <a href="/admin/posts/" id="ember10" class="ember-view" data-test-nav="posts">
+                        <a href="/steampress/posts/" id="ember10" class="ember-view" data-test-nav="posts">
                             <svg viewBox="0 0 24 24">
                                 <defs>
                                     <style>
@@ -66,7 +66,7 @@
                                 </path>
                             </svg>Posts
                         </a>
-                        <a title="New post" href="/admin/createPost/" id="ember11"
+                        <a title="New post" href="/steampress/createPost/" id="ember11"
                             class="ember-view gh-secondary-action gh-nav-new-post" data-test-nav="new-story">
                             <span>
                                 <svg viewBox="0 0 16 16" fill="none">
@@ -89,21 +89,21 @@
                             <div id="ember15" class="liquid-child ember-view" style="top: 0px; left: 0px;">
                                 <ul class="gh-nav-view-list">
                                     <li>
-                                        <a title="Drafts" href="/admin/posts/?type=draft" id="ember16" class="ember-view"
+                                        <a title="Drafts" href="/steampress/posts/?type=draft" id="ember16" class="ember-view"
                                             data-test-nav-custom="posts-Drafts">
                                             <span class="gh-nav-viewname">Drafts</span>
                                             <span class="flex items-center svg-midgrey"></span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a title="Scheduled" href="/admin/posts/?type=scheduled" id="ember17"
+                                        <a title="Scheduled" href="/steampress/posts/?type=scheduled" id="ember17"
                                             class="ember-view" data-test-nav-custom="posts-Scheduled">
                                             <span class="gh-nav-viewname">Scheduled</span>
                                             <span class="flex items-center svg-midgrey"></span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a title="Published" href="/admin/posts/?type=published" id="ember18"
+                                        <a title="Published" href="/steampress/posts/?type=published" id="ember18"
                                             class="ember-view" data-test-nav-custom="posts-Published">
                                             <span class="gh-nav-viewname">Published</span>
                                             <span class="flex items-center svg-midgray"></span>
@@ -115,7 +115,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="/admin/pages/" id="ember19" class="ember-view" data-test-nav="pages"><svg
+                        <a href="/steampress/pages/" id="ember19" class="ember-view" data-test-nav="pages"><svg
                                 viewBox="0 0 24 24">
                                 <defs>
                                     <style>

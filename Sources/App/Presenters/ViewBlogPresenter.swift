@@ -66,13 +66,6 @@ public struct ViewBlogPresenter: BlogPresenter {
     }
 
     public func tagView(tag: BlogTag, posts: [BlogPost], authors: [BlogUser.Public], totalPosts: Int, site: GlobalWebsiteInformation, paginationTagInfo: PaginationTagInformation) async throws -> View {
-        let tagsForPosts = try posts.reduce(into: [UUID: [BlogTag]]()) { dict, blog in
-            guard let blogID = blog.id else {
-                throw SteamPressError(identifier: "ViewBlogPresenter", "Blog has no ID set")
-            }
-            dict[blogID] = [tag]
-        }
-        
         let viewPosts = try posts.toViewPosts()
         let context = TagPageContext(tag: tag, site: site, posts: viewPosts, postCount: totalPosts, paginationTagInformation: paginationTagInfo)
         return try await viewRenderer.render("blog/tag", context)
