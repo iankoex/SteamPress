@@ -12,7 +12,7 @@ let package = Package(
         .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0"),
         .package(url: "https://github.com/vapor/fluent-postgres-driver.git", exact: "2.6.0"),
 //        .package(url: "https://github.com/iankoex/steampress-core.git", from: "2.0.4"),
-        .package(path: "../SteamPressCore"),
+        .package(path: "../steampress-core"),
         .package(url: "https://github.com/vapor/leaf.git", from: "4.0.0"),
         .package(url: "https://github.com/brokenhandsio/leaf-error-middleware.git", from: "4.1.1")
     ],
@@ -22,7 +22,7 @@ let package = Package(
                 .product(name: "Vapor", package: "vapor"),
                 .product(name: "Fluent", package: "fluent"),
                 .product(name: "FluentPostgresDriver", package: "fluent-postgres-driver"),
-                .product(name: "SteamPressCore", package: "SteamPressCore"),
+                .product(name: "SteamPressCore", package: "steampress-core"),
                 .product(name: "Leaf", package: "leaf"),
                 .product(name: "LeafErrorMiddleware", package: "leaf-error-middleware")
             ]),
