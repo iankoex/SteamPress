@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "SteamPressExample",
+    name: "SteamPress",
     platforms: [
         .macOS(.v12)
     ],
@@ -14,8 +14,7 @@ let package = Package(
 //        .package(url: "https://github.com/iankoex/steampress-core.git", from: "2.0.4"),
         .package(path: "../SteamPressCore"),
         .package(url: "https://github.com/vapor/leaf.git", from: "4.0.0"),
-        .package(url: "https://github.com/brokenhandsio/leaf-error-middleware.git", from: "4.1.1"),
-        .package(url: "https://github.com/brokenhandsio/VaporSecurityHeaders.git", from: "4.1.0")
+        .package(url: "https://github.com/brokenhandsio/leaf-error-middleware.git", from: "4.1.1")
     ],
     targets: [
         .target(name: "App",
@@ -25,8 +24,7 @@ let package = Package(
                 .product(name: "FluentPostgresDriver", package: "fluent-postgres-driver"),
                 .product(name: "SteamPressCore", package: "SteamPressCore"),
                 .product(name: "Leaf", package: "leaf"),
-                .product(name: "LeafErrorMiddleware", package: "leaf-error-middleware"),
-                .product(name: "VaporSecurityHeaders", package: "VaporSecurityHeaders")
+                .product(name: "LeafErrorMiddleware", package: "leaf-error-middleware")
             ]),
         .executableTarget(name: "Run", dependencies: [.target(name: "App")]),
         .testTarget(name: "AppTests", dependencies: ["App"])

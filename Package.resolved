@@ -280,15 +280,6 @@
       }
     },
     {
-      "identity" : "vaporsecurityheaders",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/brokenhandsio/VaporSecurityHeaders.git",
-      "state" : {
-        "revision" : "e1369d2738e75590e68beafcc45f92e4fc2840eb",
-        "version" : "4.1.0"
-      }
-    },
-    {
       "identity" : "websocket-kit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/websocket-kit.git",
