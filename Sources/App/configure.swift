@@ -47,6 +47,10 @@ public func configure(_ app: Application) throws {
     let steamPressLifecycle = SteamPressLifecycleHandler(configuration: steamPressConfig)
     app.lifecycle.use(steamPressLifecycle)
     
+    app.steampress.application.presenters.register(.admin) { req in
+        ViewBlogAdminPresenter(req)
+    }
+    
     // register routes
     try routes(app)
 }
