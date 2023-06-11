@@ -7,14 +7,14 @@ import SteamPressCore
 extension Services {
     static func configureDatabases(_ app: Application) throws {
         guard let dbClient = Environment.get("DATABASE_CLIENT") else {
-            throw SteamPressError(identifier: "SteamPressError", "DATABASE_CLIENT not set. Options: `psql`, `mysql`")
+            throw SteamPressError(identifier: "SteamPressError", "DATABASE_CLIENT not set. Options: `psql` or `mysql`")
         }
         if dbClient == "psql" {
             try configurePostgres(app)
         } else if dbClient == "mysql" {
             try configureMySQL(app)
         } else {
-            throw SteamPressError(identifier: "SteamPressError", "DATABASE_CLIENT not set. Options: `psql`, `mysql`")
+            throw SteamPressError(identifier: "SteamPressError", "Unknown value provided for DATABASE_CLIENT. Options: `psql` or `mysql`")
         }
     }
     
@@ -35,10 +35,6 @@ extension Services {
     }
     
     fileprivate  static func configureMySQL(_ app: Application) throws {
-        if app.environment == .development {
-            
-        } else if app.environment == .production {
-           
-        }
+        throw SteamPressError(identifier: "SteamPressError", "`mysql` database not currently supported. Use `psql` for now.")
     }
 }
