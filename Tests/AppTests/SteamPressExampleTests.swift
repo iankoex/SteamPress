@@ -1,7 +1,7 @@
 import XCTest
 @testable import App
 import Vapor
-import SteamPress
+import SteamPressCore
 
 class SteamPressExampleTests: XCTestCase {
 

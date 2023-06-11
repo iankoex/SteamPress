@@ -1,4 +1,4 @@
-import SteamPress
+import SteamPressCore
 
 struct SearchPageContext: Encodable {
     let searchTerm: String?

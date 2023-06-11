@@ -1,4 +1,4 @@
-import SteamPress
+import SteamPressCore
 
 struct BlogIndexPageContext: Encodable {
     let posts: [ViewBlogPost]

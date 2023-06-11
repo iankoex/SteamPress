@@ -1,4 +1,4 @@
-import SteamPress
+import SteamPressCore
 
 struct TagPageContext: Encodable {
     let tag: BlogTag

@@ -1,4 +1,4 @@
-import SteamPress
+import SteamPressCore
 
 public struct LoginPageContext: Encodable {
     public let errors: [String]?

@@ -1,4 +1,4 @@
-import SteamPress
+import SteamPressCore
 
 struct AllTagsPageContext: Encodable {
     let title: String

@@ -1,4 +1,4 @@
-import SteamPress
+import SteamPressCore
 
 struct AdminPageContext: Encodable {
     let errors: [String]?

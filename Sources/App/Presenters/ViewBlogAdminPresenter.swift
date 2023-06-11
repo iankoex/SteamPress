@@ -1,5 +1,5 @@
 import Vapor
-import SteamPress
+import SteamPressCore
 
 public struct ViewBlogAdminPresenter: BlogAdminPresenter {
     

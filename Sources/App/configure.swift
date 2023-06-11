@@ -1,5 +1,5 @@
 import Vapor
-import SteamPress
+import SteamPressCore
 import Leaf
 import LeafErrorMiddleware
 

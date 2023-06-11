@@ -1,4 +1,4 @@
-import SteamPress
+import SteamPressCore
 
 struct AllAuthorsPageContext: Encodable {
     let site: GlobalWebsiteInformation

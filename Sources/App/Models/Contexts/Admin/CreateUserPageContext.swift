@@ -1,5 +1,5 @@
 import Vapor
-import SteamPress
+import SteamPressCore
 
 struct CreateUserPageContext: Encodable {
     let title = "Create User"

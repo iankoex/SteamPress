@@ -1,4 +1,4 @@
-import SteamPress
+import SteamPressCore
 
 struct ResetPasswordPageContext: Encodable {
     let errors: [String]?

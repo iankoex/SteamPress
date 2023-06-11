@@ -1,4 +1,4 @@
-import SteamPress
+import SteamPressCore
 
 struct BlogPostPageContext: Encodable {
     let title: String

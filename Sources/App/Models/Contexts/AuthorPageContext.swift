@@ -1,4 +1,4 @@
-import SteamPress
+import SteamPressCore
 
 struct AuthorPageContext: Encodable {
     let author: BlogUser.Public

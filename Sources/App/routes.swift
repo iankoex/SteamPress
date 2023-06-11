@@ -1,5 +1,5 @@
 import Vapor
-import SteamPress
+import SteamPressCore
 
 /// Register your application's routes here.
 public func routes(_ app: Application) throws {
