@@ -84,4 +84,9 @@ public struct ViewBlogAdminPresenter: BlogAdminPresenter {
         let context = LoginPageContext(errors: errors, loginWarning: loginWarning, email: email, usernameError: usernameError, passwordError: passwordError, rememberMe: rememberMe, requireName: requireName, site: site)
         return try await viewRenderer.render("blog/admin/login", context)
     }
+    
+    public func createMembersView(users: [BlogUser.Public], usersCount: Int, site: GlobalWebsiteInformation) async throws -> View {
+        let context = AdminPageContext(usersCount: usersCount, users: users, site: site)
+        return try await viewRenderer.render("blog/admin/members", context)
+    }
 }

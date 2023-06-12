@@ -149,7 +149,7 @@
                     </li>
 
                     <li class="relative">
-                        <a href="#/members/" id="ember21" class="ember-view" data-test-nav="members"><svg
+                        <a href="/steampress/members/" id="ember21" class="ember-view" data-test-nav="members"><svg
                                 id="members_svg__Regular" viewBox="0 0 24 24">
                                 <defs>
                                     <style>

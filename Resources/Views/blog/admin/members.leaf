@@ -1,0 +1,91 @@
+#extend("blog/admin/base"):
+#export("head"):
+
+
+
+#endexport
+<!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
+
+#export("body"):
+
+<main class="gh-main">
+    <section class="gh-canvas">
+        <div class="gh-canvas-header break tablet members-header">
+            <header class="gh-canvas-header-content">
+                <div class="flex flex-column">
+                    <h2 class="gh-canvas-title">Members</h2>
+                </div>
+                <section>
+                    <div>
+                        <a href="/steampress/members/new/" class="gh-btn gh-btn-primary">
+                            <span>New member</span>
+                            <span class="gh-btn-text-hide-for-mobile">New</span>
+                        </a>
+                    </div>
+                </section>
+            </header>
+        </div>
+
+        <section class="view-container members-list-container-stretch">
+            <div class="gh-list-scrolling gh-list-with-helpsection">
+                <table class="gh-list">
+                    <thead>
+                        <tr>
+                            <th>#(usersCount) members</th>
+                            <th>Type</th>
+                            <th>Created</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        #for(user in users):
+                        <tr>
+                            <td>
+                                <a href="#" class="gh-list-data">
+                                    <div class="flex items-center">
+                                        <figure class="gh-member-gravatar w9 h9 mr3 flex-shrink-0">
+                                            <div class="gh-member-initials flex items-center justify-center br-100 w9 h9 mr3 flex-shrink-0"
+                                                style="background-color: hsl(220, 87%, 27%)">
+                                                <span class="gh-member-avatar-label gh-member-list-avatar">DP</span>
+                                            </div>
+                                            <img class="gh-member-avatar-image" src="#(user.profilePicture)"
+                                                alt="#(user.name)">
+                                        </figure>
+
+                                        <div class="w-80">
+                                            <h3 class="ma0 pa0 gh-members-list-name ">#(user.name)</h3>
+                                            <p class="ma0 pa0 middarkgrey f8 gh-members-list-email"> #(user.email)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="#" class="gh-list-data">
+                                    <span>#uppercased(user.type)</span>
+                                    <div class="midgrey"></div>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="#" class="gh-list-data middarkgrey f8">
+                                    <div>#date(user.createdDate, "yyyy-MM-dd")</div>
+                                    <div class="midlightgrey gh-members-list-subscribed-moment">- days ago</div>
+                                </a>
+                            </td>
+                        </tr>
+                        #endfor
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+</main>
+
+#endexport
+<!-- ---------------------------------------------------------endexport body----------------------------------------------------------------- -->
+
+#export("scripts"):
+
+
+
+#endexport
+<!-- ---------------------------------------------------------endexport scripts----------------------------------------------------------------- -->
+#endextend
