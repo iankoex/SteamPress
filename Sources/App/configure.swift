@@ -30,12 +30,23 @@ public func configure(_ app: Application) throws {
     let steamPressLifecycle = SteamPressLifecycleHandler(configuration: steamPressConfig)
     app.lifecycle.use(steamPressLifecycle)
     
+    // Presenters
     app.steampress.application.presenters.register(.blog) { req in
         ViewBlogPresenter(req)
     }
-    
     app.steampress.application.presenters.register(.admin) { req in
         ViewBlogAdminPresenter(req)
+    }
+    
+    // Repositories
+    app.steampress.application.repositories.register(.blogTag) { req in
+        FluentTagRepository(req)
+    }
+    app.steampress.application.repositories.register(.blogPost) { req in
+        FluentPostRepository(req)
+    }
+    app.steampress.application.repositories.register(.blogUser) { req in
+        FluentUserRepository(req)
     }
     
     // register routes
