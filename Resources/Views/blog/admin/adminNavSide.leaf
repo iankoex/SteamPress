@@ -138,7 +138,7 @@
                             Pages
                         </a>
                     </li>
-                    <li><a href="#/tags/" id="ember20" class="ember-view" data-test-nav="tags"><svg viewBox="0 0 24 24">
+                    <li><a href="/steampress/tags/" id="ember20" class="ember-view" data-test-nav="tags"><svg viewBox="0 0 24 24">
                                 <path
                                     d="M1.061 2.56v6.257a3 3 0 00.878 2.121L13.5 22.5a1.5 1.5 0 002.121 0l6.879-6.88a1.5 1.5 0 000-2.121L10.939 1.938a3 3 0 00-2.121-.878H2.561a1.5 1.5 0 00-1.5 1.5z"
                                     fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"

@@ -20,6 +20,7 @@
     </div>
 
     #extend("blog/partials/indexScripts")
+    <script src="/static/js/admin/admin.js"></script>
     #import("scripts")
 
 </body>

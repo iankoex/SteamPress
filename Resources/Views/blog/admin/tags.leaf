@@ -1,0 +1,104 @@
+#extend("blog/admin/base"):
+#export("head"):
+
+
+
+#endexport
+<!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
+
+#export("body"):
+
+<main class="gh-main">
+    <section class="gh-canvas">
+        <div class="gh-canvas-header sticky">
+            <header class="gh-canvas-header-content">
+
+                <h2 class="gh-canvas-title" data-test-screen-title="">Tags</h2>
+                <section class="view-actions">
+                    <div class="gh-contentfilter gh-btn-group">
+                        <button class="gh-btn gh-btn-group-selected" data-test-tags-nav="public" data-test-active=""
+                            type="button" data-ember-action="" data-ember-action-41="41">
+                            <span>Public tags</span>
+                        </button>
+                        <button class="gh-btn " data-test-tags-nav="internal" type="button" data-ember-action=""
+                            data-ember-action-42="42">
+                            <span>Internal tags</span>
+                        </button>
+                    </div>
+                    <a href="/steampress/tags/new/" id="ember43" class="ember-view gh-btn gh-btn-primary">
+                        <span>New tag</span>
+                    </a>
+                </section>
+
+            </header>
+        </div>
+
+        <section class="view-container content-list">
+            <ol class="tags-list gh-list ">
+                <li class="gh-list-row header">
+                    <div class="gh-list-header gh-list-cellwidth-70">Tag</div>
+                    <div class="gh-list-header gh-list-cellwidth-10">Slug</div>
+                    <div class="gh-list-header gh-list-cellwidth-10">No. of posts</div>
+                    <div class="gh-list-header gh-list-cellwidth-10"></div>
+                </li>
+
+                #for(tag in tags):
+                <li class="gh-list-row gh-tags-list-item" data-test-tag="64300c1be95b8f02100327bb">
+                    <a title="Edit tag" href="/steampress/tags/#(tag.urlEncodedName)/" id="ember45"
+                        class="ember-view gh-list-data gh-tag-list-title gh-list-cellwidth-70">
+                        <h3 class="gh-tag-list-name" data-test-tag-name="">
+                            #capitalized(tag.name)
+                        </h3>
+                    </a>
+
+                    <a title="Edit tag" href="/steampress/tags/#(tag.urlEncodedName)/" id="ember46"
+                        class="ember-view gh-list-data middarkgrey f8 gh-tag-list-slug gh-list-cellwidth-10"
+                        data-test-tag-slug="">
+                        <span title="announcements">#(tag.name)</span>
+                    </a>
+
+                    <a title="List posts tagged with '#(tag.name)'" href="/steampress/posts/?tag=#(tag.urlEncodedName)/" id="ember47"
+                        class="ember-view gh-list-data gh-tag-list-posts-count gh-list-cellwidth-10 f8">
+                        #if(tag.postsCount == 0):
+                        <span class="nowrap">No posts</span>
+                        #endif
+                        #if(tag.postsCount == 1):
+                        <span class="nowrap">#(tag.postsCount) post</span>
+                        #endif
+                        #if(tag.postsCount > 1):
+                        <span class="nowrap">#(tag.postsCount) posts</span>
+                        #endif
+                    </a>
+
+                    <a title="Edit tag" href="#/tags/announcements/" id="ember48"
+                        class="ember-view gh-list-data gh-list-cellwidth-10 gh-list-chevron">
+                        <div class="flex items-center justify-end w-100 h-100">
+                            <span class="nr2">
+                                <svg fill="none" viewBox="0 0 24 26" class="w6 h6 fill-midgrey pa1">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M4.793 1.043a1 1 0 011.414 0l10.72 10.72a1.748 1.748 0 010 2.475l-10.72 10.72a1 1 0 01-1.414-1.415L15.336 13 4.793 2.457a1 1 0 010-1.414z"
+                                        fill="#15171a">
+                                    </path>
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                </li>
+                #endfor
+
+            </ol>
+        </section>
+    </section>
+
+</main>
+
+#endexport
+<!-- ---------------------------------------------------------endexport body----------------------------------------------------------------- -->
+
+#export("scripts"):
+
+
+
+#endexport
+<!-- ---------------------------------------------------------endexport scripts----------------------------------------------------------------- -->
+#endextend

@@ -12,7 +12,7 @@
 
     <h1 class="lead-title mt-3 text-center">#(statusMessage)</h1>
 
-    <p>The server returned error code #(status) with the message #(statusMessage).</p>
+    <p>The server returned error code #(status) with the message #(error).</p>
 
     <p>Please try again later or use the menu above to navigate or you may find some of the links below useful:</p>
 

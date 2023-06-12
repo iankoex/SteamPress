@@ -33,7 +33,7 @@
 
     <div id="tags" class="mt-3 mb-4 card-deck">
 
-        #if(count(tags) > 0):
+        #if(tags):
         #for(tag in tags):
         <div class="col-md-4">
             <div class="blog-tag card text-center mb-3">
@@ -44,12 +44,17 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">#if(tag.postCount == 1):#(tag.postCount) post#eelse:#(tag.postCount)
-                        posts#endif</small>
+                    <small class="text-muted">
+                        #if(tag.postCount == 1):
+                        #(tag.postCount) post
+                        #else:
+                        #(tag.postCount) posts
+                        #endif
+                    </small>
                 </div>
             </div>
         </div>
-        #endFor
+        #endfor
 
         #else:
         <p class="mb-4">There haven't been any tags yet!</p>

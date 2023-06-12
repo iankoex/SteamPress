@@ -3,7 +3,6 @@ import SteamPressCore
 
 public struct ViewBlogAdminPresenter: BlogAdminPresenter {
     
-
     let viewRenderer: ViewRenderer
     
     public init(_ req: Request) {
@@ -14,28 +13,41 @@ public struct ViewBlogAdminPresenter: BlogAdminPresenter {
         return self
     }
     
-//    public func `for`(_ request: Request, pathCreator: BlogPathCreator) -> BlogAdminPresenter {
-//        return ViewBlogAdminPresenter(pathCreator: pathCreator, viewRenderer: request.view)
-//    }
-    
     public func createIndexView(usersCount: Int, errors: [String]?, site: GlobalWebsiteInformation) async throws -> View {
-        let context = AdminPageContext(errors: errors, usersCount: usersCount, posts: nil, site: site)
+        let context = AdminPageContext(errors: errors, usersCount: usersCount, site: site)
         return try await viewRenderer.render("blog/admin/index", context)
     }
     
     public func createExploreView(usersCount: Int, errors: [String]?, site: GlobalWebsiteInformation) async throws -> View {
-        let context = AdminPageContext(errors: errors, usersCount: usersCount, posts: nil, site: site)
+        let context = AdminPageContext(errors: errors, usersCount: usersCount, site: site)
         return try await viewRenderer.render("blog/admin/explore", context)
     }
     
     public func createPagesView(usersCount: Int, errors: [String]?, site: GlobalWebsiteInformation) async throws -> View {
-        let context = AdminPageContext(errors: errors, usersCount: usersCount, posts: nil, site: site)
+        let context = AdminPageContext(errors: errors, usersCount: usersCount, site: site)
         return try await viewRenderer.render("blog/admin/pages", context)
+    }
+    
+    public func createTagsView(tags: [BlogTag], usersCount: Int, site: GlobalWebsiteInformation) async throws -> View {
+        let viewTags = try tags.toViewBlogTag(withPostsCount: true)
+        let context = AdminPageContext(usersCount: usersCount, tags: viewTags, site: site)
+        return try await viewRenderer.render("blog/admin/tags", context)
+    }
+    
+    public func createCreateTagView(usersCount: Int, site: GlobalWebsiteInformation) async throws -> View {
+        let context = AdminPageContext(usersCount: usersCount, site: site)
+        return try await viewRenderer.render("blog/admin/tagView", context)
+    }
+    
+    public func createEditTagView(tag: BlogTag, usersCount: Int, site: GlobalWebsiteInformation) async throws -> View {
+        let viewTag = try tag.toViewBlogTag()
+        let context = AdminPageContext(usersCount: usersCount, tag: viewTag, site: site)
+        return try await viewRenderer.render("blog/admin/tagView", context)
     }
     
     public func createPostsView(posts: [BlogPost], usersCount: Int, site: GlobalWebsiteInformation) async throws -> View {
         let viewPosts = try posts.toViewPosts()
-        let context = AdminPageContext(errors: nil, usersCount: usersCount, posts: viewPosts, site: site)
+        let context = AdminPageContext(usersCount: usersCount, posts: viewPosts, site: site)
         return try await viewRenderer.render("blog/admin/posts", context)
     }
     

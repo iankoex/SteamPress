@@ -1,0 +1,114 @@
+#extend("blog/admin/base"):
+#export("head"):
+
+
+
+#endexport
+<!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
+
+#export("body"):
+
+<main class="gh-main">
+    <section class="gh-canvas">
+        <form class="mb15" action="/steampress/tags/#if(tag):#(tag.urlEncodedName)#else:new#endif" method="post">
+            <div class="gh-canvas-header">
+                <header class="gh-canvas-header-content">
+
+                    <div class="flex flex-column">
+                        <div class="gh-canvas-breadcrumb">
+                            <a href="/steampress/tags/" id="ember61" class="ember-view" data-test-link="tags-back">
+                                Tags
+                            </a>
+                            <svg viewBox="0 0 18 27">
+                                <path d="M2.397 25.426l13.143-11.5-13.143-11.5" stroke-width="3" stroke="#0B0B0A"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </svg>
+                            #if(tag):Update #else: New #endif tag
+                        </div>
+                        <h2 class="gh-canvas-title" data-test-screen-title="">
+                            #if(tag):Update #else: New #endif tag
+                        </h2>
+                    </div>
+
+                    <section class="view-actions">
+                        <button data-test-button="save" id="ember62"
+                            class="gh-btn gh-btn-primary gh-btn-icon ember-view" type="submit">
+                            <span data-test-task-button-state="idle">#if(tag):Update #else: Save #endif</span>
+                        </button>
+                    </section>
+
+                </header>
+            </div>
+
+            <div class="gh-main-section">
+                <div class="flex justify-between items-center">
+                    <h4 class="gh-main-section-header small bn">Details</h4>
+                    <a href="#(site.url)/tags/#if(tag):#(tag.urlEncodedName)#endif" target="_blank" rel="noopener noreferrer" class="gh-view-tag-link">
+                        View tag
+                        <svg fill="none" viewBox="0 0 24 24">
+                            <path clip-rule="evenodd"
+                                d="M22.707 1.293a1 1 0 010 1.414l-11 11a1 1 0 01-1.414-1.414l11-11a1 1 0 011.414 0z">
+                            </path>
+                            <path clip-rule="evenodd"
+                                d="M13 2a1 1 0 011-1h8a1 1 0 011 1v8a1 1 0 11-2 0V3h-7a1 1 0 01-1-1zM1 2a1 1 0 011-1h7a1 1 0 010 2H3v18h18v-6a1 1 0 112 0v7a1 1 0 01-1 1H2a1 1 0 01-1-1V2z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+                <section class="gh-main-section-block">
+                    <div class="gh-main-section-content grey columns-2">
+                        <div>
+                            <div class="gh-tag-settings-multiprop">
+                                <div class="form-group mr2 flex-auto">
+
+                                    <label for="tag-name">Name</label>
+                                    <input class="gh-input" id="tag-name" name="name" data-test-input="tag-name"
+                                        type="text" value="#if(tag):#(tag.name)#endif">
+                                    <span class="error">
+                                        <p class="response" hidden=""></p>
+                                        <p class="response" hidden="" data-test-error="accentColor"></p>
+                                    </span>
+                                    <p class="description">
+                                        Start with # to create internal tags
+                                        <a href="/" target="_blank" rel="noopener noreferrer">Learn more</a>
+                                    </p>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tag-slug">Slug</label>
+                                <p id="tag_urlEncodedName" class="ghost-url-preview description ember-view">#if(tag):#(tag.urlEncodedName)#endif</p>
+                                <p id="tag_slug" class="ghost-url-preview description ember-view">#(site.url)/tag/#if(tag):#(tag.urlEncodedName)#endif</p>
+                                <p class="response" hidden=""></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </form>
+
+        #if(tag):
+        <div>
+            <button id="delete_tag_btn" class="gh-btn gh-btn-red gh-btn-icon">
+                <span>Delete tag</span>
+            </button>
+        </div>
+        #endif
+
+    </section>
+</main>
+
+#endexport
+<!-- ---------------------------------------------------------endexport body----------------------------------------------------------------- -->
+
+#export("scripts"):
+
+
+
+#endexport
+<!-- ---------------------------------------------------------endexport scripts----------------------------------------------------------------- -->
+#endextend
