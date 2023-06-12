@@ -47,6 +47,12 @@ struct FluentUserRepository: BlogUserRepository {
             .first()
     }
     
+    func getUser(email: String) async throws -> BlogUser? {
+        try await BlogUser.query(on: req.db)
+            .filter(\.$email == email)
+            .first()
+    }
+    
     func save(_ user: BlogUser) async throws {
         try await user.save(on: req.db)
     }
@@ -69,8 +75,10 @@ struct FluentUserRepository: BlogUserRepository {
         let admin = BlogUser(
             name: "sp-admin",
             username: "sp-admin",
+            email: "sdf",
             password: hashedPassword,
             resetPasswordRequired: true,
+            type: .administrator,
             profilePicture: nil,
             twitterHandle: nil,
             biography: nil,

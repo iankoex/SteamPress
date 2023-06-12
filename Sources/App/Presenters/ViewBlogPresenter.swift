@@ -76,10 +76,4 @@ public struct ViewBlogPresenter: BlogPresenter {
         let context = SearchPageContext(searchTerm: searchTerm, posts: viewPosts, totalResults: totalResults, site: site, paginationTagInformation: paginationTagInfo)
         return try await viewRenderer.render("blog/search", context)
     }
-
-    public func loginView(loginWarning: Bool, errors: [String]?, username: String?, usernameError: Bool, passwordError: Bool, rememberMe: Bool, site: GlobalWebsiteInformation) async throws -> View {
-        let context = LoginPageContext(errors: errors, loginWarning: loginWarning, username: username, usernameError: usernameError, passwordError: passwordError, rememberMe: rememberMe, site: site)
-        return try await viewRenderer.render("blog/admin/login", context)
-    }
-    
 }

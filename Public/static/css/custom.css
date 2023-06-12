@@ -20042,12 +20042,6 @@ button {
     animation-duration: 0.7s;
 }
 
-@font-face {
-    font-family: Inter;
-    src: url(fonts/Inter-e19174fb2c0e19b1fa67492a07886c75.ttf) format("truetype-variations");
-    font-weight: 100 900;
-}
-
 .darkgrey {
     color: #394047;
 }

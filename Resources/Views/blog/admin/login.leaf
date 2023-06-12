@@ -1,61 +1,71 @@
-#extend("blog/base"):
-#export("head"):
+<!DOCTYPE html>
+<html lang="en">
 
-<title>Login | Blog Admin | SteamPress</title>
-<link rel="stylesheet" href="/static/css/admin.css">
+<head>
+    <title>Login | SteamPress | #(site.title)</title>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+</head>
 
-#endexport
-<!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
+<body>
+    <div class="gh-app">
+        <div class="gh-viewport">
+            <main class="gh-main ">
+                <div class="gh-flow">
+                    <div class="gh-flow-content-wrap">
+                        <section class="gh-flow-content">
+                            <form action="/steampress/#if(requireName):createOwner#else:login#endif/" method="post" class="gh-signin" novalidate="novalidate">
+                                <header>
+                                    <div class="gh-site-icon" style="background-image: url('#(site.logo)')">
+                                    </div>
+                                    <h1>Sign in to #(site.title)</h1>
+                                </header>
+                                #if(requireName):
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <span class="gh-input-icon gh-icon-mail">
+                                        <input id="name" class="gh-input email" placeholder="iankoex"
+                                            name="name" autocapitalize="off" autocorrect="off"
+                                            autocomplete="username" type="text">
+                                    </span>
+                                </div>
+                                #endif
+                                <div class="form-group">
+                                    <label for="email">Email address</label>
+                                    <span class="gh-input-icon gh-icon-mail">
+                                        <input id="email" class="gh-input email" placeholder="iankoex@example.com"
+                                            name="email" autocapitalize="off" autocorrect="off"
+                                            autocomplete="username" type="email">
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <span class="gh-input-icon gh-icon-lock forgotten-wrap">
+                                        <input id="password" class="gh-input password" placeholder="•••••••••••••••"
+                                            name="password" autocomplete="current-password" autocorrect="off"
+                                            type="password">
+                                        <a href="" class="forgotten-link gh-btn gh-btn-link gh-btn-icon" type="button">
+                                            <span>Forgot?</span>
+                                        </a>
+                                    </span>
 
-#export("body"):
+                                </div>
 
-<div class="sp-outer sp-inner sp-content">
+                                <button style="background: #f7931e;"
+                                    class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon" type="submit">
+                                    <span>Sign in →</span>
+                                </button>
 
-    <h2 class="mb-3 text-center">Blog Login</h2>
-
-    #if(errors):
-    #for(error in errors):
-    <div class="alert alert-danger" role="alert">
-        <strong>Error: </strong>#(error)
+                            </form>
+                        </section>
+                    </div>
+                </div>
+            </main>
+        </div>
     </div>
-    #endfor
-    #endif
 
+    <script src="/static/js/admin/admin.js"></script>
 
-    #if(loginWarning):
-    <div class="alert alert-warning" role="alert">
-        <strong>Warning: </strong>You must be logged in to view this page
-    </div>
-    #endif
+</body>
 
-    <form action="/steampress/login/" method="post" id="login-form" class="form-signin">
-        <div class="form-group" id="login-username-group">
-            <label for="username" class="sr-only">Username</label>
-            <input type="text" class="form-control #if(usernameError) {is-invalid}" id="username" name="username"
-                placeholder="Username" value="#(username)" autofocus required>
-        </div>
-        <div class="form-group" id="login-password-group">
-            <label for="password" class="sr-only">Password</label>
-            <input type="password" class="form-control #if(passwordError) {is-invalid}" id="password" name="password"
-                placeholder="Password" required>
-        </div>
-        <div class="form-group checkbox text-center">
-            <label><input type="checkbox" value="true" name="rememberMe" #if(rememberMe){checked}> Remember Me</label>
-        </div>
-
-        <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
-    </form>
-
-</div>
-
-
-#endexport
-<!-- ---------------------------------------------------------endexport body----------------------------------------------------------------- -->
-
-#export("scripts"):
-
-<script src="/static/js/steampress/login.js"></script>
-
-#endexport
-<!-- ---------------------------------------------------------endexport scripts----------------------------------------------------------------- -->
-#endextend
+</html>

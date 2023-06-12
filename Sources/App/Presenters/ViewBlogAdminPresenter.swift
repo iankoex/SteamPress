@@ -79,4 +79,9 @@ public struct ViewBlogAdminPresenter: BlogAdminPresenter {
         let context = ResetPasswordPageContext(errors: errors, passwordError: passwordError, confirmPasswordError: confirmPasswordError, site: site)
         return try await viewRenderer.render("blog/admin/resetPassword", context)
     }
+    
+    public func loginView(loginWarning: Bool, errors: [String]?, email: String?, usernameError: Bool, passwordError: Bool, rememberMe: Bool, requireName: Bool, site: GlobalWebsiteInformation) async throws -> View {
+        let context = LoginPageContext(errors: errors, loginWarning: loginWarning, email: email, usernameError: usernameError, passwordError: passwordError, rememberMe: rememberMe, requireName: requireName, site: site)
+        return try await viewRenderer.render("blog/admin/login", context)
+    }
 }
