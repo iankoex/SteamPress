@@ -31408,7 +31408,7 @@ ul.nostyle li {
 .gh-user-email,
 .gh-user-name {
     display: inline-block;
-    width: 188px;
+    /* width: 188px; */
     padding: 0;
     word-break: break-all;
     line-height: 1;

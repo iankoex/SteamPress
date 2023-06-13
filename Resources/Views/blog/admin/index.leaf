@@ -14,7 +14,7 @@
 
             <div class="gh-canvas-header sticky">
                 <header class="gh-canvas-header-content">
-                    <h2 class="gh-canvas-title" data-test-screen-title="">
+                    <h2 class="gh-canvas-title">
                         Dashboard
                     </h2>
                 </header>
@@ -53,8 +53,7 @@
                             <div class="gh-dashboard-list has-new">
                                 <div class="gh-dashboard-list-body">
                                     <div class="gh-dashboard-list-item">
-                                        <a href="#/whatsnew/?entry=editor-beta" id="ember185"
-                                            class="ember-view gh-dashboard-list-post">
+                                        <a href="#" class="gh-dashboard-list-post">
                                             <span class="gh-dashboard-list-link">
                                                 <span>The new Markdown editor (beta)</span>
                                             </span>
@@ -62,21 +61,11 @@
                                         </a>
                                     </div>
                                     <div class="gh-dashboard-list-item">
-                                        <a href="#/whatsnew/?entry=duplicating-posts" id="ember186"
-                                            class="ember-view gh-dashboard-list-post">
+                                        <a href="#" class="gh-dashboard-list-post">
                                             <span class="gh-dashboard-list-link">
-                                                <span>Duplicating posts</span>
+                                                <span>Introducing SteamPress</span>
                                             </span>
-                                            <div class="gh-dashboard-resource-secondary">17 May 2023</div>
-                                        </a>
-                                    </div>
-                                    <div class="gh-dashboard-list-item">
-                                        <a href="#/whatsnew/?entry=bulk-actions" id="ember187"
-                                            class="ember-view gh-dashboard-list-post">
-                                            <span class="gh-dashboard-list-link">
-                                                <span>Bulk actions on posts</span>
-                                            </span>
-                                            <div class="gh-dashboard-resource-secondary">3 May 2023</div>
+                                            <div class="gh-dashboard-resource-secondary">4 June 2023</div>
                                         </a>
                                     </div>
                                 </div>
@@ -84,14 +73,14 @@
                         </div>
 
                         <div class="gh-dashboard-resource-footer">
-                            <a href="#/whatsnew/" id="ember178" class="ember-view green">View more features →</a>
+                            <a href="#/" class="green">View more features →</a>
                         </div>
                     </article>
 
                 </section>
 
             </section>
-            
+
         </div>
     </section>
 </main>

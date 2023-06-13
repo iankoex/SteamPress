@@ -14,7 +14,7 @@
 
             <div class="gh-canvas-header sticky">
                 <header class="gh-canvas-header-content">
-                    <h2 class="gh-canvas-title" data-test-screen-title="">
+                    <h2 class="gh-canvas-title">
                         Pages
                     </h2>
                 </header>
@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="gh-dashboard-resource-footer">
-                            <a href="/steampress" id="ember178" class="ember-view green">Go to dashboard →</a>
+                            <a href="/steampress" class="green">Go to dashboard →</a>
                         </div>
                     </article>
 

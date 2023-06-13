@@ -7,15 +7,17 @@
     <link rel="stylesheet" href="/static/css/custom.css">
 </head>
 
-<body class="ember-application">
+<body>
 
     <div class="gh-app">
+        #extend("blog/admin/adminErrors")
+        </aside>
         <div class="gh-viewport">
             #extend("blog/admin/adminNavSide")
-
             #import("body")
-
             #extend("blog/admin/adminNavBar")
+            <div id="gh-content-cover" class="content-cover"></div>
+            <p id="site_url" class="hidden">#(site.url)</p>
         </div>
     </div>
 

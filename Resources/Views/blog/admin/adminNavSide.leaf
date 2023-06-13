@@ -1,5 +1,5 @@
 <nav class="gh-nav">
-    <div class="flex flex-column h-100" data-test-nav-menu="main">
+    <div class="flex flex-column h-100">
 
         <header class="gh-nav-menu">
             <div class="gh-nav-menu-details">
@@ -16,7 +16,7 @@
                 <ul class="gh-nav-list gh-nav-main">
 
                     <li class="relative">
-                        <a title="Dashboard" href="/steampress/" id="ember6" class="ember-view" data-test-nav="dashboard">
+                        <a title="Dashboard" href="/steampress/">
                             <svg viewBox="0 0 24 24">
                                 <path
                                     d="M22.272 23.247a.981.981 0 00.978-.978V9.747a1.181 1.181 0 00-.377-.8L12 .747l-10.873 8.2a1.181 1.181 0 00-.377.8v12.522a.981.981 0 00.978.978z"
@@ -29,8 +29,8 @@
                     </li>
 
                     <li class="relative">
-                        <a title="SteamPress Explore" href="/steampress/explore/" id="ember9" class="ember-view"
-                            data-test-nav="explore"><svg viewBox="0.25 0.25 23.5 23.5">
+                        <a title="SteamPress Explore" href="/steampress/explore/">
+                            <svg viewBox="0.25 0.25 23.5 23.5">
                                 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                                     <circle cx="12" cy="12" r="11.25"></circle>
                                     <path
@@ -45,7 +45,7 @@
                 </ul>
                 <ul class="gh-nav-list gh-nav-manage">
                     <li class="gh-nav-list-new relative">
-                        <a href="/steampress/posts/" id="ember10" class="ember-view" data-test-nav="posts">
+                        <a href="/steampress/posts/">
                             <svg viewBox="0 0 24 24">
                                 <defs>
                                     <style>
@@ -66,8 +66,7 @@
                                 </path>
                             </svg>Posts
                         </a>
-                        <a title="New post" href="/steampress/createPost/" id="ember11"
-                            class="ember-view gh-secondary-action gh-nav-new-post" data-test-nav="new-story">
+                        <a title="New post" href="/steampress/createPost/" class="gh-secondary-action gh-nav-new-post">
                             <span>
                                 <svg viewBox="0 0 16 16" fill="none">
                                     <path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="2"
@@ -85,26 +84,23 @@
                                 </path>
                             </svg>
                         </button>
-                        <div id="ember13" class="liquid-container ember-view">
-                            <div id="ember15" class="liquid-child ember-view" style="top: 0px; left: 0px;">
+                        <div class="liquid-container">
+                            <div class="liquid-child" style="top: 0px; left: 0px;">
                                 <ul class="gh-nav-view-list">
                                     <li>
-                                        <a title="Drafts" href="/steampress/posts/?type=draft" id="ember16" class="ember-view"
-                                            data-test-nav-custom="posts-Drafts">
+                                        <a title="Drafts" href="/steampress/posts/?type=draft">
                                             <span class="gh-nav-viewname">Drafts</span>
                                             <span class="flex items-center svg-midgrey"></span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a title="Scheduled" href="/steampress/posts/?type=scheduled" id="ember17"
-                                            class="ember-view" data-test-nav-custom="posts-Scheduled">
+                                        <a title="Scheduled" href="/steampress/posts/?type=scheduled">
                                             <span class="gh-nav-viewname">Scheduled</span>
                                             <span class="flex items-center svg-midgrey"></span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a title="Published" href="/steampress/posts/?type=published" id="ember18"
-                                            class="ember-view" data-test-nav-custom="posts-Published">
+                                        <a title="Published" href="/steampress/posts/?type=published">
                                             <span class="gh-nav-viewname">Published</span>
                                             <span class="flex items-center svg-midgray"></span>
                                         </a>
@@ -115,8 +111,8 @@
                         </div>
                     </li>
                     <li>
-                        <a href="/steampress/pages/" id="ember19" class="ember-view" data-test-nav="pages"><svg
-                                viewBox="0 0 24 24">
+                        <a href="/steampress/pages/">
+                            <svg viewBox="0 0 24 24">
                                 <defs>
                                     <style>
                                         .page_svg__a {
@@ -138,7 +134,8 @@
                             Pages
                         </a>
                     </li>
-                    <li><a href="/steampress/tags/" id="ember20" class="ember-view" data-test-nav="tags"><svg viewBox="0 0 24 24">
+                    <li><a href="/steampress/tags/">
+                            <svg viewBox="0 0 24 24">
                                 <path
                                     d="M1.061 2.56v6.257a3 3 0 00.878 2.121L13.5 22.5a1.5 1.5 0 002.121 0l6.879-6.88a1.5 1.5 0 000-2.121L10.939 1.938a3 3 0 00-2.121-.878H2.561a1.5 1.5 0 00-1.5 1.5z"
                                     fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -149,8 +146,8 @@
                     </li>
 
                     <li class="relative">
-                        <a href="/steampress/members/" id="ember21" class="ember-view" data-test-nav="members"><svg
-                                id="members_svg__Regular" viewBox="0 0 24 24">
+                        <a href="/steampress/members/">
+                            <svg id="members_svg__Regular" viewBox="0 0 24 24">
                                 <defs>
                                     <style>
                                         .members_svg__cls-1 {
@@ -180,40 +177,31 @@
 
             </div>
 
-            <div id="ember22" class="ember-view">
+            <div>
                 <div class="gh-nav-bottom">
                     <div class="flex items-center justify-between">
-                        <div class="pe-all">
 
-                            <div id="ember24" class="ember-view ember-basic-dropdown-trigger outline-0 pointer"
-                                tabindex="0" role="button" data-ebd-id="ember23-trigger"
-                                aria-owns="ember-basic-dropdown-content-ember23"
-                                aria-controls="ember-basic-dropdown-content-ember23" aria-expanded="false"
-                                aria-disabled="false">
-
+                        <div id="admin-user-account" class="pe-all">
+                            <div class="outline-0 pointer" tabindex="0" role="button">
                                 <div class="flex-auto flex items-center">
-                                    <div class="gh-user-avatar relative"
-                                        style="background-image: url(https://cresa.uonbi.org/content/images/2023/03/Atron.jpg);">
-                                        <span class="absolute dib ba b--white br-100 gh-whats-new-badge-account"></span>
+                                    <figure class="gh-member-gravatar w9 h9 mr3 flex-shrink-0">
+                                        <div class="gh-member-initials flex items-center justify-center br-100 w9 h9 mr3 flex-shrink-0"
+                                            style="background-color: hsl(220, 87%, 27%)">
+                                            <span class="gh-member-avatar-label gh-member-list-avatar">pfp</span>
+                                        </div>
+                                        <img class="gh-member-avatar-image" src="#(site.loggedInUser.profilePicture)"
+                                            alt="#(site.loggedInUser.name)">
+                                    </figure>
+                                    <div>
+                                        <h5 class="gh-user-name">#(site.loggedInUser.name)</h5>
                                     </div>
-                                    <svg fill="none" viewBox="0 0 26 24" class="w3 mr1 fill-darkgrey">
-                                        <path clip-rule="evenodd"
-                                            d="M1.043 6.604a1 1 0 011.414 0L13 17.146 23.543 6.604a1 1 0 011.414 1.414l-10.72 10.719a1.75 1.75 0 01-2.474 0L1.042 8.018a1 1 0 010-1.414zm11.78 10.72v-.001zm.355 0v-.001z">
-                                        </path>
-                                    </svg>
                                 </div>
-
                             </div>
-
-
-                            <div id="ember-basic-dropdown-content-ember23"
-                                class="ember-basic-dropdown-content-placeholder" style="display: none;">
-                            </div>
-
                         </div>
+
                         <div class="flex items-center pe-all">
-                            <a href="#/settings/" id="ember25" class="active ember-view gh-nav-bottom-tabicon"
-                                data-test-nav="settings"><svg viewBox="0 0 24 24">
+                            <a href="#/settings/" class="active gh-nav-bottom-tabicon">
+                                <svg viewBox="0 0 24 24">
                                     <defs>
                                         <style>
                                             .settings_svg__a {

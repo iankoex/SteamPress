@@ -1,0 +1,20 @@
+#if(errors):
+<aside class="gh-alerts">
+    <p>errors</p>
+    #for(error in errors):
+    <article class="gh-alert gh-alert-red">
+        <div class="gh-alert-content">
+            #(error)
+        </div>
+        <button id="gh-alert-close" class="gh-alert-close">
+            <svg viewBox="0 0 24 24">
+                <path d="M.75 23.249l22.5-22.5m0 22.5L.75.749" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                </path>
+            </svg>
+            <span class="hidden">Close</span>
+        </button>
+    </article>
+    #endfor
+</aside>
+#endif

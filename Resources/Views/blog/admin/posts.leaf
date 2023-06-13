@@ -14,15 +14,16 @@
             <header class="gh-canvas-header-content">
 
                 <div class="flex flex-column">
-                    <h2 class="gh-canvas-title" data-test-screen-title="">
-                        <a href="/steampress/posts/" id="ember235" class="active ember-view">Posts</a>
+                    <h2 class="gh-canvas-title">
+                        <a href="/steampress/posts/" class="active">Posts</a>
                     </h2>
                 </div>
 
                 <section class="view-actions">
                     <div class="view-actions-top-row">
-                        <a href="/steampress/createPost/" id="ember246" class="ember-view gh-btn gh-btn-primary"
-                            data-test-new-post-button=""><span>New post</span></a>
+                        <a href="/steampress/createPost/" class="gh-btn gh-btn-primary">
+                            <span>New post</span>
+                        </a>
                     </div>
                 </section>
 
@@ -41,7 +42,7 @@
                         </div>
 
                         <div class="gh-dashboard-resource-footer">
-                            <a href="/steampress/createPost/" id="ember178" class="ember-view green">Create a Post →</a>
+                            <a href="/steampress/createPost/" class="green">Create a Post →</a>
                         </div>
                     </article>
 
@@ -79,18 +80,15 @@
                             #endif
                         </a>
 
-                        <a href="/steampress/posts/#(post.id)/edit/" id="ember248" class="ember-view permalink gh-list-data">
-                        </a>
+                        <a href="/steampress/posts/#(post.id)/edit/"></a>
 
-                        <a href="#/editor/post/6471fd8fba9e5e0211efd519/" id="ember249"
-                            class="ember-view permalink gh-list-data">
-                        </a>
+                        <a href="#/editor/post/6471fd8fba9e5e0211efd519/"></a>
 
-                        <a title="" href="/steampress/posts/#(post.id)/edit/" id="ember250"
-                            class="ember-view permalink gh-list-data gh-post-list-button">
-                            <span class="gh-post-list-cta edit " title="Go to Editor" data-ignore-select="">
-                                <svg viewBox="0 0 24 24" fill="none" aria-labelledby="ember251">
-                                    <title id="ember251">Go to Editor</title>
+                        <a title="" href="/steampress/posts/#(post.id)/edit/"
+                            class="permalink gh-list-data gh-post-list-button">
+                            <span class="gh-post-list-cta edit " title="Go to Editor">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <title>Go to Editor</title>
                                     <defs>
                                         <style>
                                             .pen_svg__a {

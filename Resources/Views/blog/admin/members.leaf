@@ -26,7 +26,7 @@
             </header>
         </div>
 
-        <section class="view-container members-list-container-stretch">
+        <section class="view-container">
             <div class="gh-list-scrolling gh-list-with-helpsection">
                 <table class="gh-list">
                     <thead>
@@ -45,7 +45,7 @@
                                         <figure class="gh-member-gravatar w9 h9 mr3 flex-shrink-0">
                                             <div class="gh-member-initials flex items-center justify-center br-100 w9 h9 mr3 flex-shrink-0"
                                                 style="background-color: hsl(220, 87%, 27%)">
-                                                <span class="gh-member-avatar-label gh-member-list-avatar">DP</span>
+                                                <span class="gh-member-avatar-label gh-member-list-avatar">pfp</span>
                                             </div>
                                             <img class="gh-member-avatar-image" src="#(user.profilePicture)"
                                                 alt="#(user.name)">
