@@ -1,0 +1,65 @@
+<nav class="gh-nav">
+    <div class="flex flex-column h-100">
+
+        <div class="settings-menu settings-menu-pane settings-menu-pane-main">
+            <div class="settings-menu-header">
+                <h4>Post settings</h4>
+            </div>
+            <div class="settings-menu-content">
+
+                <section class="gh-post-settings">
+                    <div class="form-group">
+                        <div class="gh-member-newsletter-row">
+                            <div>
+                                <h4 class="gh-member-newsletter-title">Save as Draft</h4>
+                            </div>
+                            <div class="for-switch">
+                                <label class="switch" for="resetPasswordOnLogin">
+                                    <input name="isDraft" id="isDraft" class="ember-checkbox" type="checkbox"
+                                        #if(post):#if(!post.published):checked#endif#endif>
+                                    <span class="input-toggle-component"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tag">Tag</label>
+                        <select id="tag" name="tag" placeholder="Tag">
+                            #for(tag in tags):
+                            <option value="#(tag.name)" selected="selected">#(tag.name)</option>
+                            #endfor
+                        </select>
+                    </div>
+
+                </section>
+
+                #if(post):
+                <div class="settings-menu-delete-button">
+                    <button class="gh-btn gh-btn-outline gh-btn-icon gh-btn-fullwidth" type="button">
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <defs>
+                                    <style>
+                                        .trash_svg__a {
+                                            fill: none;
+                                            stroke: currentColor;
+                                            stroke-linecap: round;
+                                            stroke-linejoin: round;
+                                            stroke-width: 1.5px
+                                        }
+                                    </style>
+                                </defs>
+                                <path class="trash_svg__a"
+                                    d="M17.923 22.308H6.077a1.692 1.692 0 01-1.692-1.693V5.385h15.23v15.23a1.692 1.692 0 01-1.692 1.693zM9.462 17.23v-6.769M14.539 17.23v-6.769M1 5.385h22M14.539 2H9.462a1.692 1.692 0 00-1.693 1.692v1.693h8.462V3.692A1.692 1.692 0 0014.538 2z">
+                                </path>
+                            </svg>
+                            Delete post
+                        </span>
+                    </button>
+                </div>
+                #endif
+
+            </div>
+        </div>
+    </div>
+</nav>

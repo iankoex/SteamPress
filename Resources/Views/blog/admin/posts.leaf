@@ -52,8 +52,7 @@
                 #for(post in posts):
                 <div role="menuitem" class="gh-posts-list-item-group">
                     <li class="gh-list-row gh-posts-list-item gh-post-list-plain-status">
-                        <a href="/steampress/posts/#(post.id)/edit/" id="ember247"
-                            class="ember-view permalink gh-list-data gh-post-list-title">
+                        <a href="/steampress/posts/#(post.id)/" class="permalink gh-list-data gh-post-list-title">
                             <h3 class="gh-content-entry-title">#(post.title)</h3>
                             <p class="gh-content-entry-meta">
                                 <span class="gh-content-entry-author">
@@ -80,11 +79,11 @@
                             #endif
                         </a>
 
-                        <a href="/steampress/posts/#(post.id)/edit/"></a>
+                        <a href="/steampress/posts/#(post.id)/"></a>
 
-                        <a href="#/editor/post/6471fd8fba9e5e0211efd519/"></a>
+                        <a href="#/steampress/posts/#(post.id)/"></a>
 
-                        <a title="" href="/steampress/posts/#(post.id)/edit/"
+                        <a title="" href="/steampress/posts/#(post.id)/"
                             class="permalink gh-list-data gh-post-list-button">
                             <span class="gh-post-list-cta edit " title="Go to Editor">
                                 <svg viewBox="0 0 24 24" fill="none">

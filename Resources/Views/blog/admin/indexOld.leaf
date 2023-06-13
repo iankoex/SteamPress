@@ -1,130 +1,104 @@
 #extend("blog/base"):
 #export("head"):
 
-<title>Admin | Blog Admin | SteamPress</title>
+<title>#if(editing): Edit #else: Create #endif Blog Post | Blog Admin | SteamPress</title>
 <link rel="stylesheet" href="/static/css/admin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/css/editormd.min.css">
 
 #endexport
 <!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
 
 #export("body"):
 
-<div class="sp-outer sp-inner sp-content">
+<div class="sp-content">
 
-    <h1 class="text-center">Blog Admin</h1>
-
-    #if(errors):
-    #for(error in errors):
-    <div class="alert alert-danger mt-3" role="alert">
-        <strong>Warning: </strong>#(error)
-    </div>
-    #endfor
-    #endif
-    <p>Welcome to the Blog Admin page</p>
-
-    <div id="blog-admin-posts">
-        <h2>Published Posts</h2>
-        <table class="table table-striped table-hover table-bordered table-responsive d-block">
-            <thead>
-                <tr>
-                    <th>Date Published</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Last Edited</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-
-                #if(count(publishedPosts) > 0):
-                #for(post in publishedPosts):
-                <tr>
-                    <td>#date(post.createdDate)</td>
-                    <td><a href="/posts/#(post.slugUrl)/">#(post.title)</a></td>
-                    <td>#(post.authorName)</td>
-                    <td>#if(post.lastEdited):#date(post.lastEditedDate)#else:N/A#endif</td>
-                    <td><a class="btn btn-info" href="/steampress/posts/#(post.id)/edit/">Edit</a></td>
-                    <td>
-                        <form method="post" action="/steampress/posts/#(post.id)/delete/"><input type="submit"
-                                class="btn btn-danger delete-post-button" value="Delete"></form>
-                    </td>
-                </tr>
-                #endfor
-                #else:
-                <tr>
-                    <td colspan="6">There haven't been any posts published yet!</td>
-                </tr>
-                #endif
-
-            </tbody>
-        </table>
-
-        #if(count(draftPosts) > 0):
-        <h2>Drafts</h2>
-        <table class="table table-striped table-hover table-bordered table-responsive d-block">
-            <thead>
-                <tr>
-                    <th>Last Updated</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                #for(post in draftPosts):
-                <tr>
-                    <td>#date(post.createdDate)</td>
-                    <td><a href="/posts/#(post.slugUrl)/">#(post.title)</a></td>
-                    <td>#(post.authorName)</td>
-                    <td><a class="btn btn-info" href="/steampress/posts/#(post.id)/edit/">Edit</a></td>
-                    <td>
-                        <form method="post" action="/steampress/posts/#(post.id)/delete/"><input type="submit"
-                                class="btn btn-danger delete-post-button" value="Delete"></form>
-                    </td>
-                </tr>
-                #endfor
-
-            </tbody>
-        </table>
+    <div class="sp-outer sp-inner">
+        #if(editing):
+        <h1>Edit Your Blog Post</h1>
+        #else:
+        <h1>Create A Blog Post</h1>
         #endif
 
-        <a class="btn btn-primary" href="/steampress/createPost/">Create New Post</a>
+        #if(errors):
+        #for(error in errors):
+        <div role="alert">
+            <strong>Warning: </strong>#(error)
+        </div>
+        #endfor
+        #endif
+
+        #if(editing):
+        <div id="edit-post-data" data-editing-page="true" data-published-post="#(post.published)"
+            data-original-slug-url="#(slugURLSupplied)" data-original-title="#(titleSupplied)"></div>
+        #endif
     </div>
 
-    <div id="blog-admin-users" class="mt-4">
-        <h2>Users</h2>
+    <form class="" action="/steampress/#if(editing):posts/#(post.id)/edit/#else:createPost/#endif" method="post" novalidate>
+        <div class="sp-outer sp-inner">
+            #if(editing):
+            <div role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Warning</strong> - editing the title will change the URL of the post - this can cause issues
+                with comment engines and SEO and may break links to your site.
+                <a href="#" class="alert-link" id="keep-original-slug-url-link">Keep original link?</a>
+            </div>
+            #endif
 
-        <table class="table table-striped table-hover table-bordered table-responsive d-block">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Username</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
+            <div>
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" placeholder="Blog Post Title" value="#(titleSupplied)"
+                    autofocus required>
+            </div>
 
-                #for(user in users):
-                <tr>
-                    <td><a href="/authors/#(user.username)/">#(user.name)</a></td>
-                    <td>#(user.username)</td>
-                    <td><a class="btn btn-info" href="/steampress/users/#(user.id)/edit/">Edit</a></td>
-                    <td>
-                        <form method="post" action="/steampress/users/#(user.id)/delete/"><input type="submit"
-                                class="btn btn-danger delete-user-button" value="Delete"></form>
-                    </td>
-                </tr>
-                #endfor
+            #if(editing):
+            <div>
+                <label class="">Status
+                    #if(post.published):
+                    <span>Published</span>
+                    #else:
+                    <span>Draft</span>
+                    #endif
+                </label>
+            </div>
+            #endif
 
-            </tbody>
-        </table>
+            <div class="controls">
+                <button type="Submit" class="primary-btn" name="publish"
+                    value="true">#if(editing):#if(draft):Publish#else:Update#endif#else:Publish#endif</button>
+                #if(editing):
+                <a href="/steampress/" class="secondary-btn">Cancel</a>
+                #endif
+            </div>
 
-        <a class="btn btn-primary" href="/steampress/createUser/">Create New User</a>
+            <div>
+                <label for="tags">Tags</label>
+                <select id="tags" name="tags[]" placeholder="Tags" multiple="multiple">
+                    #for(tag in tagsSupplied):
+                    <option value="#(tag)" selected="selected">#(tag)</option>
+                    #endfor
+                </select>
 
-    </div>
+            </div>
+            <small>
+                Tags can be added to your posts as comma-separated entries.
+                The first Image in the markdown is the post's image
+            </small>
+        </div>
+
+
+        <div class="editor-area">
+            <div id="sp-editormd" class="sp-editormd">
+                <textarea id="contents" name="contents">#(contentsSupplied)</textarea>
+            </div>
+        </div>
+
+
+
+    </form>
+
+
 
 </div>
 
@@ -132,49 +106,10 @@
 <!-- ---------------------------------------------------------endexport body----------------------------------------------------------------- -->
 
 #export("scripts"):
-
-<script src="/static/js/steampress/admin.js"></script>
-
+<script src="/static/js/steampress/punycode.js"></script>
+<script src="/static/js/steampress/createPost.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/editormd.min.js"
+    integrity="sha256-vRXAjvL0qQrgyb+3Bibhmqja5c76k4iiN27J/ztKU28=" crossorigin="anonymous"></script>
 #endexport
 <!-- ---------------------------------------------------------endexport scripts----------------------------------------------------------------- -->
 #endextend
-
-
-<div class="sp-outer sp-inner sp-content">
-
-    <h2 class="mb-3 text-center">Blog Login</h2>
-
-    #if(errors):
-    #for(error in errors):
-    <div class="alert alert-danger" role="alert">
-        <strong>Error: </strong>#(error)
-    </div>
-    #endfor
-    #endif
-
-
-    #if(loginWarning):
-    <div class="alert alert-warning" role="alert">
-        <strong>Warning: </strong>You must be logged in to view this page
-    </div>
-    #endif
-
-    <form action="/steampress/login/" method="post" id="login-form" class="form-signin">
-        <div class="form-group" id="login-username-group">
-            <label for="username" class="sr-only">Username</label>
-            <input type="text" class="form-control #if(usernameError) {is-invalid}" id="username" name="username"
-                placeholder="Username" value="#(username)" autofocus required>
-        </div>
-        <div class="form-group" id="login-password-group">
-            <label for="password" class="sr-only">Password</label>
-            <input type="password" class="form-control #if(passwordError) {is-invalid}" id="password" name="password"
-                placeholder="Password" required>
-        </div>
-        <div class="form-group checkbox text-center">
-            <label><input type="checkbox" value="true" name="rememberMe" #if(rememberMe){checked}> Remember Me</label>
-        </div>
-
-        <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
-    </form>
-
-</div>

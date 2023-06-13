@@ -51,16 +51,10 @@ public struct ViewBlogAdminPresenter: BlogAdminPresenter {
         return try await viewRenderer.render("blog/admin/posts", context)
     }
     
-    public func createPostView(errors: [String]?, title: String?, contents: String?, slugURL: String?, tags: [String], isEditing: Bool, post: BlogPost?, isDraft: Bool?, titleError: Bool, contentsError: Bool, site: GlobalWebsiteInformation) async throws -> View {
-        if isEditing {
-            guard post != nil else {
-                throw SteamPressError(identifier: "ViewBlogAdminPresenter", "Blog Post is empty whilst editing")
-            }
-        }
-        let postPathSuffix = BlogPathCreator.createPath(for: "posts")
-        let postPathPrefix = site.url.appending(postPathSuffix)
-        let pageTitle = isEditing ? "Edit Blog Post" : "Create Blog Post"
-        let context = CreatePostPageContext(title: pageTitle, editing: isEditing, post: post, draft: isDraft ?? false, errors: errors, titleSupplied: title, contentsSupplied: contents, tagsSupplied: tags, slugURLSupplied: slugURL, titleError: titleError, contentsError: contentsError, postPathPrefix: postPathPrefix, site: site)
+    public func createPostView(errors: [String]?, tags: [BlogTag], post: BlogPost?, site: GlobalWebsiteInformation) async throws -> View {
+        let viewPost = try post?.toViewPost()
+        let viewTags = try tags.toViewBlogTag()
+        let context = CreatePostPageContext(post: viewPost, tags: viewTags, errors: errors, site: site)
         return try await viewRenderer.render("blog/admin/createPost", context)
     }
     

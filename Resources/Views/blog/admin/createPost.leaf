@@ -1,115 +1,115 @@
-#extend("blog/base"):
-#export("head"):
+<!DOCTYPE html>
+<html lang="en">
 
-<title>#if(editing): Edit #else: Create #endif Blog Post | Blog Admin | SteamPress</title>
-<link rel="stylesheet" href="/static/css/admin.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/css/editormd.min.css">
+<head>
+    <title>Login | SteamPress | #(site.title)</title>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/css/editormd.min.css">
+</head>
 
-#endexport
-<!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
+<body>
+    <div class="gh-app">
+        #extend("blog/admin/adminErrors")
 
-#export("body"):
+        <div class="gh-viewport">
+            <main class="gh-main gh-main-white">
+                <form action="#(site.currentPageURL)" method="post">
+                    <div class="flex flex-row">
+                        <section style="z-index: 9999;" class="gh-editor gh-view">
+                            <header class="gh-editor-header">
 
-<div class="sp-content">
+                                <div class="flex items-center">
+                                    <a href="/steampress/posts/" class="gh-btn-editor gh-editor-back-button">
+                                        <span>
+                                            <svg viewBox="0 0 16 16">
+                                                <path
+                                                    d="M12.05 1.303a1 1 0 01-.02 1.414L6.597 8l5.433 5.283a1 1 0 01-1.394 1.434L4.756 9a1.4 1.4 0 01-.423-1 1.39 1.39 0 01.423-1l5.88-5.717a1 1 0 011.414.02z">
+                                                </path>
+                                            </svg>
+                                            Posts
+                                        </span>
+                                    </a>
+                                    <div class="gh-editor-post-status">
+                                        <span>
+                                            <div>
+                                                Draft
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
 
-    <div class="sp-outer sp-inner">
-        #if(editing):
-        <h1>Edit Your Blog Post</h1>
-        #else:
-        <h1>Create A Blog Post</h1>
-        #endif
+                                <section class="flex items-center">
+                                    <button class="gh-btn gh-btn-primary gh-btn-icon" type="submit">
+                                        <span>
+                                            #if(post):
+                                            #if(post.published):
+                                            Update
+                                            #else:
+                                            Save
+                                            #endif
+                                            #else:
+                                            Save
+                                            #endif
+                                        </span>
+                                    </button>
+                                    <div class="settings-menu-toggle-spacer"></div>
+                                </section>
+                            </header>
 
-        #if(errors):
-        #for(error in errors):
-        <div role="alert">
-            <strong>Warning: </strong>#(error)
+
+
+                            <div class="flex flex-column">
+                                #if(post):
+                                <div class="gh-editor-feature-image-container">
+                                    <div class="gh-editor-feature-image">
+                                        <img src="#(post.image)">
+                                    </div>
+                                </div>
+                                #endif
+
+                                <textarea placeholder="Post title" class="gh-editor-title"
+                                    name="title">#if(post):#(post.title)#endif</textarea>
+
+                                <div style="z-index: 99999;" class="editor-area">
+                                    <div id="sp-editormd" class="sp-editormd">
+                                        <textarea id="contents" name="contents">#if(post):#(post.title)#endif</textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </section>
+
+                        #extend("blog/admin/createPostSide")
+                    </div>
+                </form>
+
+                <button class="settings-menu-toggle gh-btn gh-btn-editor gh-btn-icon icon-only gh-btn-action-icon"
+                    title="Settings" type="button">
+                    <span>
+                        <svg fill="none" viewBox="0 0 24 24">
+                            <path
+                                d="M21 2.5H3c-.828 0-1.5.608-1.5 1.357v16.286c0 .75.672 1.357 1.5 1.357h18c.828 0 1.5-.608 1.5-1.357V3.857c0-.75-.672-1.357-1.5-1.357zm-4.5 0v19"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg>
+                    </span>
+                </button>
+
+            </main>
+
+            <div id="gh-content-cover" class="content-cover"></div>
         </div>
-        #endfor
-        #endif
 
-        #if(editing):
-        <div id="edit-post-data" data-editing-page="true" data-published-post="#(post.published)"
-            data-original-slug-url="#(slugURLSupplied)" data-original-title="#(titleSupplied)"></div>
-        #endif
     </div>
 
-    <form class="" action="/steampress/#if(editing):posts/#(post.id)/edit/#else:createPost/#endif" method="post" novalidate>
-        <div class="sp-outer sp-inner">
-            #if(editing):
-            <div role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>Warning</strong> - editing the title will change the URL of the post - this can cause issues
-                with comment engines and SEO and may break links to your site.
-                <a href="#" class="alert-link" id="keep-original-slug-url-link">Keep original link?</a>
-            </div>
-            #endif
+    #extend("blog/partials/indexScripts")
+    <script src="/static/js/admin/createPost.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/editormd.min.js"
+        integrity="sha256-vRXAjvL0qQrgyb+3Bibhmqja5c76k4iiN27J/ztKU28=" crossorigin="anonymous"></script>
+    <script src="/static/js/admin/admin.js"></script>
 
-            <div>
-                <label for="title">Title</label>
-                <input type="text" id="title" name="title" placeholder="Blog Post Title" value="#(titleSupplied)"
-                    autofocus required>
-            </div>
+</body>
 
-            #if(editing):
-            <div>
-                <label class="">Status
-                    #if(post.published):
-                    <span>Published</span>
-                    #else:
-                    <span>Draft</span>
-                    #endif
-                </label>
-            </div>
-            #endif
-
-            <div class="controls">
-                <button type="Submit" class="primary-btn" name="publish"
-                    value="true">#if(editing):#if(draft):Publish#else:Update#endif#else:Publish#endif</button>
-                #if(editing):
-                <a href="/steampress/" class="secondary-btn">Cancel</a>
-                #endif
-            </div>
-
-            <div>
-                <label for="tags">Tags</label>
-                <select id="tags" name="tags[]" placeholder="Tags" multiple="multiple">
-                    #for(tag in tagsSupplied):
-                    <option value="#(tag)" selected="selected">#(tag)</option>
-                    #endfor
-                </select>
-
-            </div>
-            <small>
-                Tags can be added to your posts as comma-separated entries.
-                The first Image in the markdown is the post's image
-            </small>
-        </div>
-
-
-        <div class="editor-area">
-            <div id="sp-editormd" class="sp-editormd">
-                <textarea id="contents" name="contents">#(contentsSupplied)</textarea>
-            </div>
-        </div>
-
-
-
-    </form>
-
-
-
-</div>
-
-#endexport
-<!-- ---------------------------------------------------------endexport body----------------------------------------------------------------- -->
-
-#export("scripts"):
-<script src="/static/js/steampress/punycode.js"></script>
-<script src="/static/js/admin/createPost.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/editormd.min.js"
-    integrity="sha256-vRXAjvL0qQrgyb+3Bibhmqja5c76k4iiN27J/ztKU28=" crossorigin="anonymous"></script>
-#endexport
-<!-- ---------------------------------------------------------endexport scripts----------------------------------------------------------------- -->
-#endextend
+</html>
