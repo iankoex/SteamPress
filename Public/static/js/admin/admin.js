@@ -8,7 +8,13 @@ $('.delete-post-button').click(function(){
 
 $('#delete_tag_btn').click(function(){
     if (confirm('Are you sure you want to delete this tag?')) {
-        window.location.replace(`${window.location.href}delete`);
+        window.location.replace(`${window.location.href}/delete`);
+    };
+})
+
+$('#delete_member_btn').click(function(){
+    if (confirm('Are you sure you want to delete this member?')) {
+        window.location.replace(`${window.location.href}/delete`);
     };
 })
 

@@ -24,17 +24,32 @@
                                     <path d="M2.397 25.426l13.143-11.5-13.143-11.5" stroke-width="3" stroke="#0B0B0A"
                                         fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     </path>
-                                </svg> New member
+                                </svg>
+                                #if(userData):
+                                #(userData.username)
+                                #else:
+                                New Member
+                                #endif
                             </div>
                             <h2 class="gh-canvas-title">
+                                #if(userData):
+                                #(userData.name)
+                                #else:
                                 New<span class="gh-canvas-title-hide-for-mobile">&nbsp;member</span>
+                                #endif
                             </h2>
                         </div>
 
                         <section class="view-actions">
 
                             <button class="gh-btn gh-btn-primary gh-btn-icon" type="submit">
-                                <span>Save</span>
+                                <span>
+                                    #if(userData):
+                                    Update
+                                    #else:
+                                    Create
+                                    #endif
+                                </span>
                             </button>
                         </section>
 
@@ -48,10 +63,18 @@
                                 <div class="gh-member-details-identity">
                                     <div class="flex items-center justify-center br-100 mr4 gh-new-member-avatar">
                                         <span
-                                            class="gh-member-avatar-label f-subheadline fw5 lh-zero tracked-1">N</span>
+                                            class="gh-member-avatar-label f-subheadline fw5 lh-zero tracked-1">pfp</span>
                                     </div>
                                     <div>
-                                        <h3><span class="midgrey">New member</span></h3>
+                                        <h3>
+                                            <span class="midgrey">
+                                                #if(userData):
+                                                #(userData.name)
+                                                #else:
+                                                New member
+                                                #endif
+                                            </span>
+                                        </h3>
                                     </div>
                                 </div>
                             </div>
@@ -139,6 +162,15 @@
                     </section>
                 </div>
             </form>
+
+            #if(userData):
+            <div>
+                <button id="delete_member_btn" class="gh-btn gh-btn-red gh-btn-icon">
+                    <span>Delete Member</span>
+                </button>
+            </div>
+            #endif
+
         </div>
     </section>
 </main>
