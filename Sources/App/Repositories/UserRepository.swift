@@ -64,27 +64,4 @@ struct FluentUserRepository: BlogUserRepository {
     func getUsersCount() async throws -> Int {
         try await BlogUser.query(on: req.db).count()
     }
-    
-    func createInitialAdminUser() async throws {
-        let user = try await BlogUser.query(on: req.db)
-            .first()
-        guard user == nil else {
-            return
-        }
-        let hashedPassword = try await req.password.async.hash("sp-admin")
-        let admin = BlogUser(
-            name: "sp-admin",
-            username: "sp-admin",
-            email: "sdf",
-            password: hashedPassword,
-            resetPasswordRequired: true,
-            type: .administrator,
-            profilePicture: nil,
-            twitterHandle: nil,
-            biography: nil,
-            tagline: nil
-        )
-        try await admin.save(on: req.db)
-        req.logger.log(level: .info, .init(stringLiteral: "Initial Admin Created with Credentials 'sp-admin'. You will be required to reset password on first log in"))
-    }
 }

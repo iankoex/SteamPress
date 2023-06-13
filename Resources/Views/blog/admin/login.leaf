@@ -9,6 +9,7 @@
 
 <body>
     <div class="gh-app">
+        #extend("blog/admin/adminErrors")
         <div class="gh-viewport">
             <main class="gh-main ">
                 <div class="gh-flow">
