@@ -7,6 +7,7 @@ struct AdminPageContext: Encodable {
     let tags: [ViewBlogTag]?
     let tag: ViewBlogTag?
     let users: [BlogUser.Public]?
+    let userData: CreateUserData?
     let site: GlobalWebsiteInformation
     
     init(
@@ -16,6 +17,7 @@ struct AdminPageContext: Encodable {
         tags: [ViewBlogTag]? = nil,
         tag: ViewBlogTag? = nil,
         users: [BlogUser.Public]? = nil,
+        userData: CreateUserData? = nil,
         site: GlobalWebsiteInformation
     ) {
         self.errors = errors
@@ -24,6 +26,7 @@ struct AdminPageContext: Encodable {
         self.tags = tags
         self.tag = tag
         self.users = users
+        self.userData = userData
         self.site = site
     }
 }

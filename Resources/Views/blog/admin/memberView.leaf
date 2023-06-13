@@ -1,0 +1,155 @@
+#extend("blog/admin/base"):
+#export("head"):
+
+
+
+#endexport
+<!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
+
+#export("body"):
+
+<main class="gh-main">
+    <section class="gh-canvas">
+        <div>
+            <form class="member-basic-info-form" action="#(site.currentPageURL)" method="post">
+                <div class="gh-canvas-header sticky gh-member-header">
+                    <header class="gh-canvas-header-content">
+
+                        <div class="flex flex-column">
+                            <div class="gh-canvas-breadcrumb">
+                                <a href="/steampress/members/">
+                                    Members
+                                </a>
+                                <svg viewBox="0 0 18 27">
+                                    <path d="M2.397 25.426l13.143-11.5-13.143-11.5" stroke-width="3" stroke="#0B0B0A"
+                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    </path>
+                                </svg> New member
+                            </div>
+                            <h2 class="gh-canvas-title">
+                                New<span class="gh-canvas-title-hide-for-mobile">&nbsp;member</span>
+                            </h2>
+                        </div>
+
+                        <section class="view-actions">
+
+                            <button class="gh-btn gh-btn-primary gh-btn-icon" type="submit">
+                                <span>Save</span>
+                            </button>
+                        </section>
+
+                    </header>
+                </div>
+
+                <div class="gh-member-settings">
+                    <section class="gh-main-section columns-3">
+                        <section class="gh-member-details">
+                            <div class="flex flex-column">
+                                <div class="gh-member-details-identity">
+                                    <div class="flex items-center justify-center br-100 mr4 gh-new-member-avatar">
+                                        <span
+                                            class="gh-member-avatar-label f-subheadline fw5 lh-zero tracked-1">N</span>
+                                    </div>
+                                    <div>
+                                        <h3><span class="midgrey">New member</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="gh-main-section-block span-2">
+                            <div class="gh-main-section-content grey">
+                                <div>
+                                    <div class="form-group max-width">
+                                        <label for="name">Name</label>
+                                        <input autofocus="" name="name" id="name" class="gh-input" type="text"
+                                            placeholder="Ian Koex" required #if(userData):value="#(userData.name)"
+                                            #endif>
+                                    </div>
+
+                                    <div class="form-group max-width">
+                                        <label for="username">Username</label>
+                                        <input autofocus="" name="username" id="username" class="gh-input" type="text"
+                                            placeholder="iankoex" required #if(userData):value="#(userData.username)"
+                                            #endif>
+                                    </div>
+
+                                    <div class="form-group max-width">
+                                        <label for="email">Email</label>
+                                        <input name="email" autocomplete="off" autocorrect="off" autocapitalize="off"
+                                            id="email" class="ember-text-field gh-input" type="email"
+                                            placeholder="iankoex@example.com" required
+                                            #if(userData):value="#(userData.email)" #endif>
+                                    </div>
+
+                                    <div class="form-group max-width">
+                                        <label for="member-email">Password</label>
+                                        <input name="password" autocomplete="off" autocorrect="off"
+                                            placeholder="•••••••••••••••" autocapitalize="off" id="password"
+                                            class="ember-text-field gh-input" type="password"
+                                            #if(userData):value="#(userData.password)" #endif>
+
+                                        <div class="gh-member-newsletter-row">
+                                            <div>
+                                                <h4 class="gh-member-newsletter-title">Reset Password on Login</h4>
+                                            </div>
+                                            <div class="for-switch">
+                                                <label class="switch" for="resetPasswordOnLogin">
+                                                    <input name="resetPasswordOnLogin" id="resetPasswordOnLogin"
+                                                        class="ember-checkbox" type="checkbox"
+                                                        #if(userData):#if(userData.resetPasswordOnLogin):checked#endif#endif>
+                                                    <span class="input-toggle-component"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group max-width">
+                                        <label for="member-email">Confirm Password</label>
+                                        <input name="confirmPassword" autocomplete="off" autocorrect="off"
+                                            placeholder="•••••••••••••••" autocapitalize="off" id="confirmPassword"
+                                            class="ember-text-field gh-input" type="password"
+                                            #if(userData):value="#(userData.confirmPassword)" #endif>
+                                    </div>
+
+                                    <div class="form-group max-width">
+                                        <label for="tagline">Tagline (optional)</label>
+                                        <input autofocus="" name="tagline" id="tagline" class="gh-input" type="text"
+                                            placeholder="The very best like no one ever was."
+                                            #if(userData):value="#(userData.tagline)" #endif>
+                                    </div>
+
+                                    <div class="form-group max-width">
+                                        <label for="twitterHandle">Twitter (optional)</label>
+                                        <input autofocus="" name="twitterHandle" id="twitterHandle" class="gh-input"
+                                            type="text" placeholder="@iankoex"
+                                            #if(userData):value="#(userData.twitterHandle)" #endif>
+                                    </div>
+
+                                    <div class="form-group max-width">
+                                        <label for="biography">Biography (optional)</label>
+                                        <textarea autofocus="" name="biography" id="biography" class="gh-input"
+                                            type="text">#if(userData):#(userData.biography)#endif</textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+#endexport
+<!-- ---------------------------------------------------------endexport body----------------------------------------------------------------- -->
+
+#export("scripts"):
+
+
+
+#endexport
+<!-- ---------------------------------------------------------endexport scripts----------------------------------------------------------------- -->
+#endextend

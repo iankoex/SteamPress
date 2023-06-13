@@ -64,29 +64,23 @@ public struct ViewBlogAdminPresenter: BlogAdminPresenter {
         return try await viewRenderer.render("blog/admin/createPost", context)
     }
     
-    public func createUserView(editing: Bool, errors: [String]?, name: String?, nameError: Bool, username: String?, usernameErorr: Bool, passwordError: Bool, confirmPasswordError: Bool, resetPasswordOnLogin: Bool, userID: UUID?, profilePicture: String?, twitterHandle: String?, biography: String?, tagline: String?, site: GlobalWebsiteInformation) async throws -> View {
-        if editing {
-            guard userID != nil else {
-                throw SteamPressError(identifier: "ViewBlogAdminPresenter", "User ID is nil whilst editing")
-            }
-        }
-        
-        let context = CreateUserPageContext(editing: editing, errors: errors, nameSupplied: name, nameError: nameError, usernameSupplied: username, usernameError: usernameErorr, passwordError: passwordError, confirmPasswordError: confirmPasswordError, resetPasswordOnLoginSupplied: resetPasswordOnLogin, userID: userID, twitterHandleSupplied: twitterHandle, profilePictureSupplied: profilePicture, biographySupplied: biography, taglineSupplied: tagline, site: site)
-        return try await viewRenderer.render("blog/admin/createUser", context)
-    }
-    
-    public func createResetPasswordView(errors: [String]?, passwordError: Bool?, confirmPasswordError: Bool?, site: GlobalWebsiteInformation) async throws -> View {
-        let context = ResetPasswordPageContext(errors: errors, passwordError: passwordError, confirmPasswordError: confirmPasswordError, site: site)
+    public func createResetPasswordView(errors: [String]?, site: GlobalWebsiteInformation) async throws -> View {
+        let context = ResetPasswordPageContext(errors: errors, site: site)
         return try await viewRenderer.render("blog/admin/resetPassword", context)
     }
     
-    public func loginView(loginWarning: Bool, errors: [String]?, email: String?, usernameError: Bool, passwordError: Bool, rememberMe: Bool, requireName: Bool, site: GlobalWebsiteInformation) async throws -> View {
-        let context = LoginPageContext(errors: errors, loginWarning: loginWarning, email: email, usernameError: usernameError, passwordError: passwordError, rememberMe: rememberMe, requireName: requireName, site: site)
+    public func loginView(loginWarning: Bool, errors: [String]?, email: String?, rememberMe: Bool, requireName: Bool, site: GlobalWebsiteInformation) async throws -> View {
+        let context = LoginPageContext(errors: errors, loginWarning: loginWarning, email: email, rememberMe: rememberMe, requireName: requireName, site: site)
         return try await viewRenderer.render("blog/admin/login", context)
     }
     
     public func createMembersView(users: [BlogUser.Public], usersCount: Int, site: GlobalWebsiteInformation) async throws -> View {
         let context = AdminPageContext(usersCount: usersCount, users: users, site: site)
         return try await viewRenderer.render("blog/admin/members", context)
+    }
+    
+    public func createCreateMemberView(userData: CreateUserData?, errors: [String]?, usersCount: Int, site: GlobalWebsiteInformation) async throws -> View {
+        let context = AdminPageContext(errors: errors, usersCount: usersCount, userData: userData, site: site)
+        return try await viewRenderer.render("blog/admin/memberView", context)
     }
 }
