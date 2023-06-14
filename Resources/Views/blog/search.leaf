@@ -51,7 +51,7 @@
                         #markdown(post.longSnippet)
                     </div>
                     <div class="d-flex justify-content-center">
-                        <a href="/posts/#(post.slugUrl)/" class="card-link">Continue Reading</a>
+                        <a href="/posts/#(post.slugURL)/" class="card-link">Continue Reading</a>
                     </div>
                 </div>
                 <div class="card-footer text-muted text-center">
@@ -64,7 +64,7 @@
                         </h5>
                     </div>
                     #if(site.disqusName):
-                    <a href="/posts/#(post.slugUrl)#disqus_thread" data-disqus-identifier="#(post.id)">0
+                    <a href="/posts/#(post.slugURL)#disqus_thread" data-disqus-identifier="#(post.id)">0
                         Comments</a>
                     #endif
                 </div>

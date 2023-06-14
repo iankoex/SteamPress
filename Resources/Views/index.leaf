@@ -38,9 +38,9 @@
                     #for(post in posts):
                     <div class="card mb-3">
                         <div class="card-body post-contents">
-                            <a href="/blog/posts/#(post.slugUrl)/" class="index-post-link"><h3 class="card-title">#(post.title)</h3></a>
+                            <a href="/blog/posts/#(post.slugURL)/" class="index-post-link"><h3 class="card-title">#(post.title)</h3></a>
                             #markdown(post.shortSnippet)
-                            <a href="/blog/posts/#(post.slugUrl)/" class="card-link">Read More</a>
+                            <a href="/blog/posts/#(post.slugURL)/" class="card-link">Read More</a>
                         </div>
                     </div>
                     #endfor

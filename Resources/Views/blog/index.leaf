@@ -55,7 +55,7 @@
     <div class="post-feed">
         #for(post in posts):
 
-        <a class="sp-shadow post-link post-home" href="/posts/#(post.slugUrl)/">
+        <a class="sp-shadow post-link post-home" href="/posts/#(post.slugURL)/">
 
             #if(post.image):
             <img class="post-image" src="#(post.image)" alt="#(post.imageAlt)" loading="lazy">

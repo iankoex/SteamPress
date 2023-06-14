@@ -186,10 +186,10 @@ $(function () {
 });
 
 $("#title").on("input", function (e) {
-  if (allowEditingOfSlugUrl) {
+  if (allowEditingOfslugURL) {
     var title = $("#title").val();
-    var slugUrl = slugify(title);
-    $("#slugUrl").val(slugUrl);
+    var slugURL = slugify(title);
+    $("#slugURL").val(slugURL);
     if (editingPost && published) {
       if (title != originalTitle) {
         $("#blog-post-edit-title-warning").fadeIn();
@@ -203,7 +203,7 @@ $("#title").on("input", function (e) {
 $(function () {
   if ($("#edit-post-data").length) {
     editingPost = true;
-    originalSlugUrl = $("#edit-post-data").data("originalSlugUrl");
+    originalslugURL = $("#edit-post-data").data("originalslugURL");
     originalTitle = $("#edit-post-data").data("originalTitle");
     published = $("#edit-post-data").data("publishedPost");
   }
@@ -221,8 +221,8 @@ function slugify(text) {
     .replace(/-+$/, ""); // Trim - from end of text
 }
 
-function keepPostOriginalSlugUrl() {
-  allowEditingOfSlugUrl = false;
-  $("#slugUrl").val(originalSlugUrl);
+function keepPostOriginalslugURL() {
+  allowEditingOfslugURL = false;
+  $("#slugURL").val(originalslugURL);
   $("#blog-post-edit-title-warning").alert("close");
 }

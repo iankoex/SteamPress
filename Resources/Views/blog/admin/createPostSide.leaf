@@ -24,9 +24,12 @@
                     </div>
                     <div class="form-group">
                         <label for="tag">Tag</label>
-                        <select id="tag" name="tag" placeholder="Tag">
+                        <select id="tag" name="tags[]" placeholder="Tag" multiple>
                             #for(tag in tags):
-                            <option value="#(tag.name)" selected="selected">#(tag.name)</option>
+                            <option value="#(tag.name)" #for(postTag in post.tags): #if(tag.name==postTag.name):
+                                selected #endif #endfor>
+                                #(tag.name)
+                            </option>
                             #endfor
                         </select>
                     </div>
