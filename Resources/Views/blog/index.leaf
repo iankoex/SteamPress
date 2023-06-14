@@ -78,7 +78,7 @@
                     </header>
 
                     <div class="post-excerpt">
-                        #(post.description)
+                        #(post.snippet)
                     </div>
                 </div>
 

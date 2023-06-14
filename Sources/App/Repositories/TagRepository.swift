@@ -17,6 +17,7 @@ struct FluentTagRepository: BlogTagRepository {
     func getAllTags() async throws -> [BlogTag] {
         let tags = try await BlogTag.query(on: req.db)
             .with(\.$posts)
+            .sort(\.$createdDate, .descending)
             .all()
         return tags
     }

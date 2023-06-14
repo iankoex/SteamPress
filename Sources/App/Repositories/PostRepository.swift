@@ -73,7 +73,7 @@ struct FluentPostRepository: BlogPostRepository {
     
     func getPost(slug: String) async throws -> BlogPost? {
         try await BlogPost.query(on: req.db)
-            .filter(\.$slugUrl == slug)
+            .filter(\.$slugURL == slug)
             .with(\.$author)
             .with(\.$tags)
             .first()

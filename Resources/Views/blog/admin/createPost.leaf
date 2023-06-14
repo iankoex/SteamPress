@@ -69,11 +69,11 @@
                                 #endif
 
                                 <textarea placeholder="Post title" class="gh-editor-title"
-                                    name="title">#if(post):#(post.title)#endif</textarea>
+                                    name="title">#(titleSupplied)</textarea>
 
                                 <div style="z-index: 99999;" class="editor-area">
                                     <div id="sp-editormd" class="sp-editormd">
-                                        <textarea id="contents" name="contents">#if(post):#(post.title)#endif</textarea>
+                                        <textarea id="contents" name="contents">#(contentSupplied)</textarea>
                                     </div>
                                 </div>
 
