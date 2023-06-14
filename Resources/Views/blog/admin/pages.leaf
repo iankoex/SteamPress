@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="gh-dashboard-resource-footer">
-                            <a href="/steampress" class="green">Go to dashboard →</a>
+                            <a href="#(site.url)/steampress" class="green">Go to dashboard →</a>
                         </div>
                     </article>
 

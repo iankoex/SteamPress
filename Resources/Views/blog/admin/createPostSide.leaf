@@ -26,8 +26,8 @@
                         <label for="tag">Tag</label>
                         <select id="tag" name="tags[]" placeholder="Tag" multiple>
                             #for(tag in tags):
-                            <option value="#(tag.name)" #for(postTag in post.tags): #if(tag.name==postTag.name):
-                                selected #endif #endfor>
+                            <option value="#(tag.name)" #if(post):#for(postTag in post.tags):
+                                #if(tag.name==postTag.name): selected #endif #endfor#endif>
                                 #(tag.name)
                             </option>
                             #endfor

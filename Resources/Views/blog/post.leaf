@@ -104,11 +104,11 @@
     #endif
 
     <p class="sp-article-meta">BY
-        <a href="/authors/#(author.authorName)/">#(post.authorName)</a>
+        <a href="#(site.url)/authors/#(author.authorName)/">#(post.authorName)</a>
         #if(post.tags):
         in
         #for(tag in post.tags):
-        <a href="/tags/#(tag.urlEncodedName)/">#(tag.name)</a>
+        <a href="#(site.url)/tags/#(tag.urlEncodedName)/">#(tag.name)</a>
         #endfor
         #endif
         - #date(post.createdDate, "yyyy-MM-dd")

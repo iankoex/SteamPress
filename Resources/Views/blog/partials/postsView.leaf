@@ -4,24 +4,24 @@
         <div class="blog-post card mb-3">
             <div class="card-body">
                 <h1 class="post-title card-title text-center display-4">#(post.title)</h1>
-                <h6 class="card-subtitle mb-2 text-muted text-center">#(post.createdDateLong) by <a href="/authors/#(post.authorUsername)/">#(post.authorName)</a></h6>
+                <h6 class="card-subtitle mb-2 text-muted text-center">#(post.createdDateLong) by <a href="#(site.url)/authors/#(post.authorUsername)/">#(post.authorName)</a></h6>
                 <div class="post-contents card-text mt-3">
                     #markdown(post.longSnippet)
                 </div>
                 <div class="d-flex justify-content-center">
-                    <a href="/posts/#(post.slugURL)/" class="card-link">Continue Reading</a>
+                    <a href="#(site.url)/posts/#(post.slugURL)/" class="card-link">Continue Reading</a>
                 </div>
             </div>
             <div class="card-footer text-muted text-center">
                 <div class="post-tags">
                     <h5>
                     #for(tag in post.tags):
-                    <span class="badge badge-secondary"><a href="/tags/#(tag.urlEncodedName)/">#(tag.name)</a></span>
+                    <span class="badge badge-secondary"><a href="#(site.url)/tags/#(tag.urlEncodedName)/">#(tag.name)</a></span>
                     #endfor
                     </h5>
                 </div>
                 #if(site.disqusName):
-                    <a href="/posts/#(post.slugURL)#disqus_thread" data-disqus-identifier="#(post.id)">0 Comments</a>
+                    <a href="#(site.url)/posts/#(post.slugURL)#disqus_thread" data-disqus-identifier="#(post.id)">0 Comments</a>
                 #endif
             </div>
         </div>

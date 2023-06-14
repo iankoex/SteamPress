@@ -23,7 +23,7 @@
                             <span>Internal tags</span>
                         </button>
                     </div>
-                    <a href="/steampress/tags/new/" class="gh-btn gh-btn-primary">
+                    <a href="#(site.url)/steampress/tags/new/" class="gh-btn gh-btn-primary">
                         <span>New tag</span>
                     </a>
                 </section>
@@ -42,19 +42,19 @@
 
                 #for(tag in tags):
                 <li class="gh-list-row gh-tags-list-item">
-                    <a title="Edit tag" href="/steampress/tags/#(tag.urlEncodedName)/"
+                    <a title="Edit tag" href="#(site.url)/steampress/tags/#(tag.urlEncodedName)/"
                         class="gh-list-data gh-tag-list-title gh-list-cellwidth-70">
                         <h3 class="gh-tag-list-name">
                             #capitalized(tag.name)
                         </h3>
                     </a>
 
-                    <a title="Edit tag" href="/steampress/tags/#(tag.urlEncodedName)/"
+                    <a title="Edit tag" href="#(site.url)/steampress/tags/#(tag.urlEncodedName)/"
                         class="gh-list-data middarkgrey f8 gh-tag-list-slug gh-list-cellwidth-10">
                         <span title="announcements">#(tag.name)</span>
                     </a>
 
-                    <a title="List posts tagged with '#(tag.name)'" href="/steampress/posts/?tag=#(tag.urlEncodedName)/"
+                    <a title="List posts tagged with '#(tag.name)'" href="#(site.url)/steampress/posts/?tag=#(tag.urlEncodedName)/"
                         class="gh-list-data gh-tag-list-posts-count gh-list-cellwidth-10 f8">
                         #if(tag.postsCount == 0):
                         <span class="nowrap">No posts</span>
@@ -67,7 +67,7 @@
                         #endif
                     </a>
 
-                    <a title="Edit tag" href="/steampress/tags/#(tag.urlEncodedName)/"
+                    <a title="Edit tag" href="#(site.url)/steampress/tags/#(tag.urlEncodedName)/"
                         class="gh-list-data gh-list-cellwidth-10 gh-list-chevron">
                         <div class="flex items-center justify-end w-100 h-100">
                             <span class="nr2">

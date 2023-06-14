@@ -67,7 +67,7 @@
             #endif
 
             #if(site.loggedInUser):
-            <a class="btn btn-primary mt-3" href="/blog/steampress/users/#(author.id)/edit/">Edit Profile</a>
+            <a class="btn btn-primary mt-3" href="#(site.url)/blog/steampress/users/#(author.id)/edit/">Edit Profile</a>
             #endif
 
         </div>

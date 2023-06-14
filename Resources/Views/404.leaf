@@ -23,9 +23,9 @@
         above, use the menu to navigate or you may find some of the links below useful:</p>
 
     <ul>
-        <li><a href="/">The Blog</a></li>
-        <li><a href="/authors/">The Blog Authors</a></li>
-        <li><a href="/tags/">The Blog Tags</a></li>
+        <li><a href="#(site.url)/">The Blog</a></li>
+        <li><a href="#(site.url)/authors/">The Blog Authors</a></li>
+        <li><a href="#(site.url)/tags/">The Blog Tags</a></li>
     </ul>
 
 </div>

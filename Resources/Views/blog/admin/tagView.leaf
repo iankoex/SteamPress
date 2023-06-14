@@ -10,13 +10,13 @@
 
 <main class="gh-main">
     <section class="gh-canvas">
-        <form class="mb15" action="/steampress/tags/#if(tag):#(tag.urlEncodedName)#else:new#endif" method="post">
+        <form class="mb15" action="#(site.url)/steampress/tags/#if(tag):#(tag.urlEncodedName)#else:new#endif" method="post">
             <div class="gh-canvas-header">
                 <header class="gh-canvas-header-content">
 
                     <div class="flex flex-column">
                         <div class="gh-canvas-breadcrumb">
-                            <a href="/steampress/tags/">
+                            <a href="#(site.url)/steampress/tags/">
                                 Tags
                             </a>
                             <svg viewBox="0 0 18 27">
@@ -71,7 +71,7 @@
                                     </span>
                                     <p class="description">
                                         Start with # to create internal tags
-                                        <a href="/" target="_blank" rel="noopener noreferrer">Learn more</a>
+                                        <a href="#(site.url)/" target="_blank" rel="noopener noreferrer">Learn more</a>
                                     </p>
 
                                 </div>

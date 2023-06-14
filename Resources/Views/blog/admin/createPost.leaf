@@ -20,7 +20,7 @@
                             <header class="gh-editor-header">
 
                                 <div class="flex items-center">
-                                    <a href="/steampress/posts/" class="gh-btn-editor gh-editor-back-button">
+                                    <a href="#(site.url)/steampress/posts/" class="gh-btn-editor gh-editor-back-button">
                                         <span>
                                             <svg viewBox="0 0 16 16">
                                                 <path

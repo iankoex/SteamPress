@@ -20,16 +20,16 @@
 
             <div class="sp-head-links">
                 <a href="https://github.com/iankoex" target="_blank">Github</a>
-                <a href="/" class="nav-link">Blog</a>
+                <a href="#(site.url)/" class="nav-link">Blog</a>
                 #if(site.loggedInUser):
-                <a href="/steampress/" class="#if(blogAdminPage):active#endif">Admin</a>
-                <a class='#if(title=="Create Blog Post"):active#endif"' href="/steampress/createPost/">New Post</a>
+                <a href="#(site.url)/steampress/" class="#if(blogAdminPage):active#endif">Admin</a>
+                <a class='#if(title=="Create Blog Post"):active#endif"' href="#(site.url)/steampress/createPost/">New Post</a>
                 #if(blogPostPage):
-                <a href="/steampress/posts/#(post.id)/edit/"> Edit Post</a>
+                <a href="#(site.url)/steampress/posts/#(post.id)/edit/"> Edit Post</a>
                 #endif
                 #endif
                 #if(site.loggedInUser):
-                <a href="/steampress/logout/">Logout</a>
+                <a href="#(site.url)/steampress/logout/">Logout</a>
                 #endif
             </div>
 
