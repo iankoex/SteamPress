@@ -19,19 +19,19 @@ extension Services {
     }
     
     fileprivate  static func configurePostgres(_ app: Application) throws {
-        if app.environment == .development {
-            app.databases.use(.postgres(
-                hostname: Environment.get("DATABASE_HOST") ?? "localhost",
-                port: 5432,
-                username: Environment.get("DATABASE_USERNAME") ?? "vapor_username",
-                password: Environment.get("DATABASE_PASSWORD") ?? "vapor_password",
-                database: Environment.get("DATABASE_NAME") ?? "vapor_database"
-            ), as: .psql)
-        } else if app.environment == .production {
+//        if app.environment == .development {
+//            app.databases.use(.postgres(
+//                hostname: Environment.get("DATABASE_HOST") ?? "localhost",
+//                port: 5432,
+//                username: Environment.get("DATABASE_USERNAME") ?? "vapor_username",
+//                password: Environment.get("DATABASE_PASSWORD") ?? "vapor_password",
+//                database: Environment.get("DATABASE_NAME") ?? "vapor_database"
+//            ), as: .psql)
+//        } else if app.environment == .production {
             if let databaseURL = Environment.get("DATABASE_URL") {
                 try app.databases.use(.postgres(url: databaseURL), as: .psql)
             }
-        }
+//        }
     }
     
     fileprivate  static func configureMySQL(_ app: Application) throws {
