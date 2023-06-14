@@ -12,8 +12,8 @@ let package = Package(
         .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0"),
         .package(url: "https://github.com/vapor/fluent-postgres-driver.git", exact: "2.6.0"),
         .package(url: "https://github.com/vapor/fluent-mysql-driver.git", from: "4.0.0"),
-        .package(url: "https://github.com/iankoex/steampress-core.git", from: "2.0.6"),
-//        .package(path: "../steampress-core"),
+//        .package(url: "https://github.com/iankoex/steampress-core.git", from: "2.0.6"),
+        .package(path: "../steampress-core"),
         .package(url: "https://github.com/vapor/leaf.git", from: "4.0.0"),
         .package(url: "https://github.com/brokenhandsio/leaf-error-middleware.git", from: "4.1.1")
     ],
