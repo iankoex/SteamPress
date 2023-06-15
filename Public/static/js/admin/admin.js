@@ -33,6 +33,6 @@ $('.gh-alerts').click(function(){
 $('#admin-user-account').click(function(){
     if (confirm('Are you sure you want to logout?')) {
         let siteURL = $('#site_url').text()
-        window.location.replace(`${siteURL}/steampress/logout/`);
+        window.location.replace(`${siteURL}steampress/logout/`);
     };
 })

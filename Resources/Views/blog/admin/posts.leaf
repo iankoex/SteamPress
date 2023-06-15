@@ -15,13 +15,13 @@
 
                 <div class="flex flex-column">
                     <h2 class="gh-canvas-title">
-                        <a href="#(site.url)/steampress/posts/" class="active">Posts</a>
+                        <a href="#(site.url)steampress/posts/" class="active">Posts</a>
                     </h2>
                 </div>
 
                 <section class="view-actions">
                     <div class="view-actions-top-row">
-                        <a href="#(site.url)/steampress/createPost/" class="gh-btn gh-btn-primary">
+                        <a href="#(site.url)steampress/createPost/" class="gh-btn gh-btn-primary">
                             <span>New post</span>
                         </a>
                     </div>
@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="gh-dashboard-resource-footer">
-                            <a href="#(site.url)/steampress/createPost/" class="green">Create a Post →</a>
+                            <a href="#(site.url)steampress/createPost/" class="green">Create a Post →</a>
                         </div>
                     </article>
 
@@ -52,7 +52,7 @@
                 #for(post in posts):
                 <div role="menuitem" class="gh-posts-list-item-group">
                     <li class="gh-list-row gh-posts-list-item gh-post-list-plain-status">
-                        <a href="#(site.url)/steampress/posts/#(post.id)/" class="permalink gh-list-data gh-post-list-title">
+                        <a href="#(site.url)steampress/posts/#(post.id)/" class="permalink gh-list-data gh-post-list-title">
                             <h3 class="gh-content-entry-title">#(post.title)</h3>
                             <p class="gh-content-entry-meta">
                                 <span class="gh-content-entry-author">
@@ -79,11 +79,11 @@
                             #endif
                         </a>
 
-                        <a href="#(site.url)/steampress/posts/#(post.id)/"></a>
+                        <a href="#(site.url)steampress/posts/#(post.id)/"></a>
 
                         <a href="#/steampress/posts/#(post.id)/"></a>
 
-                        <a title="" href="#(site.url)/steampress/posts/#(post.id)/"
+                        <a title="" href="#(site.url)steampress/posts/#(post.id)/"
                             class="permalink gh-list-data gh-post-list-button">
                             <span class="gh-post-list-cta edit " title="Go to Editor">
                                 <svg viewBox="0 0 24 24" fill="none">

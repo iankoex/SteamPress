@@ -10,13 +10,13 @@
 
 <main class="gh-main">
     <section class="gh-canvas">
-        <form class="mb15" action="#(site.url)/steampress/tags/#if(tag):#(tag.urlEncodedName)#else:new#endif" method="post">
+        <form class="mb15" action="#(site.url)steampress/tags/#if(tag):#(tag.urlEncodedName)#else:new#endif" method="post">
             <div class="gh-canvas-header">
                 <header class="gh-canvas-header-content">
 
                     <div class="flex flex-column">
                         <div class="gh-canvas-breadcrumb">
-                            <a href="#(site.url)/steampress/tags/">
+                            <a href="#(site.url)steampress/tags/">
                                 Tags
                             </a>
                             <svg viewBox="0 0 18 27">
@@ -43,7 +43,7 @@
             <div class="gh-main-section">
                 <div class="flex justify-between items-center">
                     <h4 class="gh-main-section-header small bn">Details</h4>
-                    <a href="#(site.url)/tags/#if(tag):#(tag.urlEncodedName)#endif" target="_blank"
+                    <a href="#(site.url)tags/#if(tag):#(tag.urlEncodedName)#endif" target="_blank"
                         rel="noopener noreferrer" class="gh-view-tag-link">
                         View tag
                         <svg fill="none" viewBox="0 0 24 24">
@@ -71,7 +71,7 @@
                                     </span>
                                     <p class="description">
                                         Start with # to create internal tags
-                                        <a href="#(site.url)/" target="_blank" rel="noopener noreferrer">Learn more</a>
+                                        <a href="#(site.url)" target="_blank" rel="noopener noreferrer">Learn more</a>
                                     </p>
 
                                 </div>
@@ -82,7 +82,7 @@
                                 <p id="tag_urlEncodedName" class="ghost-url-preview description">
                                     #if(tag):#(tag.urlEncodedName)#endif</p>
                                 <p id="tag_slug" class="ghost-url-preview description">
-                                    #(site.url)/tag/#if(tag):#(tag.urlEncodedName)#endif</p>
+                                    #(site.url)tag/#if(tag):#(tag.urlEncodedName)#endif</p>
                                 <p class="response" hidden=""></p>
                             </div>
 

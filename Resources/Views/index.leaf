@@ -38,9 +38,9 @@
                     #for(post in posts):
                     <div class="card mb-3">
                         <div class="card-body post-contents">
-                            <a href="#(site.url)/blog/posts/#(post.slugURL)/" class="index-post-link"><h3 class="card-title">#(post.title)</h3></a>
+                            <a href="#(site.url)blog/posts/#(post.slugURL)/" class="index-post-link"><h3 class="card-title">#(post.title)</h3></a>
                             #markdown(post.shortSnippet)
-                            <a href="#(site.url)/blog/posts/#(post.slugURL)/" class="card-link">Read More</a>
+                            <a href="#(site.url)blog/posts/#(post.slugURL)/" class="card-link">Read More</a>
                         </div>
                     </div>
                     #endfor
@@ -49,7 +49,7 @@
                 #endif
 
                 <div class="d-flex justify-content-center mb-3">
-                    <a href="#(site.url)/blog/" class="btn btn-primary">View the Blog</a>
+                    <a href="#(site.url)blog/" class="btn btn-primary">View the Blog</a>
                 </div>
             </div>
 
@@ -84,7 +84,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center">
-                    <a href="#(site.url)/about/" class="btn btn-primary">View More Information</a>
+                    <a href="#(site.url)about/" class="btn btn-primary">View More Information</a>
                 </div>
             </div>
 

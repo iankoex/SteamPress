@@ -4,7 +4,7 @@
 <head>
     #extend("blog/partials/indexHeadContent")
     #import("head")
-    <link rel="stylesheet" href="/static/css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iankoex/sp-assets@main/custom.min.css">
 </head>
 
 <body>

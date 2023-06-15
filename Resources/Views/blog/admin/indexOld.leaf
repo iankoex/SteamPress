@@ -2,7 +2,7 @@
 #export("head"):
 
 <title>#if(editing): Edit #else: Create #endif Blog Post | Blog Admin | SteamPress</title>
-<link rel="stylesheet" href="#(site.url)/static/css/admin.css">
+<link rel="stylesheet" href="#(site.url)static/css/admin.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/css/editormd.min.css">
 
 #endexport
@@ -68,7 +68,7 @@
                 <button type="Submit" class="primary-btn" name="publish"
                     value="true">#if(editing):#if(draft):Publish#else:Update#endif#else:Publish#endif</button>
                 #if(editing):
-                <a href="#(site.url)/steampress/" class="secondary-btn">Cancel</a>
+                <a href="#(site.url)steampress/" class="secondary-btn">Cancel</a>
                 #endif
             </div>
 

@@ -3,8 +3,8 @@
 
 <head>
     <title>Login | SteamPress | #(site.title)</title>
-    <link rel="stylesheet" href="#(site.url)/static/css/admin.css">
-    <link rel="stylesheet" href="#(site.url)/static/css/custom.css">
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iankoex/sp-assets@main/custom.min.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
                 <div class="gh-flow">
                     <div class="gh-flow-content-wrap">
                         <section class="gh-flow-content">
-                            <form action="/steampress/#if(requireName):createOwner#else:login#endif/" method="post" class="gh-signin" novalidate="novalidate">
+                            <form action="#(site.url)steampress/#if(requireName):createOwner#else:login#endif/" method="post" class="gh-signin" novalidate="novalidate">
                                 <header>
                                     <div class="gh-site-icon" style="background-image: url('#(site.logo)')">
                                     </div>

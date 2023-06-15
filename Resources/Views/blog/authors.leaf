@@ -41,7 +41,7 @@
                         #if(author.tagline):
                         <p class="card-text">#(author.tagline)</p>
                         #endif
-                        <a href="#(site.url)/authors/#(author.username)/" class="card-link">View #(author.name)'s
+                        <a href="#(site.url)authors/#(author.username)/" class="card-link">View #(author.name)'s
                             Profile</a>
                     </div>
                 </div>

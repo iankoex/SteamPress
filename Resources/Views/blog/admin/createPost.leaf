@@ -4,7 +4,7 @@
 <head>
     <title>Login | SteamPress | #(site.title)</title>
     <link rel="stylesheet" href="/static/css/admin.css">
-    <link rel="stylesheet" href="/static/css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iankoex/sp-assets@main/custom.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/css/editormd.min.css">
 </head>
 
@@ -20,7 +20,7 @@
                             <header class="gh-editor-header">
 
                                 <div class="flex items-center">
-                                    <a href="#(site.url)/steampress/posts/" class="gh-btn-editor gh-editor-back-button">
+                                    <a href="#(site.url)steampress/posts/" class="gh-btn-editor gh-editor-back-button">
                                         <span>
                                             <svg viewBox="0 0 16 16">
                                                 <path

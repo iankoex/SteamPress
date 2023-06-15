@@ -1,7 +1,7 @@
 <footer>
     <div class="sp-foot">
         <div class="sp-outer sp-inner sp-foot-inner">
-            <a href="#(site.url)/atom.xml" target="_blank">RSS Subscribe</a>
+            <a href="#(site.url)atom.xml" target="_blank">RSS Subscribe</a>
             <p>© #(site.title) 2023</p>
             <a href="https://github.com/iankoex/SteamPressExample" target="_blank">Powered by SteamPress</a>
         </div>
