@@ -2,114 +2,204 @@
 <html lang="en">
 
 <head>
-    <title>Login | SteamPress | #(site.title)</title>
-    <link rel="stylesheet" href="/static/css/admin.css">
+    <meta charset="UTF-8">
+    <title>Create Post</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iankoex/sp-assets@main/custom.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/css/editormd.min.css">
+    <link href="/static/css/demo.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
 
 <body>
-    <div class="gh-app">
-        #extend("blog/admin/adminErrors")
+    <div class="ce">
+        <div class="ce-content _ce-content--small">
 
-        <div class="gh-viewport">
-            <main class="gh-main gh-main-white">
-                <form action="#(site.currentPageURL)" method="post">
-                    <div class="flex flex-row">
-                        <section style="z-index: 9999;" class="gh-editor gh-view">
-                            <header class="gh-editor-header">
+            <div class="ce-editor" id="editorjs"></div>
 
-                                <div class="flex items-center">
-                                    <a href="#(site.url)steampress/posts/" class="gh-btn-editor gh-editor-back-button">
-                                        <span>
-                                            <svg viewBox="0 0 16 16">
-                                                <path
-                                                    d="M12.05 1.303a1 1 0 01-.02 1.414L6.597 8l5.433 5.283a1 1 0 01-1.394 1.434L4.756 9a1.4 1.4 0 01-.423-1 1.39 1.39 0 01.423-1l5.88-5.717a1 1 0 011.414.02z">
-                                                </path>
-                                            </svg>
-                                            Posts
-                                        </span>
-                                    </a>
-                                    <div class="gh-editor-post-status">
-                                        <span>
-                                            <div>
-                                                Draft
-                                            </div>
-                                        </span>
-                                    </div>
-                                </div>
+            <div class="ce-statusbar">
+               <div>
+                <a class="ce-statusbar-button">
+                    back
+                </a>
+                <span class="ce-header-logo">Create Post</span>
+               </div>
 
-                                <section class="flex items-center">
-                                    <button class="gh-btn gh-btn-primary gh-btn-icon" type="submit">
-                                        <span>
-                                            #if(post):
-                                            #if(post.published):
-                                            Update
-                                            #else:
-                                            Save
-                                            #endif
-                                            #else:
-                                            Save
-                                            #endif
-                                        </span>
-                                    </button>
-                                    <div class="settings-menu-toggle-spacer"></div>
-                                </section>
-                            </header>
-
-
-
-                            <div class="flex flex-column">
-                                #if(post):
-                                <div class="gh-editor-feature-image-container">
-                                    <div class="gh-editor-feature-image">
-                                        <img src="#(post.image)">
-                                    </div>
-                                </div>
-                                #endif
-
-                                <textarea placeholder="Post title" class="gh-editor-title"
-                                    name="title">#(titleSupplied)</textarea>
-
-                                <div style="z-index: 99999;" class="editor-area">
-                                    <div id="sp-editormd" class="sp-editormd">
-                                        <textarea id="contents" name="contents">#(contentSupplied)</textarea>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </section>
-
-                        #extend("blog/admin/createPostSide")
+                <div>
+                    <div class="ce-statusbar-button" id="saveButton">
+                        editor.save()
                     </div>
-                </form>
+                    <div class="ce-statusbar-button" id="saveButton">
+                        side bar
+                    </div>
+                </div>
+            </div>
 
-                <button class="settings-menu-toggle gh-btn gh-btn-editor gh-btn-icon icon-only gh-btn-action-icon"
-                    title="Settings" type="button">
-                    <span>
-                        <svg fill="none" viewBox="0 0 24 24">
-                            <path
-                                d="M21 2.5H3c-.828 0-1.5.608-1.5 1.357v16.286c0 .75.672 1.357 1.5 1.357h18c.828 0 1.5-.608 1.5-1.357V3.857c0-.75-.672-1.357-1.5-1.357zm-4.5 0v19"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            </path>
-                        </svg>
-                    </span>
-                </button>
-
-            </main>
-
-            <div id="gh-content-cover" class="content-cover"></div>
         </div>
-
     </div>
 
-    #extend("blog/partials/indexScripts")
-    <script src="/static/js/admin/createPost.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/editormd.min.js"
-        integrity="sha256-vRXAjvL0qQrgyb+3Bibhmqja5c76k4iiN27J/ztKU28=" crossorigin="anonymous"></script>
-    <script src="/static/js/admin/admin.js"></script>
+    <div class="ce-side">
+        <p>dsdsdsds</p>
+    </div>
 
+
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script><!-- Header -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/image@2.3.0"></script><!-- Image -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script><!-- Delimiter -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script><!-- List -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest"></script><!-- Checklist -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@latest"></script><!-- Quote -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/code@latest"></script><!-- Code -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/embed@latest"></script><!-- Embed -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/table@latest"></script><!-- Table -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest"></script><!-- Link -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/warning@latest"></script><!-- Warning -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/marker@latest"></script><!-- Marker -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/inline-code@latest"></script><!-- Inline Code -->
+
+    <!-- Load Editor.js's Core -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+
+    <!-- Initialization -->
+    <script>
+        var editor = new EditorJS({
+            readOnly: false,
+            holder: 'editorjs',
+            tools: {
+                header: {
+                    class: Header,
+                    inlineToolbar: ['marker', 'link'],
+                    config: {
+                        placeholder: 'Header'
+                    },
+                    shortcut: 'CMD+SHIFT+H'
+                },
+
+                image: {
+                    class: ImageTool,
+                    config: {
+                        endpoints: {
+                            byFile: '#(site.url)steampress/uploadImage',
+                            byUrl: '#(site.url)steampress/uploadImageURL',
+                        }
+                    },
+                },
+
+                list: {
+                    class: List,
+                    inlineToolbar: true,
+                    shortcut: 'CMD+SHIFT+L'
+                },
+
+                checklist: {
+                    class: Checklist,
+                    inlineToolbar: true,
+                },
+
+                quote: {
+                    class: Quote,
+                    inlineToolbar: true,
+                    config: {
+                        quotePlaceholder: 'Enter a quote',
+                        captionPlaceholder: 'Quote\'s author',
+                    },
+                    shortcut: 'CMD+SHIFT+O'
+                },
+
+                warning: Warning,
+
+                marker: {
+                    class: Marker,
+                    shortcut: 'CMD+SHIFT+M'
+                },
+
+                code: {
+                    class: CodeTool,
+                    shortcut: 'CMD+SHIFT+C'
+                },
+
+                delimiter: Delimiter,
+
+                inlineCode: {
+                    class: InlineCode,
+                    shortcut: 'CMD+SHIFT+C'
+                },
+
+                linkTool: LinkTool,
+
+                embed: Embed,
+
+                table: {
+                    class: Table,
+                    inlineToolbar: true,
+                    shortcut: 'CMD+ALT+T'
+                },
+
+            },
+            defaultBlock: 'paragraph',
+            data: {
+                blocks: [
+                    {
+                        type: "header",
+                        data: {
+                            text: "Title here",
+                            level: 1
+                        }
+                    },
+                    {
+                        type: 'image',
+                        data: {
+                            url: '',
+                            caption: 'Image caption',
+                            stretched: false,
+                            withBorder: false,
+                            withBackground: false,
+                        }
+                    },
+                ]
+            },
+            onReady: function () {
+                saveButton.click();
+            },
+            onChange: function (api, event) {
+                console.log('something changed', event);
+            }
+        });
+
+        /**
+         * Saving button
+         */
+        const saveButton = document.getElementById('saveButton');
+
+        /**
+         * Toggle read-only button
+         */
+        const toggleReadOnlyButton = document.getElementById('toggleReadOnlyButton');
+        const readOnlyIndicator = document.getElementById('readonly-state');
+
+        /**
+         * Saving example
+         */
+        saveButton.addEventListener('click', function () {
+            editor.save()
+                .then((savedData) => {
+                    console.log('Saved');
+
+                })
+                .catch((error) => {
+                    console.error('Saving error', error);
+                });
+        });
+
+        /**
+         * Toggle read-only example
+         */
+        toggleReadOnlyButton.addEventListener('click', async () => {
+            const readOnlyState = await editor.readOnly.toggle();
+
+            readOnlyIndicator.textContent = readOnlyState ? 'On' : 'Off';
+        });
+    </script>
 </body>
 
 </html>
