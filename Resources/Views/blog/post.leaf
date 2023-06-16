@@ -91,13 +91,12 @@
     }
 </script>
 
-
 #endexport
 <!-- ---------------------------------------------------------endexport head----------------------------------------------------------------- -->
 
 #export("body"):
 
-<div class="sp-outer sp-inner sp-content">
+<div class="sp-outer sp-content">
 
     #if(!post.published):
     <div class="h3 text-center"><span class="badge badge-info">DRAFT POST</span></div>
@@ -114,17 +113,10 @@
         - #date(post.createdDate, "yyyy-MM-dd")
     </p>
 
-    <h1 class="">#(post.title)</h1>
+    <div id="editorjs"></div>
 
-    <div id="md-layout">
-        <div id="sidebar">
-            <h4>Table of Contents</h4>
-            <div class="markdown-body editormd-preview-container" id="custom-toc-container"></div>
-        </div>
-        <div id="mdView">
-            <textarea style="display:none;">#(post.contents)</textarea>
-        </div>
-    </div>
+    <textarea style="display: none;" name="contentTextarea" id="contentTextarea" cols="0"
+        rows="0">#(post.contents)</textarea>
 
     #if(post.published):
     #if(site.disqusName):
@@ -141,12 +133,33 @@
 <!-- ---------------------------------------------------------endexport body----------------------------------------------------------------- -->
 
 #export("scripts"):
-<script src="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/editormd.min.js"
-    integrity="sha256-vRXAjvL0qQrgyb+3Bibhmqja5c76k4iiN27J/ztKU28=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/lib/marked.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/editor.md@1.5.0/lib/prettify.min.js"></script>
 
-<script src="/static/js/posts.js"></script>
+#extend("blog/partials/editorScripts")
+
+<script>
+    const editorData = JSON.parse(document.getElementById('contentTextarea').value)
+    var editor = new EditorJS({
+        readOnly: true,
+        holder: 'editorjs',
+        tools: {
+            header: Header,
+            attaches: AttachesTool,
+            image: SimpleImage,
+            list: List,
+            checklist: Checklist,
+            quote: Quote,
+            warning: Warning,
+            marker: Marker,
+            code: CodeTool,
+            inlineCode: InlineCode,
+            delimiter: Delimiter,
+            linkTool: LinkTool,
+            embed: Embed,
+            table: Table,
+        },
+        data: editorData,
+    });
+</script>
 
 #if(site.disqusName):
 <script src="/static/js/disqus.js"></script>

@@ -68,7 +68,7 @@
                     <header>
                         #if(post.tags):
                         #for(tag in post.tags):
-                        <span class="post-tag">#(tag.name)</span>
+                        <span class="post-tag">#uppercased(tag.name)</span>
                         #endfor
                         #endif
                         <h2 class="post-title">

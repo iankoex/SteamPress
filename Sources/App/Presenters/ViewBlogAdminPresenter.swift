@@ -51,10 +51,10 @@ public struct ViewBlogAdminPresenter: BlogAdminPresenter {
         return try await viewRenderer.render("blog/admin/posts", context)
     }
     
-    public func createPostView(errors: [String]?, tags: [BlogTag], post: BlogPost?, titleSupplied: String?, contentSupplied: String?, excerptSupplied: String?, site: GlobalWebsiteInformation) async throws -> View {
+    public func createPostView(errors: [String]?, tags: [BlogTag], post: BlogPost?, titleSupplied: String?, contentSupplied: String?, snippetSupplied: String?, site: GlobalWebsiteInformation) async throws -> View {
         let viewPost = try post?.toViewPost()
         let viewTags = try tags.toViewBlogTag()
-        let context = CreatePostPageContext(post: viewPost, tags: viewTags, titleSupplied: titleSupplied, contentSupplied: contentSupplied, excerptSupplied: excerptSupplied, errors: errors, site: site)
+        let context = CreatePostPageContext(post: viewPost, tags: viewTags, titleSupplied: titleSupplied, contentSupplied: contentSupplied, snippetSupplied: snippetSupplied, errors: errors, site: site)
         return try await viewRenderer.render("blog/admin/createPost", context)
     }
     

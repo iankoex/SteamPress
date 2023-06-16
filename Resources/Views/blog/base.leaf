@@ -11,7 +11,9 @@
 
         #extend("blog/partials/indexHeader")
 
-        #import("body")
+        <div class="sp-content">
+            #import("body")
+        </div>
 
         #extend("blog/partials/indexFooter")
 

@@ -5,7 +5,7 @@ struct CreatePostPageContext: Encodable {
     let tags: [ViewBlogTag]
     let titleSupplied: String?
     let contentSupplied: String?
-    let excerptSupplied: String?
+    let snippetSupplied: String?
     let errors: [String]?
     let site: GlobalWebsiteInformation
 }
