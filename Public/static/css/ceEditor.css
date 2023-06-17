@@ -1,0 +1,109 @@
+:root {
+  --color-bg-main: #fff;
+  --color-border-light: #E8E8EB;
+  --color-text-main: #000;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: 1.5em;
+  margin: 0;
+  background: var(--color-bg-main);
+  color: var(--color-text-main);
+}
+
+.ce {
+  font-size: 16.2px;
+}
+
+.ce-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.thin-mode .ce-content {
+  max-width: 500px;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  padding: 0 15px;
+}
+
+.ce-editor {
+  margin-top: 50px;
+}
+
+.ce-statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: var(--color-bg-main);
+  border-radius: 8px 8px 0 0;
+  border-top: 1px solid var(--color-border-light);
+  box-shadow: 0 2px 6px var(--color-border-light);
+  font-size: 13px;
+  padding: 8px 15px;
+  z-index: 1;
+  user-select: none;
+  height: 40px;
+}
+
+.ce-header-text {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.ce-statusbar-button {
+  display: inline-block;
+  padding: 3px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #eff1f4;
+  text-align: center;
+  user-select: none;
+}
+
+.ce-statusbar-button:hover {
+  background: #e0e4eb;
+}
+
+@media all and (max-width: 730px) {
+
+  .ce-header,
+  .ce-content {
+    padding: 0 20px;
+  }
+}
+
+.ce-side {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50px;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  border: 1px solid var(--color-border-light);
+  background: var(--color-bg-main);
+  z-index: 10;
+}
+
+.ce-side-header {
+  padding: 10px;
+}
+
+.ce-side .form-group {
+  padding: 10px 10px 0 10px;
+}
+
+@media (max-width: 1150px) {
+  .ce-side {
+    display: none;
+  }
+}

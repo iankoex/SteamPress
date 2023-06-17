@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Create Post</title>
+    <title>#if(post):Edit Post#else:Create Post#endif</title>
     <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
-    <link href="/static/css/demo.css" rel="stylesheet">
+    <link href="/static/css/ceEditor.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iankoex/sp-assets@main/custom.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
@@ -22,7 +22,7 @@
                     <a href="#(site.url)steampress/posts/" class="ce-statusbar-button">
                         Posts
                     </a>
-                    <span class="ce-header-text">Create Post</span>
+                    <span class="ce-header-text">#if(post):Edit Post#else:Create Post#endif</span>
                 </div>
 
                 <div>
@@ -57,7 +57,8 @@
                 </div>
                 <div class="for-switch">
                     <label class="switch" for="isDraft">
-                        <input name="isDraft" id="isDraft" type="checkbox">
+                        <input name="isDraft" id="isDraft" type="checkbox"
+                            #if(post):#if(!post.published):checked#endif#endif>
                         <span class="input-toggle-component"></span>
                     </label>
                 </div>
@@ -78,14 +79,13 @@
 
         <div class="form-group">
             <label for="biography">Excerpt</label>
-            <textarea name="snippet" id="snippet" class="gh-input"
-                type="text">#if(userData):#(userData.biography)#endif</textarea>
+            <textarea name="snippet" id="snippet" class="gh-input" type="text">#(snippetSupplied)</textarea>
         </div>
 
 
         #if(post):
         <div class="settings-menu-delete-button">
-            <button class="gh-btn gh-btn-outline gh-btn-icon gh-btn-fullwidth" type="button">
+            <button class="gh-btn gh-btn-outline gh-btn-icon gh-btn-fullwidth" type="button" onclick="deletePost()">
                 <span>
                     <svg viewBox="0 0 24 24" fill="none">
                         <defs>
@@ -236,7 +236,6 @@
         saveButton.addEventListener('click', function () {
             editor.save()
                 .then((savedData) => {
-
                     let title = savedData.blocks.find(function (block) {
                         return block.type === 'header' && block.data.level === 1;
                     });
@@ -249,16 +248,34 @@
                     const tagsOptions = document.getElementById('tags').selectedOptions;
                     const tags = Array.from(tagsOptions).map(({ value }) => value);
 
+                    if (title === undefined) {
+                        alert("Provide a title that will be used for identification and search engines");
+                        return;
+                    }
+                    if (title.data.text === "" || title.data.text === undefined || title.data.text === null) {
+                        alert("Provide a title that will be used for identification and search engines");
+                        return;
+                    }
+                    if (image === undefined) {
+                        alert("Provide an image that will be used for display and search engines");
+                        return;
+                    }
+                    if (image.data.file.url === undefined) {
+                        alert("Provide an image that will be used for display and search engines");
+                        return;
+                    }
+                    if (snippet === "" || snippet === undefined || snippet === null) {
+                        alert("Provide a snippet that will be used for display and search engines");
+                        return;
+                    }
+
                     var savedDataStr = JSON.stringify(savedData);
-                    console.log(savedDataStr)
                     const images = savedData.blocks.filter(function (block) {
                         return block.type === 'image';
                     });
 
                     images.forEach(function (image) {
                         const imageStr = JSON.stringify(image);
-                        console.log(image)
-                        console.log(imageStr)
                         const replacement = JSON.stringify({
                             type: image.type,
                             id: image.id,
@@ -291,7 +308,9 @@
                         }
                     });
                     fetch(request).then((response) => {
-
+                        if (response.redirected && response.status === 200) {
+                            window.location.replace(response.url)
+                        }
                     }).catch((error) => {
                         console.error(error)
                     })
@@ -303,7 +322,7 @@
 
         settingToggle.addEventListener('click', function () {
             const side = document.getElementById('ce-side');
-            if (side.classList.contains('hidden')) {
+            if (side.style.display == "none") {
                 side.classList.remove('hidden')
                 side.style.display = "flex"
             } else {
@@ -311,6 +330,10 @@
                 side.classList.add('hidden')
             }
         });
+
+        function deletePost() {
+            window.location.replace(`${window.location.href}/delete`);
+        };
     </script>
 </body>
 
