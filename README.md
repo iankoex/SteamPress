@@ -1,25 +1,20 @@
 <p align="center">
     <img src="https://user-images.githubusercontent.com/9938337/29742058-ed41dcc0-8a6f-11e7-9cfc-680501cdfb97.png" alt="SteamPress">
 </p>
-<h1 align="center">SteamPress Example Site</h1>
+<h1 align="center">SteamPress</h1>
 <p align="center">
   <a href="https://swift.org">
-      <img src="http://img.shields.io/badge/Swift-5.2-brightgreen.svg" alt="Language">
+      <img src="http://img.shields.io/badge/Swift-5.7-brightgreen.svg" alt="Language">
   </a>
-  <a href="https://github.com/brokenhandsio/SteamPressExample/actions">
-      <img src="https://github.com/brokenhandsio/SteamPressExample/workflows/CI/badge.svg?branch=master" alt="Build Status">
+  <a href="https://github.com/iankoex/SteamPress/actions/workflows/tests.yml">
+      <img src="https://github.com/iankoex/SteamPress/actions/workflows/tests.yml/badge.svg" alt="Build Status">
   </a>
-  <a href="https://codecov.io/gh/brokenhandsio/SteamPressExample">
-    <img src="https://codecov.io/gh/brokenhandsio/SteamPressExample/branch/master/graph/badge.svg" alt="Code Coverage">
-  </a>
-  <a href="https://raw.githubusercontent.com/brokenhandsio/SteamPressExample/master/LICENSE">
+  <a href="https://raw.githubusercontent.com/iankoex/SteamPress/main/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License">
   </a>
 </p>
 
-This is an example site for using [SteamPress](https://github.com/brokenhandsio/SteamPress) with your Vapor site. You can also just use it as your blog! This example site uses Bootstrap 4 for styling so should be fairly easy to make it look how you want. It also uses Markdown to render the blog posts, and has Syntax highlighting for code (obviously!). This site can be viewed at https://www.steampress.io/.
-
-This site also provides a good example for all the Leaf files you will need, and the parameters they are given, as well as what you need to send to SteamPress to be create users and posts etc.
+SteamPress is an opensource blogging engine and platform written in swift.
 
 # Features
 
@@ -36,13 +31,17 @@ This site also provides a good example for all the Leaf files you will need, and
 
 # Usage
 
-To try out (you will need Docker installed):
+You can find a docker image at [iankoex/steampress](https://hub.docker.com/repository/docker/iankoex/steampress/general). 
+You can also clone the repo and run it on your machine.
 
-```bash
-git clone https://github.com/brokenhandsio/SteamPressExample.git
-cd SteamPressExample
-./setupDB.sh
-swift run
-```
+Required env variables
+- `SP_WEBSITE_URL` - The url of your domain, e.g `SP_WEBSITE_URL="https://example.com"`
+- `DATABASE_CLIENT`- The database client of your choice. Postgres is recommended. Available options: `psql`, `mysql` and `sqlite`.
+- `DATABASE_URL`   - The database url of your client. sqlite does not require url.
 
-This will create a site at http://localhost:8080. The blog can be found at http://localhost:8080/blog/ and you can login at http://localhost:8080/blog/admin/. The first time you visit the login a user will be created and the details printed to the console.
+Optional env variable
+- `SP_BLOG_PATH`  - The subpath you want your blog to resolve. e.g for `SP_BLOG_PATH="blog"` your blog will be available at `https://example.com/blog`
+
+The admin page for your blog will be availble at `https://example.com/steampress` if no `SP_BLOG_PATH` was set or `https://example.com/blog/steampress` if was set.
+
+
