@@ -1,4 +1,4 @@
-name: CI
+tname: CI
 on:
 - push
 jobs:
