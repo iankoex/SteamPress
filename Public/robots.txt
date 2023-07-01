@@ -1,3 +1,3 @@
 User-agent: *
-Disallow: /blog/admin/
+Disallow: /blog/steampress/
 Disallow: /blog/search/
