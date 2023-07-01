@@ -34,8 +34,9 @@ public struct ViewBlogAdminPresenter: BlogAdminPresenter {
         return try await viewRenderer.render("blog/admin/tags", context)
     }
     
-    public func createCreateTagView(usersCount: Int, site: GlobalWebsiteInformation) async throws -> View {
-        let context = AdminPageContext(usersCount: usersCount, site: site)
+    public func createTagView(errors: [String]?, tag: BlogTag?, usersCount: Int, site: SteamPressCore.GlobalWebsiteInformation) async throws -> Vapor.View {
+        let tag = try? tag?.toViewBlogTag()
+        let context = AdminPageContext(errors: errors, usersCount: usersCount, tag: tag, site: site)
         return try await viewRenderer.render("blog/admin/tagView", context)
     }
     

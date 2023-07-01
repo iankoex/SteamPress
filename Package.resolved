@@ -19,15 +19,6 @@
       }
     },
     {
-      "identity" : "cmark-gfm",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/brokenhandsio/cmark-gfm.git",
-      "state" : {
-        "revision" : "e97450a77a40f12b4f88f95891621c3b5d8669de",
-        "version" : "2.1.0"
-      }
-    },
-    {
       "identity" : "console-kit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/console-kit.git",
@@ -73,6 +64,15 @@
       }
     },
     {
+      "identity" : "fluent-sqlite-driver",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vapor/fluent-sqlite-driver",
+      "state" : {
+        "revision" : "33e920bd53c9a3a77f82733aaf26a82495afddd4",
+        "version" : "4.4.0"
+      }
+    },
+    {
       "identity" : "leaf",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vapor/leaf.git",
@@ -97,15 +97,6 @@
       "state" : {
         "revision" : "13f2fc4c8479113cd23876d9a434ef4573e368bb",
         "version" : "1.10.2"
-      }
-    },
-    {
-      "identity" : "markdown",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/vapor-community/markdown.git",
-      "state" : {
-        "revision" : "f0cdf125947c06685ebaef633fd00ae5247a1cfc",
-        "version" : "0.7.1"
       }
     },
     {
@@ -169,6 +160,24 @@
       "state" : {
         "revision" : "5026e7c0f2e464ea1af9f5948701aa8922ab14eb",
         "version" : "3.27.0"
+      }
+    },
+    {
+      "identity" : "sqlite-kit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vapor/sqlite-kit.git",
+      "state" : {
+        "revision" : "f66ddded9a330454856f5ba272cccc9e0c995b17",
+        "version" : "4.3.0"
+      }
+    },
+    {
+      "identity" : "sqlite-nio",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vapor/sqlite-nio.git",
+      "state" : {
+        "revision" : "2b7bcf3d2e4d2f68d52a66d12d2057867cee383a",
+        "version" : "1.5.2"
       }
     },
     {
@@ -286,15 +295,6 @@
       "state" : {
         "revision" : "0a5bc04095a675662cf24757cc0640aa2204253b",
         "version" : "1.0.2"
-      }
-    },
-    {
-      "identity" : "swiftsoup",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/scinfu/SwiftSoup.git",
-      "state" : {
-        "revision" : "0e96a20ffd37a515c5c963952d4335c89bed50a6",
-        "version" : "2.6.0"
       }
     },
     {

@@ -223,7 +223,6 @@ textarea {
 
 .sp-content {
     min-height: calc(100vh - 100px);
-    ;
 }
 
 .sp-shadow {
@@ -237,136 +236,7 @@ textarea {
     box-shadow: 0 0 20px rgba(0, 0, 0, .12);
 }
 
-.post-feed {
-    width: 100%;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(4, 1fr);
-    padding-bottom: 25px;
-    padding-top: 25px;
-    grid-auto-rows: auto;
-}
 
-@media (max-width: 767px) {
-    .post-feed {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (min-width: 768px) and (max-width:991px) {
-    .post-feed {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 992px) and (max-width:1199px) {
-    .post-feed {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-.post-link {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    background-color: var(--color-white);
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.post-home {
-    transform: scale(1);
-    transition: transform 0.5s !important;
-}
-
-.post-home:hover {
-    transform: scale(1.05);
-}
-
-.post-image {
-    width: 100%;
-    height: 80%;
-}
-
-.post-container {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
-.post-wrapper {
-    background-color: var(--color-white);
-    padding: 0 10px;
-}
-
-.post-tag {
-    color: var(--sp-accent-color);
-    display: inline-block;
-    font-size: 0.8rem;
-    letter-spacing: .005em;
-    line-height: 1;
-}
-
-.post-title {
-    font-size: 1.5rem;
-    line-height: 1.4;
-    max-height: 1.4em;
-    margin-bottom: 0;
-    overflow: hidden;
-}
-
-.post-excerpt {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-top: 6px;
-    max-height: 3.2em;
-    overflow: hidden;
-}
-
-.post-footer {
-    align-items: center;
-    background-color: #FFA559;
-    border-top: 1px solid var(--light-gray-color);
-    display: flex;
-    height: 42px;
-    justify-content: space-between;
-    padding: 0 10px;
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-}
-
-.post-more {
-    color: var(--color-white);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: .005em;
-    line-height: 1;
-    text-transform: uppercase;
-}
-
-.post-author {
-    display: flex;
-}
-
-.post-author-link {
-    display: block;
-    height: 28px;
-    position: relative;
-    width: 28px;
-}
-
-.post-author-image {
-    border: 2px solid var(--color-white);
-    border-radius: 50%;
-    height: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
-    width: 100%;
-}
 
 .sp-foot {
     background-color: #FFE6C7;

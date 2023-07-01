@@ -65,6 +65,13 @@ struct FluentTagRepository: BlogTagRepository {
             .first()
     }
     
+    func getTag(using slug: String) async throws -> BlogTag? {
+        try await BlogTag.query(on: req.db)
+            .filter(\.$slugURL == slug)
+            .with(\.$posts)
+            .first()
+    }
+    
     func save(_ tag: BlogTag) async throws {
         try await tag.save(on: req.db)
     }

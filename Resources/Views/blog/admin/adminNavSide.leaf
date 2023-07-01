@@ -66,7 +66,7 @@
                                 </path>
                             </svg>Posts
                         </a>
-                        <a title="New post" href="#(site.url)steampress/createPost/" class="gh-secondary-action gh-nav-new-post">
+                        <a title="New post" href="#(site.url)steampress/posts/new/" class="gh-secondary-action gh-nav-new-post">
                             <span>
                                 <svg viewBox="0 0 16 16" fill="none">
                                     <path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="2"

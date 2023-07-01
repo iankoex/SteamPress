@@ -21,7 +21,7 @@
 
                 <section class="view-actions">
                     <div class="view-actions-top-row">
-                        <a href="#(site.url)steampress/createPost/" class="gh-btn gh-btn-primary">
+                        <a href="#(site.url)steampress/posts/new/" class="gh-btn gh-btn-primary">
                             <span>New post</span>
                         </a>
                     </div>
@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="gh-dashboard-resource-footer">
-                            <a href="#(site.url)steampress/createPost/" class="green">Create a Post →</a>
+                            <a href="#(site.url)steampress/posts/new/" class="green">Create a Post →</a>
                         </div>
                     </article>
 
