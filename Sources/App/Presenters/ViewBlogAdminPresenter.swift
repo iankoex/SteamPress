@@ -56,7 +56,7 @@ public struct ViewBlogAdminPresenter: BlogAdminPresenter {
         let viewPost = try post?.toViewPost()
         let viewTags = try tags.toViewBlogTag()
         let context = CreatePostPageContext(post: viewPost, tags: viewTags, titleSupplied: titleSupplied, contentSupplied: contentSupplied, snippetSupplied: snippetSupplied, errors: errors, site: site)
-        return try await viewRenderer.render("blog/admin/createPost", context)
+        return try await viewRenderer.render("blog/admin/postView", context)
     }
     
     public func createResetPasswordView(errors: [String]?, site: GlobalWebsiteInformation) async throws -> View {

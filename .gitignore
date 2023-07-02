@@ -6,3 +6,4 @@ Config/secrets
 DerivedData/
 .swiftpm
 Public/Content
+Resources/db.sqlite

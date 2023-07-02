@@ -10,7 +10,8 @@
 
 <main class="gh-main">
     <section class="gh-canvas">
-        <form class="mb15" action="#(site.url)steampress/tags/#if(tag):#(tag.urlEncodedName)#else:new#endif" method="post">
+        <form class="mb15" action="#(site.url)steampress/tags/#if(tag):#(tag.urlEncodedName)#else:new#endif"
+            method="post">
             <div class="gh-canvas-header">
                 <header class="gh-canvas-header-content">
 
@@ -65,14 +66,19 @@
                                     <label for="tag-name">Name</label>
                                     <input class="gh-input" id="tag-name" name="name" type="text"
                                         value="#if(tag):#(tag.name)#endif">
-                                    <span class="error">
-                                        <p class="response" hidden=""></p>
-                                        <p class="response" hidden=""></p>
-                                    </span>
+
                                     <p class="description">
                                         Start with # to create internal tags
                                         <a href="#(site.url)" target="_blank" rel="noopener noreferrer">Learn more</a>
                                     </p>
+
+                                    <div class="gh-member-newsletter-row">
+                                        <label for="tag-visibility">Tag Visibility</label>
+                                        <select id="visibility" name="visibility" placeholder="public">
+                                            <option value="public">Public Tag</option>
+                                            <option value="private">Private Tag</option>
+                                        </select>
+                                    </div>
 
                                 </div>
                             </div>

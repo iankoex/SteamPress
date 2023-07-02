@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>#if(post):Edit Post#else:Create Post#endif</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+    <link href="/static/css/ceEditor.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iankoex/sp-assets@main/custom.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+
+<body>
+    <div class="ce">
+        #extend("blog/admin/adminErrors")
+        <div class="ce-content _ce-content--small">
+
+            <div class="ce-editor" id="editorjs"></div>
+
+            <div class="ce-statusbar">
+                <div>
+                    <a href="#(site.url)steampress/posts/" class="ce-statusbar-button">
+                        Posts
+                    </a>
+                    <span class="ce-header-text">#if(post):Edit Post#else:Create Post#endif</span>
+                </div>
+
+                <div>
+                    <div class="ce-statusbar-button" id="saveButton">
+                        Save
+                    </div>
+
+                    <div id="settingToggle" class="gh-btn icon-only gh-btn-action-icon" title="Settings">
+                        <span>
+                            <svg fill="none" viewBox="0 0 24 24">
+                                <path
+                                    d="M21 2.5H3c-.828 0-1.5.608-1.5 1.357v16.286c0 .75.672 1.357 1.5 1.357h18c.828 0 1.5-.608 1.5-1.357V3.857c0-.75-.672-1.357-1.5-1.357zm-4.5 0v19"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </svg>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="ce-side" class="ce-side">
+        <h4 class="ce-side-header">Post Details</h4>
+
+        <div class="form-group">
+            <div class="gh-member-newsletter-row">
+                <div>
+                    <h4 class="gh-member-newsletter-title">Save as Draft</h4>
+                </div>
+                <div class="for-switch">
+                    <label class="switch" for="isDraft">
+                        <input name="isDraft" id="isDraft" type="checkbox"
+                            #if(post):#if(!post.published):checked#endif#endif>
+                        <span class="input-toggle-component"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="tag">Tag</label>
+            <select id="tags" name="tags[]" placeholder="Tag" multiple>
+                #for(tag in tags):
+                <option value="#(tag.name)" #if(post): #if(post.tags): #for(postTag in post.tags):
+                    #if(tag.name==postTag.name):selected #endif #endfor #endif #endif>
+                    #(tag.name)
+                </option>
+                #endfor
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="biography">Excerpt</label>
+            <textarea name="snippet" id="snippet" class="gh-input" type="text">#(snippetSupplied)</textarea>
+        </div>
+
+
+        #if(post):
+        <div class="settings-menu-delete-button">
+            <button class="gh-btn gh-btn-outline gh-btn-icon gh-btn-fullwidth" type="button" onclick="deletePost()">
+                <span>
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <defs>
+                            <style>
+                                .trash_svg__a {
+                                    fill: none;
+                                    stroke: currentColor;
+                                    stroke-linecap: round;
+                                    stroke-linejoin: round;
+                                    stroke-width: 1.5px
+                                }
+                            </style>
+                        </defs>
+                        <path class="trash_svg__a"
+                            d="M17.923 22.308H6.077a1.692 1.692 0 01-1.692-1.693V5.385h15.23v15.23a1.692 1.692 0 01-1.692 1.693zM9.462 17.23v-6.769M14.539 17.23v-6.769M1 5.385h22M14.539 2H9.462a1.692 1.692 0 00-1.693 1.692v1.693h8.462V3.692A1.692 1.692 0 0014.538 2z">
+                        </path>
+                    </svg>
+                    Delete post
+                </span>
+            </button>
+        </div>
+        #endif
+
+        <textarea style="display: none;" name="contentTextarea" id="contentTextarea" cols="0"
+            rows="0">#if(post):#(post.contents)#else:{"time":1686938462066,"blocks":[{"id":"h_l3qkt4xx","type":"header","data":{"text":"Title here","level":1,"alignment":"left"}},{"id":"SFNB4H58gy","type":"image","data":{"file":{},"caption":"Image Caption","withBorder":false,"stretched":false,"withBackground":false}}],"version":"2.27.0"}#endif</textarea>
+
+    </div>
+
+    #extend("blog/admin/editorScripts")
+
+    <script>
+        var editorDataStr = document.getElementById('contentTextarea').value
+        const editorDataJSON = JSON.parse(editorDataStr)
+        const preImages = editorDataJSON.blocks.filter(function (block) {
+            return block.type === 'image';
+        });
+
+        preImages.forEach(function (image) {
+            const imageStr = JSON.stringify(image)
+            const replacement = JSON.stringify({
+                type: image.type,
+                id: image.id,
+                data: {
+                    file: {
+                        url: image.data.url,
+                    },
+                    caption: image.data.caption,
+                    stretched: image.data.stretched,
+                    withBorder: image.data.withBorder,
+                    withBackground: image.data.withBackground,
+                }
+            })
+            editorDataStr = editorDataStr.replace(imageStr, replacement)
+        });
+
+        const editorData = JSON.parse(editorDataStr)
+        var editor = new EditorJS({
+            readOnly: false,
+            autofocus: true,
+            holder: 'editorjs',
+            tools: {
+                header: {
+                    class: Header,
+                    inlineToolbar: ['marker', 'link'],
+                    config: {
+                        placeholder: 'Enter a header',
+                        levels: [1, 2, 3, 4],
+                        defaultLevel: 2,
+                        defaultAlignment: 'left'
+                    },
+                    shortcut: 'CMD+SHIFT+H'
+                },
+                attaches: {
+                    class: AttachesTool,
+                    config: {
+                        endpoint: '#(site.url)steampress/uploadFile'
+                    }
+                },
+
+                image: {
+                    class: ImageTool,
+                    config: {
+                        endpoints: {
+                            byFile: '#(site.url)steampress/uploadImage',
+                            byUrl: '#(site.url)steampress/uploadImageURL',
+                        }
+                    },
+                },
+
+                list: {
+                    class: List,
+                    inlineToolbar: true,
+                    shortcut: 'CMD+SHIFT+L'
+                },
+
+                checklist: {
+                    class: Checklist,
+                    inlineToolbar: true,
+                },
+
+                quote: {
+                    class: Quote,
+                    inlineToolbar: true,
+                    config: {
+                        quotePlaceholder: 'Enter a quote',
+                        captionPlaceholder: 'Quote\'s author',
+                    },
+                    shortcut: 'CMD+SHIFT+O'
+                },
+
+                warning: Warning,
+
+                marker: {
+                    class: Marker,
+                    shortcut: 'CMD+SHIFT+M'
+                },
+
+                code: {
+                    class: CodeTool,
+                    shortcut: 'CMD+SHIFT+C'
+                },
+
+                delimiter: Delimiter,
+
+                inlineCode: {
+                    class: InlineCode,
+                    shortcut: 'CMD+SHIFT+C'
+                },
+
+                linkTool: LinkTool,
+
+                embed: Embed,
+
+                table: {
+                    class: Table,
+                    inlineToolbar: true,
+                    shortcut: 'CMD+ALT+T'
+                },
+
+            },
+            defaultBlock: 'paragraph',
+            data: editorData,
+        });
+
+        const saveButton = document.getElementById('saveButton');
+        const settingToggle = document.getElementById('settingToggle');
+
+        saveButton.addEventListener('click', function () {
+            editor.save()
+                .then((savedData) => {
+                    let title = savedData.blocks.find(function (block) {
+                        return block.type === 'header' && block.data.level === 1;
+                    });
+                    let image = savedData.blocks.find(function (block) {
+                        return block.type === 'image';
+                    });
+
+                    const snippet = document.getElementById('snippet').value;
+                    const isDraft = document.getElementById('isDraft').checked;
+                    const tagsOptions = document.getElementById('tags').selectedOptions;
+                    const tags = Array.from(tagsOptions).map(({ value }) => value);
+
+                    if (title === undefined) {
+                        alert("Provide a title that will be used for identification and search engines");
+                        return;
+                    }
+                    if (title.data.text === "" || title.data.text === undefined || title.data.text === null) {
+                        alert("Provide a title that will be used for identification and search engines");
+                        return;
+                    }
+                    if (image === undefined) {
+                        alert("Provide an image that will be used for display and search engines");
+                        return;
+                    }
+                    if (image.data.file.url === undefined) {
+                        alert("Provide an image that will be used for display and search engines");
+                        return;
+                    }
+                    if (snippet === "" || snippet === undefined || snippet === null) {
+                        alert("Provide a snippet that will be used for display and search engines");
+                        return;
+                    }
+
+                    var savedDataStr = JSON.stringify(savedData);
+                    const images = savedData.blocks.filter(function (block) {
+                        return block.type === 'image';
+                    });
+
+                    images.forEach(function (image) {
+                        const imageStr = JSON.stringify(image);
+                        const replacement = JSON.stringify({
+                            type: image.type,
+                            id: image.id,
+                            data: {
+                                url: image.data.file.url,
+                                caption: image.data.caption,
+                                stretched: image.data.stretched,
+                                withBorder: image.data.withBorder,
+                                withBackground: image.data.withBackground,
+                            }
+                        });
+                        savedDataStr = savedDataStr.replace(imageStr, replacement);
+                    });
+
+                    let jsonBody = JSON.stringify({
+                        title: `${title.data.text}`,
+                        contents: `${savedDataStr}`,
+                        snippet: `${snippet}`,
+                        isDraft: isDraft,
+                        tags: [`${tags}`],
+                        imageURL: `${image.data.file.url}`,
+                        imageAlt: `${image.data.caption}`
+                    });
+
+                    const request = new Request(window.location.href, {
+                        method: "POST",
+                        body: jsonBody,
+                        headers: {
+                            "Content-type": "application/json; charset=UTF-8"
+                        }
+                    });
+                    fetch(request).then((response) => {
+                        if (response.redirected && response.status === 200) {
+                            window.location.replace(response.url)
+                        }
+                    }).catch((error) => {
+                        console.error(error)
+                    })
+                })
+                .catch((error) => {
+                    console.error('Saving error', error);
+                });
+        });
+
+        settingToggle.addEventListener('click', function () {
+            const side = document.getElementById('ce-side');
+            if (side.style.display == "none") {
+                side.classList.remove('hidden')
+                side.style.display = "flex"
+            } else {
+                side.style.display = "none"
+                side.classList.add('hidden')
+            }
+        });
+
+        function deletePost() {
+            window.location.replace(`${window.location.href}/delete`);
+        };
+    </script>
+</body>
+
+</html>

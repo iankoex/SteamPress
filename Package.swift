@@ -13,13 +13,14 @@ let package = Package(
         .package(url: "https://github.com/vapor/fluent-postgres-driver.git", exact: "2.6.0"),
         .package(url: "https://github.com/vapor/fluent-mysql-driver.git", from: "4.0.0"),
         .package(url: "https://github.com/vapor/fluent-sqlite-driver", from: "4.0.0"),
-//        .package(url: "https://github.com/iankoex/steampress-core.git", from: "2.0.8"),
-        .package(path: "../steampress-core"),
+        .package(url: "https://github.com/iankoex/steampress-core.git", from: "2.0.10"),
+//        .package(path: "../steampress-core"),
         .package(url: "https://github.com/vapor/leaf.git", from: "4.0.0"),
         .package(url: "https://github.com/brokenhandsio/leaf-error-middleware.git", from: "4.1.1")
     ],
     targets: [
-        .target(name: "App",
+        .target(
+            name: "App",
             dependencies: [
                 .product(name: "Vapor", package: "vapor"),
                 .product(name: "Fluent", package: "fluent"),
@@ -29,7 +30,14 @@ let package = Package(
                 .product(name: "SteamPressCore", package: "steampress-core"),
                 .product(name: "Leaf", package: "leaf"),
                 .product(name: "LeafErrorMiddleware", package: "leaf-error-middleware")
-            ]),
+            ],
+            swiftSettings: [
+                // Enable better optimizations when building in Release configuration. Despite the use of
+                // the `.unsafeFlags` construct required by SwiftPM, this flag is recommended for Release
+                // builds. See <https://github.com/swift-server/guides/blob/main/docs/building.md#building-for-production> for details.
+                .unsafeFlags(["-cross-module-optimization"], .when(configuration: .release))
+            ]
+        ),
         .executableTarget(name: "Run", dependencies: [.target(name: "App")]),
         .testTarget(name: "AppTests", dependencies: ["App"])
     ]
