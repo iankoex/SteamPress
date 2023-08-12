@@ -21,7 +21,7 @@ extension Services {
         }
     }
     
-    fileprivate  static func configurePostgres(_ app: Application) throws {
+    fileprivate static func configurePostgres(_ app: Application) throws {
         if let databaseURL = Environment.get("DATABASE_URL") {
             try app.databases.use(.postgres(url: databaseURL), as: .psql)
         }
@@ -40,7 +40,7 @@ extension Services {
 //        }
     }
     
-    fileprivate  static func configureMySQL(_ app: Application) throws {
+    fileprivate static func configureMySQL(_ app: Application) throws {
         throw SteamPressError(identifier: "SteamPressError", "`mysql` database not currently supported. Use `psql` for now.")
     }
     
