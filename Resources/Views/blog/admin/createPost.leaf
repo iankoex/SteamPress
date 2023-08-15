@@ -158,6 +158,7 @@
                     },
                     shortcut: 'CMD+SHIFT+H'
                 },
+
                 attaches: {
                     class: AttachesTool,
                     config: {
@@ -203,10 +204,7 @@
                     shortcut: 'CMD+SHIFT+M'
                 },
 
-                code: {
-                    class: CodeTool,
-                    shortcut: 'CMD+SHIFT+C'
-                },
+                code: Code,
 
                 delimiter: Delimiter,
 

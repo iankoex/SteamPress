@@ -181,15 +181,6 @@
       }
     },
     {
-      "identity" : "steampress-core",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/iankoex/steampress-core.git",
-      "state" : {
-        "revision" : "922087df275dd43499197e6dafd853cf46d96b44",
-        "version" : "2.0.10"
-      }
-    },
-    {
       "identity" : "swift-algorithms",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-algorithms.git",

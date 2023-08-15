@@ -19,14 +19,7 @@ public func configure(_ app: Application) async throws {
     
     try Services.configureDatabases(app)
     
-    let feedInfo = FeedInformation(
-        title: "The SteamPress Blog",
-        description: "SteamPress is an open-source blogging engine written for Vapor in Swift",
-        copyright: "Released under the MIT licence",
-        imageURL: "https://user-images.githubusercontent.com/9938337/29742058-ed41dcc0-8a6f-11e7-9cfc-680501cdfb97.png"
-    )
-    let steamPressConfig = SteamPressConfiguration(feedInformation: feedInfo, postsPerPage: 4, enableAuthorPages: true, enableTagPages: true)
-    let steamPressLifecycle = SteamPressLifecycleHandler(configuration: steamPressConfig)
+    let steamPressLifecycle = SteamPressLifecycleHandler()
     app.lifecycle.use(steamPressLifecycle)
     
     // Presenters

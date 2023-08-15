@@ -78,4 +78,9 @@ public struct ViewBlogAdminPresenter: BlogAdminPresenter {
         let context = AdminPageContext(errors: errors, usersCount: usersCount, userData: userData, site: site)
         return try await viewRenderer.render("blog/admin/memberView", context)
     }
+    
+    public func createSettingsView(errors: [String]?, usersCount: Int, site: GlobalWebsiteInformation) async throws -> View {
+        let context = AdminPageContext(errors: errors, usersCount: usersCount, site: site)
+        return try await viewRenderer.render("blog/admin/settings", context)
+    }
 }
