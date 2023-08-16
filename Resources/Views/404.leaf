@@ -1,4 +1,4 @@
-#extend("blog/base"):
+#extend("themes/default/base"):
 #export("head"):
 
 <title>Oops....Wrong Turn! | SteamPress</title>

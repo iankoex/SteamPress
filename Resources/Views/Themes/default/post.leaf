@@ -1,4 +1,4 @@
-#extend("blog/base"):
+#extend("themes/default/base"):
 #export("head"):
 
 <title>#(post.title)</title>
@@ -134,7 +134,7 @@
 
 #export("scripts"):
 
-#extend("blog/partials/editorScripts")
+#extend("themes/default/partials/editorScripts")
 
 <script>
     const editorData = JSON.parse(document.getElementById('contentTextarea').value)

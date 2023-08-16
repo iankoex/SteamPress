@@ -1,4 +1,4 @@
-#extend("blog/admin/base"):
+#extend("themes/default/admin/base"):
 #export("head"):
 
 

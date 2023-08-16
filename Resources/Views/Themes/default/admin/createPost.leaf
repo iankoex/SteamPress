@@ -12,7 +12,7 @@
 
 <body>
     <div class="ce">
-        #extend("blog/admin/adminErrors")
+        #extend("themes/default/admin/adminErrors")
         <div class="ce-content _ce-content--small">
 
             <div class="ce-editor" id="editorjs"></div>
@@ -114,7 +114,7 @@
 
     </div>
 
-    #extend("blog/admin/editorScripts")
+    #extend("themes/default/admin/editorScripts")
 
     <script>
         var editorDataStr = document.getElementById('contentTextarea').value

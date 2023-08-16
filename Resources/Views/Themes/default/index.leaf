@@ -1,4 +1,4 @@
-#extend("blog/base"):
+#extend("themes/default/base"):
 #export("head"):
 
 <title>#(site.title)</title>

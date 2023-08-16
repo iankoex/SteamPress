@@ -1,4 +1,4 @@
-#extend("blog/base"):
+#extend("themes/default/base"):
 #export("head"):
 
 <title>#if(searchTerm):Search Blog For '#(searchTerm)'#else:Blog Search#endif | Blog | SteamPress</title>

@@ -1,23 +1,20 @@
-#extend("blog/base"):
+#extend("themes/default/base"):
 #export("head"):
 
-<title>All Tags | Blog | SteamPress</title>
-
+<title>All Authors | Blog | SteamPress</title>
 <meta name="description"
-    content="All of the SteamPress Blog Tags. These are the tags that posts have been written under on the blog.">
-
-<meta property="og:title" content="SteamPress Blog Tags">
+    content="All of the Authors from the SteamPress Blog. These are the authors that have written posts for the blog.">
+<meta property="og:title" content="SteamPress Blog Authors">
 <meta property="og:type" content="site">
 <meta property="og:url" content="#(site.currentPageURL)">
 <meta property="og:description"
-    content="All of the SteamPress Blog Tags. These are the tags that posts have been written under on the blog.">
-<meta property="og:site_name" content="SteamPress">
+    content="All of the Authors from the SteamPress Blog. These are the authors that have written posts for the blog.">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:image" content="https://www.steampress.io/static/images/steampress-og-image_1.jpg">
 <meta property="og:image:width" content="2400">
 <meta property="og:image:height" content="1257">
 <meta name="twitter:image:alt" content="SteamPress - The open source blogging engine for Vapor">
-
+<meta property="og:site_name" content="SteamPress">
 #if(site.twitterHandle):
 <meta name="twitter:site" content="@#(site.twitterHandle)">
 #endif
@@ -29,26 +26,31 @@
 
 <div class="container mt-3">
 
-    <h1 class="text-center">All SteamPress Blog's Tags</h1>
+    <h1 class="text-center">All SteamPress Blog's Authors</h1>
 
-    <div id="tags" class="mt-3 mb-4 card-deck">
+    <div id="authors" class="mt-3 mb-4 card-deck">
 
-        #if(tags):
-        #for(tag in tags):
+        #if(count(authors) > 0):
+        #for(author in authors):
         <div class="col-md-4">
-            <div class="blog-tag card text-center mb-3">
+            <div class="blog-author card text-center mb-3">
                 <div class="card-body">
-                    <h2 class="card-title">#(tag.name)</h2>
+                    <h2 class="card-title">#(author.name)</h2>
+                    <h6 class="card-subtitle mb-2 text-muted">#(author.username)</h6>
                     <div class="card-text mt-3">
-                        <a href="#(site.url)blog/tags/#(tag.urlEncodedName)/" class="card-link">View #(tag.name)</a>
+                        #if(author.tagline):
+                        <p class="card-text">#(author.tagline)</p>
+                        #endif
+                        <a href="#(site.url)authors/#(author.username)/" class="card-link">View #(author.name)'s
+                            Profile</a>
                     </div>
                 </div>
                 <div class="card-footer">
                     <small class="text-muted">
-                        #if(tag.postCount == 1):
-                        #(tag.postCount) post
+                        #if(author.postCount == 1):
+                        #(author.postCount) post
                         #else:
-                        #(tag.postCount) posts
+                        #(author.postCount) posts
                         #endif
                     </small>
                 </div>
@@ -57,7 +59,7 @@
         #endfor
 
         #else:
-        <p class="mb-4">There haven't been any tags yet!</p>
+        <p class="mb-4">There haven't been any authors yet!</p>
         #endif
     </div>
 

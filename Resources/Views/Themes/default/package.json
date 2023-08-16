@@ -1,0 +1,11 @@
+{
+    "name": "thomas",
+    "description": "A SteamPress Theme",
+    "version": "1.0.0",
+    "license": "MIT",
+    "author": {
+        "name": "iankoex",
+        "email": "koexian@gmail.com",
+        "url": "https://github.com/iankoex"
+    }
+}

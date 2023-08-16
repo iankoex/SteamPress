@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    #extend("blog/partials/indexHeadContent")
+    #extend("themes/default/partials/indexHeadContent")
     #import("head")
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iankoex/sp-assets@main/custom.min.css">
 </head>
@@ -10,17 +10,17 @@
 <body>
 
     <div class="gh-app">
-        #extend("blog/admin/adminErrors")
+        #extend("themes/default/admin/adminErrors")
         <div class="gh-viewport">
-            #extend("blog/admin/adminNavSide")
+            #extend("themes/default/admin/adminNavSide")
             #import("body")
-            #extend("blog/admin/adminNavBar")
+            #extend("themes/default/admin/adminNavBar")
             <div id="gh-content-cover" class="content-cover"></div>
             <p id="site_url" class="hidden">#(site.url)</p>
         </div>
     </div>
 
-    #extend("blog/partials/indexScripts")
+    #extend("themes/default/partials/indexScripts")
     <script src="/static/js/admin/admin.js"></script>
     #import("scripts")
 

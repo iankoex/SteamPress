@@ -16,13 +16,13 @@ public struct ViewBlogPresenter: BlogPresenter {
     public func indexView(posts: [BlogPost], site: GlobalWebsiteInformation, paginationTagInfo: PaginationTagInformation) async throws -> View {
         let viewPosts = try posts.toViewPosts()
         let context = BlogIndexPageContext(posts: viewPosts, site: site, paginationTagInformation: paginationTagInfo)
-        return try await viewRenderer.render("blog/index", context)
+        return try await viewRenderer.render("themes/default/index", context)
     }
 
     public func postView(post: BlogPost, site: GlobalWebsiteInformation) async throws -> View {
         let viewPost = try post.toViewPost()
         let context = BlogPostPageContext(title: post.title, post: viewPost, site: site)
-        return try await viewRenderer.render("blog/post", context)
+        return try await viewRenderer.render("themes/default/post", context)
     }
 
     public func allAuthorsView(authors: [BlogUser.Public], authorPostCounts: [UUID: Int], site: GlobalWebsiteInformation) async throws -> View {
@@ -35,7 +35,7 @@ public struct ViewBlogPresenter: BlogPresenter {
         }
         viewAuthors.sort { $0.postCount > $1.postCount }
         let context = AllAuthorsPageContext(site: site, authors: viewAuthors)
-        return try await viewRenderer.render("blog/authors", context)
+        return try await viewRenderer.render("themes/default/authors", context)
     }
     
     public func authorView(author: BlogUser.Public, posts: [BlogPost], postCount: Int, site: GlobalWebsiteInformation, paginationTagInfo: PaginationTagInformation) async throws -> View {
@@ -47,7 +47,7 @@ public struct ViewBlogPresenter: BlogPresenter {
         }
         let viewPosts = try posts.toViewPosts()
         let context = AuthorPageContext(author: author, posts: viewPosts, site: site, myProfile: myProfile, postCount: postCount, paginationTagInformation: paginationTagInfo)
-        return try await viewRenderer.render("blog/profile", context)
+        return try await viewRenderer.render("themes/default/author", context)
     }
 
     public func allTagsView(tags: [BlogTag], tagPostCounts: [UUID: Int], site: GlobalWebsiteInformation) async throws -> View {
@@ -62,18 +62,18 @@ public struct ViewBlogPresenter: BlogPresenter {
         }
         viewTags.sort { $0.postCount > $1.postCount }
         let context = AllTagsPageContext(title: "All Tags", tags: viewTags, site: site)
-        return try await viewRenderer.render("blog/tags", context)
+        return try await viewRenderer.render("themes/default/tags", context)
     }
 
     public func tagView(tag: BlogTag, posts: [BlogPost], authors: [BlogUser.Public], totalPosts: Int, site: GlobalWebsiteInformation, paginationTagInfo: PaginationTagInformation) async throws -> View {
         let viewPosts = try posts.toViewPosts()
         let context = TagPageContext(tag: tag, site: site, posts: viewPosts, postCount: totalPosts, paginationTagInformation: paginationTagInfo)
-        return try await viewRenderer.render("blog/tag", context)
+        return try await viewRenderer.render("themes/default/tag", context)
     }
 
     public func searchView(totalResults: Int, posts: [BlogPost], authors: [BlogUser.Public], tags: [BlogTag], searchTerm: String?, site: GlobalWebsiteInformation, paginationTagInfo: PaginationTagInformation) async throws -> View {
         let viewPosts = try posts.toViewPosts()
         let context = SearchPageContext(searchTerm: searchTerm, posts: viewPosts, totalResults: totalResults, site: site, paginationTagInformation: paginationTagInfo)
-        return try await viewRenderer.render("blog/search", context)
+        return try await viewRenderer.render("themes/default/search", context)
     }
 }

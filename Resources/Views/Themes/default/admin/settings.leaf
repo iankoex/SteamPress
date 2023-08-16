@@ -1,4 +1,4 @@
-#extend("blog/admin/base"):
+#extend("themes/default/admin/base"):
 #export("head"):
 
 
@@ -11,34 +11,32 @@
 <main class="gh-main">
 
     <section class="gh-canvas">
-        <form class="mb15" action="#(site.url)steampress/settings"
-            method="post">
-            <div class="gh-canvas-header">
-                <header class="gh-canvas-header-content">
 
-                    <div class="flex flex-column">
-                        <div class="gh-canvas-breadcrumb">
-                            <a href="#(site.url)steampress/settings/">
-                                Settings
-                            </a>
-                        </div>
-                        <h2 class="gh-canvas-title">
+        <div class="gh-canvas-header">
+            <header class="gh-canvas-header-content">
+
+                <div class="flex flex-column">
+                    <div class="gh-canvas-breadcrumb">
+                        <a href="#(site.url)steampress/settings/">
                             Settings
-                        </h2>
+                        </a>
                     </div>
+                    <h2 class="gh-canvas-title">
+                        Settings
+                    </h2>
+                </div>
+            </header>
+        </div>
 
+        <form action="#(site.url)steampress/settings" method="post">
+            <div class="gh-main-section">
+                <div class="flex justify-between items-center">
+                    <h4 class="gh-expandable-title">Site Info</h4>
                     <section class="view-actions">
                         <button class="gh-btn gh-btn-primary gh-btn-icon" type="submit">
                             <span>Update</span>
                         </button>
                     </section>
-
-                </header>
-            </div>
-
-            <div class="gh-main-section">
-                <div class="flex justify-between items-center">
-                    <h4 class="gh-expandable-title">Site Info</h4>
                 </div>
                 <section class="gh-main-section-block">
                     <div class="gh-main-section-content grey columns-2">
@@ -49,8 +47,7 @@
                                     <label for="tag-name">
                                         <h5 class="gh-expandable-title">Title &amp; description</h5>
                                     </label>
-                                    <input class="gh-input" name="title" type="text"
-                                        value="#(site.title)">
+                                    <input class="gh-input" name="title" type="text" value="#(site.title)">
 
                                     <p class="description">
                                         The name of your site.
@@ -69,12 +66,36 @@
                         </div>
                     </div>
                 </section>
-            </div>
+        </form>
 
+        <br>
+        <br>
+
+        <form action="#(site.url)steampress/theme" method="post" enctype="multipart/form-data">
+            <div class="gh-main-section">
+                <div class="flex justify-between items-center">
+                    <h4 class="gh-expandable-title">Update Theme</h4>
+                </div>
+
+                <div class="theme-validation-container">
+                    <div class="modal-body">
+                        <section class="gh-image-uploader upload-form flex justify-center">
+                            <div>
+                                <input accept="application/zip,application/x-zip-compressed" name="file" type="file">
+                                <br>
+                                <br>
+                                <section class="view-actions">
+                                    <button class="gh-btn gh-btn-primary gh-btn-icon" type="submit">
+                                        <span>Upload</span>
+                                    </button>
+                                </section>
+                            </div>
+                        </section>
+                    </div>
+                </div>
         </form>
 
     </section>
-
 </main>
 
 #endexport

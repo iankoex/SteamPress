@@ -7,3 +7,5 @@ DerivedData/
 .swiftpm
 Public/Content
 Resources/db.sqlite
+*Resources/Views/Themes/
+!Resources/Views/Themes/default
