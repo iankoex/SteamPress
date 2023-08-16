@@ -1,4 +1,4 @@
-#extend("themes/default/base"):
+#extend("Themes/default/base"):
 #export("head"):
 
 <title>Posts Tagged With #(tag.name) | Blog | SteamPress</title>
@@ -35,7 +35,7 @@
             posts#endif</small></h2>
 
     <div id="tag-posts" class="mt-3">
-        #extend("themes/default/partials/postsView")
+        #extend("Themes/default/partials/postsView")
     </div>
 
 </div>

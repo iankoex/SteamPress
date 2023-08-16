@@ -1,4 +1,4 @@
-#extend("themes/default/base"):
+#extend("Themes/default/base"):
 #export("head"):
 
 <title>All Tags | Blog | SteamPress</title>

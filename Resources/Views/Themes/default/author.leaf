@@ -1,4 +1,4 @@
-#extend("themes/default/base"):
+#extend("Themes/default/base"):
 #export("head"):
 
 <title>#(author.name)'s Profile | Blog | SteamPress</title>
@@ -83,7 +83,7 @@
                     #endif
                 </small></h3>
 
-            #extend("themes/default/partials/postsView")
+            #extend("Themes/default/partials/postsView")
         </div>
     </div> <!-- row -->
 

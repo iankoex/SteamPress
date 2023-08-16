@@ -2,24 +2,24 @@
 <html lang="en">
 
 <head>
-    #extend("themes/default/partials/indexHeadContent")
+    #extend("Themes/default/partials/indexHeadContent")
     #import("head")
 </head>
 
 <body>
     <div id="sp-site">
 
-        #extend("themes/default/partials/indexHeader")
+        #extend("Themes/default/partials/indexHeader")
 
         <div class="sp-content">
             #import("body")
         </div>
 
-        #extend("themes/default/partials/indexFooter")
+        #extend("Themes/default/partials/indexFooter")
 
     </div>
 
-    #extend("themes/default/partials/indexScripts")
+    #extend("Themes/default/partials/indexScripts")
     #import("scripts")
 
 </body>
